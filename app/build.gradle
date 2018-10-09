@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion androidTargetSdkVersion
+    defaultConfig {
+        applicationId "com.innovation.rain"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore/keystore")
+            storePassword KEYSTORE_PASSWORD
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            shrinkResources true
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/'
+            ]
+        }
+    }
+
+    compileOptions {
+        targetCompatibility javaVersion
+        sourceCompatibility javaVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation kotlinComponent.kotlinStdlibJdk7
+
+    implementation supportDependency.appcompatV7
+    implementation supportDependency.constraintLayout
+    implementation ioComponent.rxJava2
+    implementation utilDependency.butterKnife
+    implementation utilDependency.timber
+
+    // Submodule
+    implementation project(':commonmodule')
+
+    testImplementation testDependency.junit
+}
+

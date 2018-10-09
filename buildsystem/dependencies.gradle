@@ -36,9 +36,8 @@ ext {
 
     gsonVersion = '2.7'
 
-    okHttpVersion = '3.8.1'
-    retrofitVersion = '2.3.0'
-    retrofitRxjavaVersion = '2.3.0'
+    okHttpVersion = '3.11.0'
+    retrofitVersion = '2.4.0'
 
     materialDialogVersion = '0.9.4.5'
     timberVersion = '4.7.0'
@@ -81,7 +80,7 @@ ext {
             retrofitComponents: [ // Groovy list literal
                                   "com.squareup.retrofit2:retrofit:${retrofitVersion}",
                                   "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-                                  "com.squareup.retrofit2:adapter-rxjava2:${retrofitRxjavaVersion}",
+                                  "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
                                   "com.squareup.okhttp3:okhttp:${okHttpVersion}",
                                   "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
             ],
@@ -137,7 +136,8 @@ ext {
             immutables            : "org.immutables:value:${immutablesVersion}",
             immutablesBuilder     : "org.immutables:builder:${immutablesVersion}",
 
-            guava                 : "com.google.guava:guava:25.1-android"
+            guava                 : "com.google.guava:guava:25.1-android",
+            achilles              : "achilles-0.2.16-SNAPSHOT_20180821_1000@aar"
     ]
 
     playServiceDependency = [

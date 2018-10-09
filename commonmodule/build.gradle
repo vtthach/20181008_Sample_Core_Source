@@ -15,6 +15,7 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -44,12 +45,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'Dependencys', include: ['*.jar'])
 
-    implementation utilDependency.gson
-    implementation utilDependency.timber
+    compileOnly utilDependency.gson
+    compileOnly utilDependency.timber
     implementation supportDependency.recyclerViewV7
-    implementation supportDependency.appcompatV7
-    implementation ioComponent.rxJava2
-    implementation utilDependency.butterKnife
+    compileOnly supportDependency.appcompatV7
+    compileOnly ioComponent.rxJava2
+    compileOnly utilDependency.butterKnife
+
+    compileOnly utilDependency.dagger
+    kapt utilDependency.daggerCompiler
+    compileOnly utilDependency.daggerAndroidSupport
+    kapt utilDependency.daggerAndroidProcessor
 
     testImplementation testDependency.junit
     implementation kotlinComponent.kotlinStdlibJdk7

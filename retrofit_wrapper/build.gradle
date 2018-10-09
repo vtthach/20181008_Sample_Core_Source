@@ -1,0 +1,77 @@
+apply plugin: 'com.android.library'
+
+def libraryVersion = "1.0"
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName libraryVersion
+        proguardFiles 'proguard-rules.pro'
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
+    }
+
+    lintOptions {
+        disable 'InvalidPackage' // Some libraries have issues with this
+    }
+
+    dependencies {
+        repositories {
+            flatDir { dirs '../libs' }
+            flatDir { dirs '../libs/mock' }
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+
+                if (buildType.name == buildTypes.release.name) {
+                    outputFileName = "${archivesBaseName}-${libraryVersion}.aar"
+                    println("output file path ${output.outputFile}")
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: '../../libs')
+
+    // Dependency Injection
+    compileOnly utilDependency.dagger
+    annotationProcessor utilDependency.daggerCompiler
+    compileOnly utilDependency.javaxAnnotation
+
+    // Local mock
+    compileOnly  (name: 'achilles-0.2.16-SNAPSHOT_20180821_1000', ext: 'aar')
+
+    implementation supportDependency.annotations
+
+    // Retrofit 2
+    compileOnly ioComponent.retrofitComponents
+
+    compileOnly ioComponent.rxJava2
+
+    // Timber log
+    compileOnly utilDependency.timber
+
+    // Test implementation
+    testImplementation testDependency.junit
+}

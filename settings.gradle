@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':retrofit_wrapper'
 include ':commonmodule'

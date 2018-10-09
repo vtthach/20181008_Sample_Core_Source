@@ -1,8 +1,18 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.26.1'
+    }
+}
 
 android {
     compileSdkVersion androidTargetSdkVersion
@@ -44,25 +54,62 @@ android {
         }
     }
 
+    dependencies {
+        repositories {
+            flatDir { dirs '../libs' }
+            flatDir { dirs '../libs/mock' }
+        }
+    }
+
     compileOptions {
         targetCompatibility javaVersion
         sourceCompatibility javaVersion
     }
 }
 
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin lib
     implementation kotlinComponent.kotlinStdlibJdk7
 
+    // Support
     implementation supportDependency.appcompatV7
     implementation supportDependency.constraintLayout
+
+    // Rx
     implementation ioComponent.rxJava2
+
+    // ButterKnife
     implementation utilDependency.butterKnife
+
+    // Log timber
     implementation utilDependency.timber
 
-    // Submodule
+    // Common module
     implementation project(':commonmodule')
+    implementation project(':retrofit_wrapper')
 
+    // Dagger 2
+    implementation utilDependency.dagger
+    kapt utilDependency.daggerCompiler
+    implementation utilDependency.daggerAndroidSupport
+    kapt utilDependency.daggerAndroidProcessor
+
+    // Local mock api
+    implementation(name: 'achilles-0.2.16-SNAPSHOT_20180821_1000', ext: 'aar')
+
+    // Crashlytic
+    implementation(utilDependency.crashlytics) { transitive = true }
+
+    // Retrofit
+    implementation ioComponent.retrofitComponents
+
+    // Unit test
     testImplementation testDependency.junit
 }
 

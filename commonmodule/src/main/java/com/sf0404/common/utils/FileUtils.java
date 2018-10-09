@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import timber.log.Timber;
@@ -171,5 +172,41 @@ public class FileUtils {
                 stream.write(buffer, 0, len);
             }
         }
+    }
+
+    public static boolean createFolderIfNotExist(String path) {
+        File file = new File(path);
+        try {
+            return file.exists() || file.mkdirs();
+        } catch (SecurityException e) {
+            Timber.e(e, "createFolderIfNotExist error: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static void writeStringToFileAutoSplit(String filePath, String value, long maxFileSize) {
+        try {
+            File file = new File(filePath);
+            File parentFile = file.getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            if (file.exists() && file.length() >= maxFileSize) {
+                File fileToRename = new File(filePath + "_" + format(Calendar.getInstance(), "yyyy-MM-dd hh:mm:ss"));
+                file.renameTo(fileToRename);
+            }
+        } catch (SecurityException e) {
+            Log.e("S-Error", e.getMessage());
+        }
+        try (FileWriter fw = new FileWriter(filePath, true)) {
+            fw.write(value + "\n");
+        } catch (IOException ioe) { // NOSONAR
+            // Do not use Timber at here because it will cause a loop infinity
+            Log.e("Io-Error", ioe.getMessage());
+        }
+    }
+
+    private static String format(Calendar instance, String format) {
+        return DateTimeUtils.getDateWithFormat(format, instance.getTimeInMillis());
     }
 }

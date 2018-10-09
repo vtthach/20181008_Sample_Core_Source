@@ -58,8 +58,7 @@ public class BaseActivity extends AppCompatActivity{
     public boolean dispatchTouchEvent(MotionEvent ev) {
         boolean rs = super.dispatchTouchEvent(ev);
         View v = getCurrentFocus();
-        if (v != null
-                && ev.getAction() == MotionEvent.ACTION_UP
+        if (ev.getAction() == MotionEvent.ACTION_UP
                 && v instanceof EditText) {
             v.getLocationOnScreen(viewLocations);
             float x = ev.getRawX() + v.getLeft() - viewLocations[0];

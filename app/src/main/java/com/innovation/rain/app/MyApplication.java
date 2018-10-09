@@ -1,14 +1,12 @@
 package com.innovation.rain.app;
 
-import android.app.Application;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.amb.retrofitwrapper.module.ApiMode;
 import com.amb.retrofitwrapper.module.OkHttpModule;
+import com.amb.retrofitwrapper.module.RetrofitConfig;
 import com.amb.retrofitwrapper.module.RetrofitModule;
 import com.crashlytics.android.Crashlytics;
 import com.innovation.rain.AppConfig;
@@ -23,29 +21,18 @@ import com.innovation.rain.app.logger.FileLogger;
 import com.innovation.rain.app.logger.KioskLoggerConfig;
 import com.innovation.rain.app.logger.KioskLoggerConfigImpl;
 import com.innovation.rain.app.properties.BuildInProperties;
+import com.sf0404.common.application.BaseApplication;
+import com.sf0404.common.properties.AppPropertiesModule;
 
 import java.util.Arrays;
 
 import javax.inject.Inject;
 
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasServiceInjector;
-import dagger.android.support.HasSupportFragmentInjector;
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
 
-/**
- * The type Kiosk application.
- */
-public class MyApplication extends Application implements HasSupportFragmentInjector, HasServiceInjector {
-
-    @Inject
-    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
-
-    @Inject
-    DispatchingAndroidInjector<Service> dispatchingServiceInjector;
+public class MyApplication extends BaseApplication {
 
     @Inject
     BuildInProperties buildInProperties;
@@ -63,18 +50,12 @@ public class MyApplication extends Application implements HasSupportFragmentInje
     @Override
     public void onCreate() {
         super.onCreate();
-
-        initAppComponent();
-
         ContextSingleton.setContext(this);
-
+        initAppComponent();
         initAppPermission(this);
-
         initializeLogger();
-
         // initialize app default folder
         initializeDirectories();
-
         // initialize app property
         initializeAppProperties();
     }
@@ -82,8 +63,9 @@ public class MyApplication extends Application implements HasSupportFragmentInje
     private void initAppComponent() {
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(getApplicationContext()))
-                .retrofitModule(getRetrofitModule(AppConfig.END_POINT_URL))
+                .retrofitModule(getRetrofitModule())
                 .okHttpModule(getOkHttpModule())
+                .appPropertiesModule(new AppPropertiesModule(CachedPath.PROPERTIES_FOLDER_PATH, CachedPath.PROPERTIES_ASSET_PATH))
                 .build();
         appComponent.inject(this);
     }
@@ -91,25 +73,27 @@ public class MyApplication extends Application implements HasSupportFragmentInje
     protected OkHttpModule getOkHttpModule() {
         return new OkHttpModule(getApplicationContext(),
                 CachedPath.MOCK_SD_CARD_FOLDER_PATH,
-               Constants.ApiConfig.TIMEOUT_IN_MINUTE);
+                Constants.ApiConfig.TIMEOUT_IN_MINUTE);
     }
 
-    protected RetrofitModule getRetrofitModule(String hostUrl) {
-        return new RetrofitModule(hostUrl, getApiMode());
+    protected RetrofitModule getRetrofitModule() {
+        return new RetrofitModule(getApiConfig());
     }
 
-    private ApiMode getApiMode() {
-        return buildInProperties.getMockMethod();
-    }
+    private RetrofitConfig getApiConfig() {
+        return new RetrofitConfig() {
+            @Override
+            public String getHostUrl() {
+                return AppConfig.ENABLE_SUPPORT_MOCK_DATA
+                        ? buildInProperties.getHostUrl()
+                        : AppConfig.END_POINT_URL;
+            }
 
-    @Override
-    public AndroidInjector<Fragment> supportFragmentInjector() {
-        return dispatchingAndroidInjector;
-    }
-
-    @Override
-    public AndroidInjector<Service> serviceInjector() {
-        return dispatchingServiceInjector;
+            @Override
+            public ApiMode getApiMode() {
+                return buildInProperties.getApiMode();
+            }
+        };
     }
 
     private void initializeDirectories() {
@@ -117,8 +101,7 @@ public class MyApplication extends Application implements HasSupportFragmentInje
     }
 
     private void initializeAppProperties() {
-//        mAppComponent.appProperties().reloadProperties();
-//        mAppComponent.automationProperties().reloadProperties();
+        appComponent.appProperties().reloadProperties();
     }
 
     //@Override

@@ -16,8 +16,6 @@ public abstract class BaseApplication extends Application implements HasSupportF
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
 
-    protected abstract String getAppName();
-
     @Override
     public void onCreate() {
         super.onCreate();

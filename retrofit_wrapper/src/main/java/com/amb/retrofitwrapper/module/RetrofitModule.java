@@ -22,12 +22,10 @@ import static com.amb.retrofitwrapper.RetrofitConstants.RETROFIT_SELECTED;
 @Module
 public class RetrofitModule {
 
-    protected final String baseUrl;
-    private final ApiMode apiMode;
+    private final RetrofitConfig retrofitConfig;
 
-    public RetrofitModule(String baseUrl, ApiMode apiMode) {
-        this.baseUrl = baseUrl;
-        this.apiMode = apiMode;
+    public RetrofitModule(RetrofitConfig retrofitConfig) {
+        this.retrofitConfig = retrofitConfig;
     }
 
     @Provides
@@ -41,7 +39,7 @@ public class RetrofitModule {
     private Retrofit build(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(baseUrl)
+                .baseUrl(retrofitConfig.getHostUrl())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .build();
@@ -69,7 +67,7 @@ public class RetrofitModule {
     public Retrofit provideRetrofitSelected(@Named(RETROFIT_IGNORE_CERTIFICATE) Retrofit retrofitIgnoreCer,
                                             @Named(RETROFIT_MOCK_ASSET) Retrofit retrofitMockAsset,
                                             @Named(RETROFIT_MOCK_SD_CARD) Retrofit retrofitMockSdCard) {
-        switch (apiMode) {
+        switch (retrofitConfig.getApiMode()) {
             case ASSET:
                 return retrofitMockAsset;
             case SD_CARD:

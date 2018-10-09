@@ -19,7 +19,7 @@ public class ConstProperties {
      * Key used to get from property
      */
     public static final class Key {
-        static final String PROPERTY_KIOSK_ENDPOINT = "endpointKiosk";
+        public static final String PROPERTY_ENDPOINT_URL = "endpointUrl";
         public static final String PROPERTY_MOCK_METHOD = "mockMethod";
         static final String PROPERTY_ENABLE_TIMEOUT_SERVICE = "enable_timeout_service";
 

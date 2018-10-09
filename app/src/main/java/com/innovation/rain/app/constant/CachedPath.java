@@ -25,32 +25,32 @@ public class CachedPath {
     private static final String APP_PARENT_PATH = Environment.getExternalStorageDirectory().getPath() + CHAR_SEP + APP_PARENT_NAME;
     // properties/application.properties
     public static final String PROPERTIES_ASSET_PATH = PROPERTIES_FOLDER_NAME + CHAR_SEP + PROPERTIES_FILE_NAME;
-    // sdcard/Kiosk/properties
+    // sdcard/AppName/properties
     public static final String PROPERTIES_FOLDER_PATH = APP_PARENT_PATH + CHAR_SEP + PROPERTIES_FOLDER_NAME;
-    // sdcard/Kiosk/properties/application.properties
+    // sdcard/AppName/properties/application.properties
     public static final String PROPERTIES_FILE_PATH = PROPERTIES_FOLDER_PATH + CHAR_SEP + PROPERTIES_FILE_NAME;
-    // sdcard/Kiosk/mock
+    // sdcard/AppName/mock
     public static final String MOCK_SD_CARD_FOLDER_PATH = APP_PARENT_PATH + CHAR_SEP + MOCK_DATA_FOLDER_NAME;
     // properties/automation.properties
     public static final String AUTOMATION_PROPERTIES_ASSET_PATH = PROPERTIES_FOLDER_NAME + CHAR_SEP + AUTOMATION_PROPERTIES_FILE_NAME;
-    // sdcard/Kiosk/properties/
+    // sdcard/AppName/properties/
     public static final String AUTOMATION_PROPERTIES_FOLDER_PATH = APP_PARENT_PATH + CHAR_SEP + PROPERTIES_FOLDER_NAME;
-    // sdcard/Kiosk/properties/automation.properties
+    // sdcard/AppName/properties/automation.properties
     public static final String AUTOMATION_PROPERTIES_FILE_PATH = AUTOMATION_PROPERTIES_FOLDER_PATH + CHAR_SEP + AUTOMATION_PROPERTIES_FILE_NAME;
     public static final String AUTOMATION_FOLDER_PATH = APP_PARENT_PATH + CHAR_SEP + AUTOMATION_FOLDER_NAME + CHAR_SEP;
-    // sdcard/kiosk/properties/log
+    // sdcard/AppName/properties/log
     public static final String LOG_PATH_BASE = APP_PARENT_PATH + CHAR_SEP + LOG_FOLDER_NAME;
     public static final String LOG_PATH_API = LOG_PATH_BASE + CHAR_SEP + LOG_FOLDER_API_NAME;
     public static final String LOG_PATH_APP = LOG_PATH_BASE + CHAR_SEP + LOG_FOLDER_APP_NAME;
-    // sdcard/kiosk/data/terms_and_conditions
+    // sdcard/AppName/data/terms_and_conditions
     public static final String KIOSK_TNC_FOLDER_PATH = APP_PARENT_PATH + CHAR_SEP + DATA_APP_NAME + CHAR_SEP + TNC_NAME;
 
     private CachedPath() {
         // Private constructor
     }
 
-    public static final class Name {
-        public static final String APP_PARENT_NAME = "rain";
+    static final class Name {
+        static final String APP_PARENT_NAME = "rain";
         static final String PROPERTIES_FILE_NAME = "application.properties";
         static final String AUTOMATION_PROPERTIES_FILE_NAME = "automation.properties";
         static final String PROPERTIES_FOLDER_NAME = "properties";

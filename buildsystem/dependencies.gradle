@@ -99,6 +99,7 @@ ext {
     ]
 
     utilDependency = [
+            fabric               : "com.crashlytics.sdk.android:crashlytics:2.9.5@aar",
             dexter                : "com.karumi:dexter:4.1.0",  // Request permission helper dexter
             apacheCommonLang      : "org.apache.commons:commons-lang3:3.7",
             proguardSnippets      : "com.infstory:proguard-snippets:1.0.0", // Proguard rule

@@ -74,6 +74,9 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    // Fabric
+    implementation utilDependency.fabric
+
     // Kotlin lib
     implementation kotlinComponent.kotlinStdlibJdk7
 

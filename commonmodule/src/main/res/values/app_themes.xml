@@ -2,19 +2,22 @@
 
     <!-- Base application theme. -->
     <!--Notice: do not change Theme.AppCompat.NoActionBar because used in set error edit text -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorControlHighlight">@color/c_highlight</item>
         <item name="android:windowAnimationStyle">@style/WindowAnimation</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:editTextStyle">@style/MyEditText</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="colorControlNormal">@color/primary</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:windowBackground">@color/primary_light</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 

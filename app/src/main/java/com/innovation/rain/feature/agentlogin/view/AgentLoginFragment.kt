@@ -16,18 +16,20 @@ import javax.inject.Inject
 
 
 class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>(), AgentLoginView {
+
+    @Inject
+    lateinit var presenter: AgentLoginPresenterImpl
+
     override fun notifyEmptyUserId() {
     }
 
     override fun enableButtonSignIn(allowEnableSignInButton: Boolean) {
         btnLogin.isEnabled = allowEnableSignInButton
+        btnLogin.isActivated = allowEnableSignInButton
     }
 
     override fun notifyEmptyPw() {
     }
-
-    @Inject
-    lateinit var presenter: AgentLoginPresenterImpl
 
     override fun getPresenter(): AgentLoginPresenter {
         return presenter

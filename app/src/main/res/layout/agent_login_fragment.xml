@@ -4,15 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/fragment_padding"
     tools:context=".StartActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Agent login!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/agent_sign_in_title"
+        android:textColor="@color/accent"
+        android:fontFamily="sans-serif-light"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnExit"
+        style="@style/BtnNavigate"
+        android:text="@string/str_exit"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/BtnNavigate"
+        android:layout_width="@dimen/btn_navigate_right_width"
+        android:text="@string/str_sign_in"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

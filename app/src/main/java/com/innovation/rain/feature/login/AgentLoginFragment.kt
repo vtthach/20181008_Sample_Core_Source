@@ -2,16 +2,15 @@ package com.sf0404.sample.cba.circlewithcheck
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.innovation.rain.R
+import com.innovation.rain.common.fragment.BaseFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
+import kotlinx.android.synthetic.main.agent_login_fragment.*
 
 
-class AgentLoginFragment : Fragment() {
+class AgentLoginFragment : BaseFragment() {
 
     companion object {
         fun showMe(activity: Activity) {
@@ -22,7 +21,12 @@ class AgentLoginFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.agent_login_fragment, container, false)
+    override fun getLayoutId(): Int {
+        return R.layout.agent_login_fragment
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnLogin.isEnabled = false
     }
 }

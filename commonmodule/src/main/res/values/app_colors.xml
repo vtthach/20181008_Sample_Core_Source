@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--App style -->
-    <color name="primary">#0A4A84</color>
-    <color name="primary_focus">#158df9</color>
-    <color name="primary_dark">#424242</color><!--greyish_brown-->
+    <color name="primary">#0077c8</color>
+    <color name="primary_dark">#086486</color>
+    <color name="primary_light">#0099CE</color>
+    <color name="primary_disable">#bbbcbc</color>
     <color name="black">@android:color/black</color>
-    <color name="accent">#3097D4</color>
+    <color name="accent">#0277C6</color>
     <color name="text_primary">@android:color/white</color>
     <color name="text_primary_dark">@android:color/black</color>
     <color name="text_secondary">#bababa</color>
 
     <!--Other-->
-    <color name="primary_light">#F5F5F5</color>
     <color name="c_highlight">#F2F2F2</color>
 
 </resources>

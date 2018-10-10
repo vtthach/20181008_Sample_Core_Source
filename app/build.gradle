@@ -105,12 +105,20 @@ dependencies {
 
     // Local mock api
     implementation(name: 'achilles-0.2.16-SNAPSHOT_20180821_1000', ext: 'aar')
+    // Overlay window
+    implementation(name: 'toastnotify-0.1', ext: 'aar')
 
     // Crashlytic
     implementation(utilDependency.crashlytics) { transitive = true }
 
     // Retrofit
     implementation ioComponent.retrofitComponents
+
+    // Material dialog
+    implementation (uiComponent.materialDialog){
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'com.android.support', module: 'support-v13'
+    }
 
     // Unit test
     testImplementation testDependency.junit

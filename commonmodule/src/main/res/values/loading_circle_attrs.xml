@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoadingCircular">
+        <attr name="sf_loading_circular_auto_start" format="boolean"/>
+        <attr name="sf_loading_circular_stroke_width" format="float"/>
+        <attr name="sf_loading_circular_track_color" format="color"/>
+        <attr name="sf_loading_circular_sweep_color" format="color"/>
+    </declare-styleable>
+</resources>

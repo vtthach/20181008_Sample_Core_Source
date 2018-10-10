@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Rain</string>
     <string name="agent_sign_in_title">agent sign in</string>
+    <string name="agent_user_id">user ID</string>
+    <string name="agent_password">password</string>
     <string name="str_exit">exit</string>
     <string name="str_sign_in">sign in</string>
 </resources>

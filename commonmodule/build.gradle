@@ -40,6 +40,11 @@ android {
         sourceCompatibility javaVersion
     }
 
+    dependencies {
+        repositories {
+            flatDir { dirs '../libs' }
+        }
+    }
 }
 
 dependencies {
@@ -52,6 +57,7 @@ dependencies {
     compileOnly ioComponent.rxJava2
     compileOnly utilDependency.butterKnife
 
+    compileOnly uiComponent.materialDialog
     compileOnly utilDependency.dagger
     kapt utilDependency.daggerCompiler
     compileOnly utilDependency.daggerAndroidSupport
@@ -59,4 +65,7 @@ dependencies {
 
     testImplementation testDependency.junit
     implementation kotlinComponent.kotlinStdlibJdk7
+
+    // Overlay window
+    implementation(name: 'toastnotify-0.1', ext: 'aar')
 }

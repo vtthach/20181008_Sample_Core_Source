@@ -2,7 +2,7 @@ package com.innovation.rain
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.sf0404.sample.cba.circlewithcheck.AgentLoginFragment
+import com.innovation.rain.feature.agentlogin.view.AgentLoginFragment
 
 class StartActivity : AppCompatActivity() {
 

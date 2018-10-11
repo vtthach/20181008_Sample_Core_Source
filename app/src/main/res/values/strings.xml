@@ -10,4 +10,9 @@
     <string name="welcome_menu_title">welcome to rain</string>
     <string name="welcome_menu_shop_rain">shop rain</string>
     <string name="welcome_menu_collect_my_sim">collect my SIM</string>
+
+    <!--Client login-->
+    <string name="client_login_title">client sign in</string>
+    <string name="client_login_enter_id">enter ID number</string>
+
 </resources>

@@ -15,5 +15,5 @@ public abstract class AgentLoginBuilderModule {
     @ContributesAndroidInjector(modules = {AgentLoginViewModule.class
 //            , AgentLoginUseCaseModule.class //TODO
     })
-    abstract AgentLoginFragment contributeAgentLoginFragment();
+    abstract AgentLoginFragment contributeFragment();
 }

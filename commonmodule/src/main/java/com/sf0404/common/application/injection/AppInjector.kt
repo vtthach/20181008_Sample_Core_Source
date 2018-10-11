@@ -67,14 +67,8 @@ object AppInjector {
 
     private fun handleActivity(activity: Activity) {
         if (activity is HasSupportFragmentInjector || activity is Injectable) {
-            try {
+            if (activity is Injectable) {
                 AndroidInjection.inject(activity)
-            } catch (e: Exception) {
-                if (activity is Injectable) {
-                    throw e
-                } else {
-                    // Ignore for the case no need injection
-                }
             }
         }
         if (activity is FragmentActivity) {
@@ -82,14 +76,8 @@ object AppInjector {
                     .registerFragmentLifecycleCallbacks(
                             object : FragmentManager.FragmentLifecycleCallbacks() {
                                 override fun onFragmentAttached(fm: FragmentManager, f: Fragment, context: Context) {
-                                    try {
+                                    if (f is Injectable) {
                                         AndroidSupportInjection.inject(f)
-                                    } catch (e: Exception) {
-                                        if (f is Injectable) {
-                                            throw e
-                                        } else {
-                                            // Ignore for the case no need injection
-                                        }
                                     }
                                     super.onFragmentAttached(fm, f, context)
                                 }

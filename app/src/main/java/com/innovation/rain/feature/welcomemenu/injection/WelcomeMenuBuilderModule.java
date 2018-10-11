@@ -13,7 +13,7 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class WelcomeMenuBuilderModule {
     @PerView
     @ContributesAndroidInjector(modules = {WelcomeMenuViewModule.class
-//            , WelcomMenuUseCaseModule.class //TODO
+//            , WelcomeMenuUseCaseModule.class //TODO
     })
-    abstract WelcomeMenuFragment contributeWelcomeMenuFragment();
+    abstract WelcomeMenuFragment contributeFragment();
 }

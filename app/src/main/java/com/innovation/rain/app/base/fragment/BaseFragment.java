@@ -1,4 +1,4 @@
-package com.innovation.rain.common.fragment;
+package com.innovation.rain.app.base.fragment;
 
 
 import android.app.Activity;

@@ -1,4 +1,4 @@
-package com.innovation.rain.common.fragment;
+package com.innovation.rain.app.base.fragment;
 
 
 import android.content.Context;
@@ -18,7 +18,7 @@ import com.innovation.rain.app.base.presenter.BasePresenter;
 import com.innovation.rain.app.base.presenter.BasePresenterView;
 import com.sf0404.common.container.activity.BaseActivity;
 
-public abstract class BasePresenterInjectionFragment<T extends BasePresenter> extends BaseInjectionFragment implements BasePresenterView {
+public abstract class BasePresenterFragment<T extends BasePresenter> extends BaseFragment implements BasePresenterView {
 
     protected abstract T getPresenter();
 

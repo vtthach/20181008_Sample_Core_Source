@@ -6,9 +6,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.common.fragment.BasePresenterInjectionFragment
+import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
-import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenterImpl
 import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
@@ -19,15 +18,13 @@ import javax.inject.Inject
 class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>(), AgentLoginView {
 
     @Inject
-    lateinit var presenter: AgentLoginPresenterImpl
+    lateinit var viewPresenter: AgentLoginPresenter
+
+    override fun getPresenter() = viewPresenter
 
     override fun enableButtonSignIn(allowEnableSignInButton: Boolean) {
         btnLogin.isEnabled = allowEnableSignInButton
         btnLogin.isActivated = allowEnableSignInButton
-    }
-
-    override fun getPresenter(): AgentLoginPresenter {
-        return presenter
     }
 
     companion object {

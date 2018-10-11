@@ -6,10 +6,11 @@
     <color name="mid_gray">#787878</color>
     <color name="dark_gray">#505050</color>
     <color name="black">@android:color/black</color>
+
     <!--App style -->
     <color name="primary">#0077c8</color>
     <color name="primary_dark">#086486</color>
-    <color name="primary_light">#0099CE</color>
+    <color name="primary_light">#098cbe</color>
     <color name="primary_disable">@color/light_gray</color>
     <color name="accent">#0277C6</color>
     <color name="text_primary">@android:color/white</color>

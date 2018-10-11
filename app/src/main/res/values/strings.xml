@@ -5,4 +5,9 @@
     <string name="agent_password">password</string>
     <string name="str_exit">exit</string>
     <string name="str_sign_in">sign in</string>
+
+    <!--Welcome menu-->
+    <string name="welcome_menu_title">welcome to rain</string>
+    <string name="welcome_menu_shop_rain">shop rain</string>
+    <string name="welcome_menu_collect_my_sim">collect my SIM</string>
 </resources>

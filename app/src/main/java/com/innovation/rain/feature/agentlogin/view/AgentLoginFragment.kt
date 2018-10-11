@@ -9,6 +9,7 @@ import com.innovation.rain.R
 import com.innovation.rain.common.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenterImpl
+import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
 import kotlinx.android.synthetic.main.agent_login_fragment.*
@@ -20,15 +21,9 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
     @Inject
     lateinit var presenter: AgentLoginPresenterImpl
 
-    override fun notifyEmptyUserId() {
-    }
-
     override fun enableButtonSignIn(allowEnableSignInButton: Boolean) {
         btnLogin.isEnabled = allowEnableSignInButton
         btnLogin.isActivated = allowEnableSignInButton
-    }
-
-    override fun notifyEmptyPw() {
     }
 
     override fun getPresenter(): AgentLoginPresenter {
@@ -79,5 +74,11 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         super.onViewCreated(view, savedInstanceState)
         edPassword.addTextChangedListener(textPwChangeListener)
         edUserId.addTextChangedListener(textUserIdChangeListener)
+        btnExit.setOnClickListener {
+            activity?.finish()
+        }
+        btnLogin.setOnClickListener {
+            WelcomeMenuFragment.showMe(activity)
+        }
     }
 }

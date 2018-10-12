@@ -39,7 +39,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         }
 
         btnProceed.setOnClickListener {
-            ClientSignInFragment.showMe(activity)
+            // TODO integrate with
         }
     }
 }

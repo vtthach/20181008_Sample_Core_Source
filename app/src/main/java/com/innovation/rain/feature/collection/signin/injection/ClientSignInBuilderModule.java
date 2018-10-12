@@ -13,7 +13,7 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class ClientSignInBuilderModule {
     @PerView
     @ContributesAndroidInjector(modules = {ClientSignInViewModule.class
-//            , WelcomMenuUseCaseModule.class //TODO
+            , ClientSignInUseCaseModule.class
     })
     abstract ClientSignInFragment contributeFragment();
 }

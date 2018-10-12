@@ -1,4 +1,4 @@
-package com.sf0404.core.application.base.callback;
+package com.sf0404.core.application.business.core.callback;
 
 public interface BaseCallbackView {
     void toggleProgress(boolean isShow);

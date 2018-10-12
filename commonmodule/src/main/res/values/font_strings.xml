@@ -1,0 +1,5 @@
+<resources>
+    <string translatable="false" name="font_regular">sans-serif</string>
+    <string translatable="false" name="font_light">sans-serif-light</string>
+    <string translatable="false" name="font_medium">sans-serif-medium</string>
+</resources>

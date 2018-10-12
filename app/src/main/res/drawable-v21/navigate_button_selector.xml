@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/c_highlight">
+    <item android:drawable="@drawable/navigate_button_bkg" />
+    <item
+        android:id="@android:id/mask"
+        android:drawable="@drawable/navigate_button_bkg"/>
+</ripple>
+

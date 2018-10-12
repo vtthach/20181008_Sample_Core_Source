@@ -1,5 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string translatable="false" name="font_regular">sans-serif</string>
-    <string translatable="false" name="font_light">sans-serif-light</string>
-    <string translatable="false" name="font_medium">sans-serif-medium</string>
+    <string name="notify_no_internet_connection">No internet connection. please check again your network.</string>
 </resources>

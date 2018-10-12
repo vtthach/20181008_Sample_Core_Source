@@ -7,6 +7,9 @@ import com.google.gson.Gson;
 import com.innovation.rain.app.MyApplication;
 import com.innovation.rain.app.injection.module.AppCoreModule;
 import com.innovation.rain.app.injection.module.AppModule;
+import com.innovation.rain.app.injection.module.feature.CollectionFeatureBuilderModule;
+import com.innovation.rain.app.injection.module.feature.CommonFeatureBuilderModule;
+import com.innovation.rain.app.injection.module.feature.ShopFeatureBuilderModule;
 import com.innovation.rain.app.properties.BuildInProperties;
 import com.sf0404.common.prefs.AppPreferences;
 import com.sf0404.common.properties.AppProperties;
@@ -23,6 +26,9 @@ import retrofit2.Retrofit;
         modules = {
                 AppModule.class,
                 AppCoreModule.class,
+                CommonFeatureBuilderModule.class,
+                CollectionFeatureBuilderModule.class,
+                ShopFeatureBuilderModule.class
         })
 public interface AppComponent {
 

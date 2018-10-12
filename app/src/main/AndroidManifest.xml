@@ -8,14 +8,15 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".app.MyApplication"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +27,11 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="bc36156410e05b7c7fcb22dd93f9b812d1b05154"
-            />
+            android:value="bc36156410e05b7c7fcb22dd93f9b812d1b05154" />
 
+        <activity
+            android:name="com.sf0404.common.container.activity.ContainerActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

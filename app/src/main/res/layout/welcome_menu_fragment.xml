@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bkg_welcome_new" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextTitle"
+        android:layout_margin="@dimen/fragment_padding"
+        android:text="@string/welcome_menu_title"
+        android:textColor="@color/text_primary"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/containerButton"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/containerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fragment_padding"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.49">
+
+        <Button
+            android:id="@+id/btnShop"
+            style="@style/BtnNavigate"
+            android:layout_width="@dimen/btn_navigate_right_width"
+            android:layout_height="@dimen/btn_action_height"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/primary_light"
+            android:text="@string/welcome_menu_shop_rain"
+            android:textSize="@dimen/btn_action_text_size" />
+
+        <Button
+            android:id="@+id/btnCollection"
+            style="@style/BtnNavigate"
+            android:layout_width="@dimen/btn_navigate_right_width"
+            android:layout_height="@dimen/btn_action_height"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/primary_light"
+            android:text="@string/welcome_menu_collect_my_sim"
+            android:textSize="@dimen/btn_action_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

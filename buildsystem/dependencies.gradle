@@ -58,7 +58,7 @@ ext {
     glideVersion = '4.0.0'
 
     kotlinComponent = [
-        kotlinStdlibJdk7 : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+            kotlinStdlibJdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     ]
 
     imageLoaders = [
@@ -99,7 +99,7 @@ ext {
     ]
 
     utilDependency = [
-            fabric               : "com.crashlytics.sdk.android:crashlytics:2.9.5@aar",
+            fabric                : "com.crashlytics.sdk.android:crashlytics:2.9.5@aar",
             dexter                : "com.karumi:dexter:4.1.0",  // Request permission helper dexter
             apacheCommonLang      : "org.apache.commons:commons-lang3:3.7",
             proguardSnippets      : "com.infstory:proguard-snippets:1.0.0", // Proguard rule
@@ -175,7 +175,7 @@ ext {
             design                : "com.android.support:design:${supportLibraryVersion}",
             recyclerViewV7        : "com.android.support:recyclerview-v7:${supportLibraryVersion}",
             percent               : "com.android.support:percent:${supportLibraryVersion}",
-            constraintLayout      : "com.android.support.constraint:constraint-layout:1.0.2"
+            constraintLayout      : "com.android.support.constraint:constraint-layout:1.1.2"
     ]
 
     firebaseGoogle = [
@@ -213,4 +213,5 @@ def addRepos(RepositoryHandler handler) {
     handler.jcenter()
     handler.mavenCentral()
 }
+
 ext.addRepos = this.&addRepos

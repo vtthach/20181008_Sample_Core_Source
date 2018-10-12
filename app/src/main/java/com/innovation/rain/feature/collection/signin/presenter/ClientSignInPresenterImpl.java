@@ -1,8 +1,8 @@
 package com.innovation.rain.feature.collection.signin.presenter;
 
 import com.innovation.rain.feature.collection.signin.business.usecase.ClientSignInUseCase;
-import com.sf0404.core.application.base.presenter.BasePresenterImpl;
 import com.innovation.rain.feature.collection.signin.view.ClientSignInView;
+import com.sf0404.core.application.base.presenter.BasePresenterImpl;
 
 import javax.inject.Inject;
 

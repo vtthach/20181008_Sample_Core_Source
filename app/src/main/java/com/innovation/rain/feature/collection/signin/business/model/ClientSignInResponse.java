@@ -1,4 +1,6 @@
 package com.innovation.rain.feature.collection.signin.business.model;
 
-public class ClientSignInResponse {
+import com.sf0404.core.application.business.model.BaseResponse;
+
+public class ClientSignInResponse extends BaseResponse {
 }

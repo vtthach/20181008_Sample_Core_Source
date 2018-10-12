@@ -4,7 +4,6 @@ import com.innovation.rain.feature.collection.signin.business.model.ClientSignIn
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInRequest;
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInResponse;
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel;
-import com.sf0404.core.application.business.mapper.BaseMapper;
 
 import javax.inject.Inject;
 

@@ -99,6 +99,9 @@ dependencies {
 
     // Dagger 2
     implementation utilDependency.dagger
+
+    implementation supportDependency.recyclerViewV7
+    implementation supportDependency.cardViewV7
     kapt utilDependency.daggerCompiler
     implementation utilDependency.daggerAndroidSupport
     kapt utilDependency.daggerAndroidProcessor
@@ -115,7 +118,7 @@ dependencies {
     implementation ioComponent.retrofitComponents
 
     // Material dialog
-    implementation (uiComponent.materialDialog){
+    implementation(uiComponent.materialDialog) {
         exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'support-v13'
     }
@@ -123,4 +126,3 @@ dependencies {
     // Unit test
     testImplementation testDependency.junit
 }
-

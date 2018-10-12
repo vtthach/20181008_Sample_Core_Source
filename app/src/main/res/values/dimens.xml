@@ -6,4 +6,5 @@
     <dimen name="btn_action_text_size">23sp</dimen>
     <dimen name="title_text_size">27sp</dimen>
     <dimen name="btn_navigate_right_width">280dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.innovation.rain.app.base.fragment;
+package com.sf0404.core.application.business.fragment;
 
 
 import android.support.v4.app.Fragment;

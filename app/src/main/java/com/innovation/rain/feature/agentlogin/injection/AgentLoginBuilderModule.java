@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.agentlogin.injection;
 
-import com.innovation.rain.app.injection.scope.PerView;
+import com.sf0404.core.application.scope.PerView;
 import com.innovation.rain.feature.agentlogin.view.AgentLoginFragment;
 
 import dagger.Module;

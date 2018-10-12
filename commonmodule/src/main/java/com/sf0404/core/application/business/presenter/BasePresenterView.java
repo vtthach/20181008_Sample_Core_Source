@@ -1,9 +1,9 @@
-package com.innovation.rain.app.base.presenter;
+package com.sf0404.core.application.business.presenter;
 
 import android.content.Context;
 import android.support.annotation.StringRes;
 
-import com.innovation.rain.app.base.api.callback.BaseCallbackView;
+import com.sf0404.core.application.business.callback.BaseCallbackView;
 
 
 public interface BasePresenterView extends BaseCallbackView {

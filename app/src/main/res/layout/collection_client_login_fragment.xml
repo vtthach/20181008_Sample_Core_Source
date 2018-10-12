@@ -49,7 +49,7 @@
         style="@style/BtnNavigate"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:enabled="false"
-        android:text="Proceed"
+        android:text="@string/str_proceed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

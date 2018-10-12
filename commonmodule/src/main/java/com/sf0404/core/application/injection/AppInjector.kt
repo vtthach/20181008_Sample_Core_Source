@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sf0404.common.application.injection
+package com.sf0404.core.application.injection
 
 import android.app.Activity
 import android.app.Application

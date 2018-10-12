@@ -1,4 +1,4 @@
-package com.innovation.rain.app.base.api.callback;
+package com.sf0404.core.application.business.callback;
 
 /**
  * @param <V>

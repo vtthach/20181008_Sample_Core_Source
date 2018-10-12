@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.collection.signin.injection;
 
-import com.innovation.rain.app.injection.scope.PerView;
+import com.sf0404.core.application.scope.PerView;
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenter;
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenterImpl;
 import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment;

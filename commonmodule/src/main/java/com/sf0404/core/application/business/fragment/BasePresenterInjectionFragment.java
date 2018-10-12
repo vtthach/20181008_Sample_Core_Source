@@ -1,4 +1,4 @@
-package com.innovation.rain.app.base.fragment;
+package com.sf0404.core.application.business.fragment;
 
 
 import android.content.Context;
@@ -13,12 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.innovation.rain.R;
-import com.innovation.rain.app.base.presenter.BasePresenter;
-import com.innovation.rain.app.base.presenter.BasePresenterView;
+import com.sf0404.common.R;
+import com.sf0404.core.application.business.presenter.BasePresenter;
+import com.sf0404.core.application.business.presenter.BasePresenterView;
+import com.sf0404.core.application.injection.Injectable;
 import com.sf0404.common.container.activity.BaseActivity;
 
-public abstract class BasePresenterFragment<T extends BasePresenter> extends BaseFragment implements BasePresenterView {
+public abstract class BasePresenterInjectionFragment<T extends BasePresenter> extends BaseInjectionFragment implements BasePresenterView, Injectable {
 
     protected abstract T getPresenter();
 

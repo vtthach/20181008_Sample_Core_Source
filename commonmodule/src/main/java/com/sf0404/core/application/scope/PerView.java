@@ -1,4 +1,4 @@
-package com.innovation.rain.app.injection.scope;
+package com.sf0404.core.application.scope;
 
 
 import java.lang.annotation.Retention;

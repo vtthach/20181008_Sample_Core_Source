@@ -1,7 +1,7 @@
 package com.innovation.rain.feature.agentlogin.view;
 
 
-import com.innovation.rain.app.base.presenter.BasePresenterView;
+import com.sf0404.core.application.business.presenter.BasePresenterView;
 
 public interface AgentLoginView extends BasePresenterView {
     void enableButtonSignIn(boolean allowEnableSignInButton);

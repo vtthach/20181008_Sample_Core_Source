@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.agentlogin.presenter;
 
-import com.innovation.rain.app.base.presenter.BasePresenter;
+import com.sf0404.core.application.business.presenter.BasePresenter;
 
 import org.jetbrains.annotations.NotNull;
 

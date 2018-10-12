@@ -1,9 +1,10 @@
-package com.sf0404.common.application;
+package com.sf0404.core.application;
 
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
-import com.sf0404.common.application.injection.AppInjector;
+import com.sf0404.core.application.injection.AppInjector;
+import com.sf0404.core.application.injection.AppInjector;
 
 import javax.inject.Inject;
 

@@ -21,7 +21,7 @@ import com.innovation.rain.app.logger.FileLogger;
 import com.innovation.rain.app.logger.KioskLoggerConfig;
 import com.innovation.rain.app.logger.KioskLoggerConfigImpl;
 import com.innovation.rain.app.properties.BuildInProperties;
-import com.sf0404.common.application.BaseApplication;
+import com.sf0404.core.application.BaseApplication;
 import com.sf0404.common.properties.AppPropertiesModule;
 
 import java.util.Arrays;

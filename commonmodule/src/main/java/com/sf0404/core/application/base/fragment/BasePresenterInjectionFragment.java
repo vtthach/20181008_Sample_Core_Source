@@ -1,4 +1,4 @@
-package com.sf0404.core.application.business.fragment;
+package com.sf0404.core.application.base.fragment;
 
 
 import android.content.Context;
@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.sf0404.common.R;
-import com.sf0404.core.application.business.presenter.BasePresenter;
-import com.sf0404.core.application.business.presenter.BasePresenterView;
+import com.sf0404.core.application.base.presenter.BasePresenter;
+import com.sf0404.core.application.base.presenter.BasePresenterView;
 import com.sf0404.core.application.injection.Injectable;
 import com.sf0404.common.container.activity.BaseActivity;
 

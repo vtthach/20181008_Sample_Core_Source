@@ -1,4 +1,4 @@
-package com.sf0404.core.application.business.presenter;
+package com.sf0404.core.application.base.presenter;
 
 import android.os.Bundle;
 import android.support.annotation.CallSuper;

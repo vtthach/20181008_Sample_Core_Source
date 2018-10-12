@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.agentlogin.presenter;
 
-import com.sf0404.core.application.business.presenter.BasePresenterImpl;
+import com.sf0404.core.application.base.presenter.BasePresenterImpl;
 import com.innovation.rain.feature.agentlogin.view.AgentLoginView;
 import com.sf0404.common.utils.ValidationUtils;
 

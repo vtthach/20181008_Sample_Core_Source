@@ -7,7 +7,7 @@ import com.innovation.rain.R
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenter
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
-import com.sf0404.core.application.business.fragment.BasePresenterInjectionFragment
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.collection_client_login_fragment.*
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.sf0404.core.application.business.callback;
+package com.sf0404.core.application.base.callback;
 
 /**
  * @param <V>

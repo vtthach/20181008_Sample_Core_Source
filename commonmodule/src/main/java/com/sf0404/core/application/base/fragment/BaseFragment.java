@@ -1,4 +1,4 @@
-package com.sf0404.core.application.business.fragment;
+package com.sf0404.core.application.base.fragment;
 
 
 import android.app.Activity;

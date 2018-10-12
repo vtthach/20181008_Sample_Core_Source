@@ -8,7 +8,7 @@ import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment
 import com.innovation.rain.feature.welcomemenu.presenter.WelcomeMenuPresenter
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
-import com.sf0404.core.application.business.fragment.BasePresenterInjectionFragment
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.welcome_menu_fragment.*
 import javax.inject.Inject
 

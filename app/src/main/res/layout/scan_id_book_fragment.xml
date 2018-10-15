@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.sf0404.common.widget.AnimationGuideView
+        android:id="@+id/animation_guide_view"
+        style="@style/AnimationIdBookScan" />
+
+</android.support.constraint.ConstraintLayout>

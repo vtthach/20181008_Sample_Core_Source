@@ -40,9 +40,11 @@ class DashboardFragment : BasePresenterInjectionFragment<DashboardPresenter>(), 
 
     private fun initView() {
         val fragments = getFragments()
-        fragmentManager?.beginTransaction()?.add(R.id.container_sa_id, fragments[0])?.commitAllowingStateLoss()
-        fragmentManager?.beginTransaction()?.add(R.id.container_sa_por, fragments[1])?.commitAllowingStateLoss()
-        fragmentManager?.beginTransaction()?.add(R.id.container_sa_rica, fragments[2])?.commitAllowingStateLoss()
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.add(R.id.container_sa_id, fragments[0])
+        transaction?.add(R.id.container_sa_por, fragments[1])
+        transaction?.add(R.id.container_sa_rica, fragments[2])
+        transaction?.commitAllowingStateLoss()
     }
 
     private fun getFragments(): List<Fragment> {

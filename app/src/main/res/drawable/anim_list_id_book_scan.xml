@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator">
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_01"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_02"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_03"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_04"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_05"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_06"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_07"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_08"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_09"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_10"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_11"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_12"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_13"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_14"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_15"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_16"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_17"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_18"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_19"
+        android:duration="@integer/duration_animation_id_book_scan" />
+
+    <item
+        android:drawable="@drawable/anim_id_book_scan_20"
+        android:duration="@integer/duration_animation_id_book_scan_last" />
+
+</animation-list>

@@ -46,4 +46,22 @@
         <item name="android:fontFamily">@font/poppins_light</item>
         <item name="android:textSize">15sp</item>
     </style>
+
+    <style name="AnimationScanIdCardFront">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/anim_scan_id_card_front</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:translationY">20dp</item>
+    </style>
+
+    <style name="AnimationScanIdCardBack" parent="AnimationScanIdCardFront">
+        <item name="android:background">@drawable/anim_scan_id_card_back</item>
+    </style>
+
+    <style name="AnimationIdBookScan" parent="AnimationScanIdCardFront">
+        <item name="android:background">@drawable/anim_list_id_book_scan</item>
+        <item name="android:translationY">40dp</item>
+    </style>
+
 </resources>

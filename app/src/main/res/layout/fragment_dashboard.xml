@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/fragment_padding">
+
+    <TextView
+        style="@style/TextTitle"
+        android:text="@string/str_rica"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35">
+
+        <FrameLayout
+            android:id="@+id/container_sa_id"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:id="@+id/container_sa_por"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:id="@+id/container_sa_rica"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnExit"
+        style="@style/BtnNavigate"
+        android:text="@string/str_exit"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btnProceed"
+        style="@style/BtnNavigate"
+        android:layout_width="@dimen/btn_navigate_right_width"
+        android:enabled="false"
+        android:text="@string/str_proceed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

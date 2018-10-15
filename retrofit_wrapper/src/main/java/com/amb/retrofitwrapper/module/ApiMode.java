@@ -7,7 +7,7 @@ public enum ApiMode {
     SD_CARD("sdcard"),
     ASSET("asset"),
     REAL("disable"), // Will using real api
-    DEFAULT(REAL.getId());
+    DEFAULT(ASSET.getId());
 
     private final String mId;
 

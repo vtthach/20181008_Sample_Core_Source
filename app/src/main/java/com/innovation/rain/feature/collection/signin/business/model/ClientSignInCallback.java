@@ -8,4 +8,10 @@ public abstract class ClientSignInCallback extends BaseCallbackImpl<ClientSignIn
     public ClientSignInCallback(ClientSignInView view) {
         super(view);
     }
+
+    public void onNoOrder() {
+
+    }
+
+
 }

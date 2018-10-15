@@ -15,7 +15,7 @@ import com.sf0404.common.R;
 
 import butterknife.ButterKnife;
 
-public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
+public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, DialogInterface.OnDismissListener, DialogInterface.OnShowListener, DialogInterface.OnCancelListener {
 
     private final MaterialDialog mDialog;
     protected Activity mActivity;
@@ -33,6 +33,7 @@ public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, 
         mDialog = builder.build();
         mDialog.setCanceledOnTouchOutside(false);
         mDialog.setOnDismissListener(this);
+        mDialog.setOnCancelListener(this);
         mDialog.setOnShowListener(this);
         Window window = mDialog.getWindow();
         if (isFullScreen && window != null) {
@@ -115,9 +116,6 @@ public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, 
     @Override
     public void onDismiss(DialogInterface dialog) {
         // Stub method
-        if (outDismissListener != null) {
-            outDismissListener.onDismiss(dialog);
-        }
     }
 
     @Override
@@ -127,5 +125,12 @@ public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, 
 
     public void setOnCancelListener(DialogInterface.OnDismissListener outDismissListener) {
         this.outDismissListener = outDismissListener;
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        if (outDismissListener != null) {
+            outDismissListener.onDismiss(dialog);
+        }
     }
 }

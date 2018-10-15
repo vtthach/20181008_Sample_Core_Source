@@ -16,11 +16,13 @@ public class ClientSignInMapperImpl implements ClientSignInMapper {
 
     @Override
     public ClientSignInUiModel getUiModelFromResponse(ClientSignInParam param, ClientSignInResponse clientSignInResponse) {
-        return null;
+        // TODO mapper implement here
+        return new ClientSignInUiModel();
     }
 
     @Override
     public ClientSignInRequest getRequestFromParam(ClientSignInParam param) {
-        return null;
+        // TODO mapper implement here
+        return new ClientSignInRequest();
     }
 }

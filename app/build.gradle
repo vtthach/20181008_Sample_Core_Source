@@ -83,6 +83,7 @@ dependencies {
     // Support
     implementation supportDependency.appcompatV7
     implementation supportDependency.constraintLayout
+    implementation supportDependency.design
 
     // Rx
     implementation ioComponent.rxJava2

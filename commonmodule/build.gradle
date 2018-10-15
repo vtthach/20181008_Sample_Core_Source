@@ -16,6 +16,7 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -56,6 +57,7 @@ dependencies {
 
     implementation supportDependency.recyclerViewV7
     compileOnly supportDependency.appcompatV7
+    compileOnly supportDependency.design
 
     compileOnly ioComponent.rxJava2
     implementation ioComponent.retrofitComponents

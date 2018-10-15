@@ -2,13 +2,15 @@ package com.sf0404.common.toast.customwindow;
 
 import android.content.Context;
 import android.os.Handler;
+import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.cbsa.ui.widget.notification.OverlayWindowView;
 import com.sf0404.common.R;
 import com.sf0404.common.utils.UiUtil;
 
-public class NotificationManager {
+public class NotificationManager implements OverlayWindowView.NotificationCallback {
     private final Context appContext;
     protected OverlayWindowView.Builder<NotificationData> builder;
     protected OverlayWindowView<NotificationData> notificationView;
@@ -16,15 +18,17 @@ public class NotificationManager {
     Handler handler = new Handler();
 
     public NotificationManager(Context appContext) {
-        this.appContext = appContext.getApplicationContext();
+        this.appContext = appContext;
         this.builder = this.getDefaultBuilder(appContext);
     }
 
     protected OverlayWindowView.Builder<NotificationData> getDefaultBuilder(Context context) {
         return new OverlayWindowView.Builder<NotificationData>(context)
                 .withData(this.notificationData)
+                .windowType(WindowManager.LayoutParams.TYPE_APPLICATION)
                 .animationStyle(R.style.AppNotificationAnim)
                 .withMarginTop(getDefaultMarginTop(context))
+                .withCallback(this)
                 .withViewHolder(new NotificationViewHolder(ToastType.TYPE_INFO));
     }
 
@@ -58,7 +62,6 @@ public class NotificationManager {
             notificationView = builder
                     .withData(notificationData)
                     .withMarginTop(topMargin)
-                    .windowType(WindowManager.LayoutParams.TYPE_APPLICATION_PANEL)
                     .windowWidth(WindowManager.LayoutParams.MATCH_PARENT)
                     .animationStyle(R.style.AppNotificationAnim)
                     .withViewHolder(new NotificationViewHolder(type))
@@ -73,7 +76,12 @@ public class NotificationManager {
         }
     }
 
-    class NotificationData {
+    @Override
+    public void onViewClicked(View view) {
+        // Use later
+    }
+
+    public class NotificationData {
         String msg;
     }
 }

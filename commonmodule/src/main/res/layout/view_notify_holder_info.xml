@@ -16,7 +16,7 @@
         android:scaleType="fitCenter" />
 
     <TextView
-        android:id="@+id/tvMessage"
+        android:id="@+id/tvToastMessage"
         style="@style/NotifyCationTextView" />
 
 </RelativeLayout>

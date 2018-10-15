@@ -22,9 +22,9 @@ class DashboardFragment : BasePresenterInjectionFragment<DashboardPresenter>(), 
 
     override fun getLayoutId() = R.layout.fragment_dashboard
 
-    override fun enableButtonProceed(allowEnableSignInButton: Boolean) {
-        btnProceed.isEnabled = allowEnableSignInButton
-        btnProceed.isActivated = allowEnableSignInButton
+    override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
+        btnProceed.isEnabled = allowEnableProceedButton
+        btnProceed.isActivated = allowEnableProceedButton
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,19 +1,19 @@
-package com.innovation.rain.feature.collection.scaniddoc.scanidbook.view
+package com.innovation.rain.feature.collection.scaniddoc.scanpassport.view
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.innovation.rain.R
 import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
-import com.innovation.rain.feature.collection.scaniddoc.scanidbook.presenter.ScanIdBookPresenter
+import com.innovation.rain.feature.collection.scaniddoc.scanpassport.presenter.ScanPassportPresenter
 import kotlinx.android.synthetic.main.scan_id_fragment.*
 import javax.inject.Inject
 
 
-class ScanIdBookFragment : BasePresenterInjectionFragment<ScanIdBookPresenter>(), ScanIdBookView {
+class ScanPassportFragment : BasePresenterInjectionFragment<ScanPassportPresenter>(), ScanPassportView {
 
     @Inject
-    lateinit var mPresenter: ScanIdBookPresenter
+    lateinit var mPresenter: ScanPassportPresenter
 
     override fun getPresenter() = mPresenter
 

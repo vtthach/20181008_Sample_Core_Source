@@ -1,37 +1,26 @@
-package com.innovation.rain.feature.collection.scaniddoc.scanidcard.presenter
+package com.innovation.rain.feature.collection.scaniddoc.scanpassport.presenter
 
 import android.os.Bundle
 import com.innovation.rain.app.base.presenter.BasePresenterImpl
 import com.innovation.rain.app.widget.AutoFitTextureView
 import com.innovation.rain.feature.collection.scaniddoc.cameracontroller.CameraCallback
 import com.innovation.rain.feature.collection.scaniddoc.cameracontroller.CameraController
-import com.innovation.rain.feature.collection.scaniddoc.scanidcard.view.ScanIdCardView
+import com.innovation.rain.feature.collection.scaniddoc.scanpassport.view.ScanPassportView
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
 
-class ScanIdCardPresenterImpl @Inject constructor(private val cameraController: CameraController,
-                                                  view: ScanIdCardView)
-    : BasePresenterImpl<ScanIdCardView>(view), ScanIdCardPresenter {
+class ScanPassportPresenterImpl @Inject constructor(private val cameraController: CameraController,
+                                                    view: ScanPassportView)
+    : BasePresenterImpl<ScanPassportView>(view), ScanPassportPresenter {
 
-    private var isScanFirstTime = true
-
-    private var firstFile: File? = null
-
-    private var secondsFile: File? = null
+    private var file: File? = null
 
     private val cameraCallback = object : CameraCallback {
         override fun onSuccess(file: File) {
-            if (isScanFirstTime) {
-                firstFile = file
-                isScanFirstTime = false
-                view.showFlipCardMessage()
-            } else {
-                secondsFile = file
-                isScanFirstTime = true
-                view.showSuccessScreen()
-            }
+            this@ScanPassportPresenterImpl.file = file
+            view.showSuccessScreen()
             Timber.i("Saved image at $file")
         }
 

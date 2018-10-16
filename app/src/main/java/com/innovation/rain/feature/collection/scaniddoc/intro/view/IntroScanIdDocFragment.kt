@@ -7,6 +7,7 @@ import com.innovation.rain.app.base.fragment.BaseFragment
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.scaniddoc.scanidbook.view.ScanIdBookFragment
 import com.innovation.rain.feature.collection.scaniddoc.scanidcard.view.ScanIdCardFragment
+import com.innovation.rain.feature.collection.scaniddoc.scanpassport.view.ScanPassportFragment
 import kotlinx.android.synthetic.main.intro_scan_id_doc_fragment.*
 
 
@@ -24,6 +25,10 @@ class IntroScanIdDocFragment : BaseFragment() {
 
         btnIdCard.setOnClickListener {
             activity?.showFragment<ScanIdCardFragment>()
+        }
+
+        btnPassport.setOnClickListener {
+            activity?.showFragment<ScanPassportFragment>()
         }
     }
 }

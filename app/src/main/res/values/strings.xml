@@ -15,4 +15,7 @@
     <string name="client_login_title">client sign in</string>
     <string name="client_login_enter_id">enter ID number</string>
 
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
 </resources>

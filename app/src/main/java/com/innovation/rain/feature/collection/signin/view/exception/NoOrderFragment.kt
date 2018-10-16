@@ -33,5 +33,7 @@ class NoOrderFragment : BaseDialogFragment() {
             NavigateUtil.goToWelcomeMenu(activity!!)
             dismiss()
         }
+
+        tvApiCode.text = BundleUtils.getStatusCode(arguments)
     }
 }

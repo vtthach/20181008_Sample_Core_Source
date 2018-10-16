@@ -63,7 +63,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         }
 
         edId.addTextChangedListener(textIdChangeListener)
-
+        edId.setOnEditorActionListener { v, actionId, event -> presenter.onEditorAction(edId.text.toString()) }
         btnProceed.setOnClickListener {
             presenter.proceed(edId.text.toString())
         }

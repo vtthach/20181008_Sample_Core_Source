@@ -25,7 +25,11 @@ public class ClientSignInPresenterImpl extends BasePresenterImpl<ClientSignInVie
 
     @Override
     public void onTextIdChanged(@NotNull String toString) {
-        view.enableButtonProceed(toString.length() == 13);
+        view.enableButtonProceed(isLengthValid(toString));
+    }
+
+    private boolean isLengthValid(String str) {
+        return str.length() == 13;
     }
 
     @Override
@@ -40,5 +44,13 @@ public class ClientSignInPresenterImpl extends BasePresenterImpl<ClientSignInVie
                 view.goToCollectionOrder(info);
             }
         }).execute(new ClientSignInParam()));
+    }
+
+    @Override
+    public boolean onEditorAction(@NotNull String str) {
+        if (isLengthValid(str)) {
+            proceed(str);
+        }
+        return false;
     }
 }

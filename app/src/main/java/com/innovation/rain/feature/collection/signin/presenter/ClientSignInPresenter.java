@@ -9,4 +9,6 @@ public interface ClientSignInPresenter extends BasePresenter {
     void onTextIdChanged(@NotNull String toString);
 
     void proceed(String id);
+
+    boolean onEditorAction(@NotNull String toString);
 }

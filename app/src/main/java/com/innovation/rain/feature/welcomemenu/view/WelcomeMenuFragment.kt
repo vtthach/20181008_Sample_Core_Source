@@ -43,9 +43,9 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        var act = activity
+        val act = activity
         if (act is BaseActivity) {
-            act.registerBackpress(this)
+            act.registerBackPress(this)
         }
     }
 

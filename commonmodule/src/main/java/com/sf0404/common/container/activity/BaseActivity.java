@@ -30,7 +30,7 @@ public class BaseActivity extends AppCompatActivity {
     public ToastManagerHelper toastManagerHelper;
 
     private DialogFactory dialogFactory;
-    private BackPressCallback backpressCallback;
+    private BackPressCallback backPressCallback;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,13 +104,13 @@ public class BaseActivity extends AppCompatActivity {
         return rs;
     }
 
-    public void registerBackpress(BackPressCallback backPressCallback) {
-        this.backpressCallback = backpressCallback;
+    public void registerBackPress(BackPressCallback backPressCallback) {
+        this.backPressCallback = backPressCallback;
     }
 
     @Override
     public void onBackPressed() {
-        if (backpressCallback == null || !backpressCallback.onHandleBackPress()) {
+        if (backPressCallback == null || !backPressCallback.onHandleBackPress()) {
             super.onBackPressed();
         }
     }

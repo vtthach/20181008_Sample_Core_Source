@@ -15,7 +15,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="@dimen/rica_home_card_height"
+        android:layout_marginTop="@dimen/rica_home_card_margin_top"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,22 +30,20 @@
             android:id="@+id/container_sa_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
             android:layout_weight="1" />
 
         <FrameLayout
             android:id="@+id/container_sa_por"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/rica_home_card_padding"
+            android:layout_marginRight="@dimen/rica_home_card_padding"
             android:layout_weight="1" />
 
         <FrameLayout
             android:id="@+id/container_sa_rica"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -53,6 +52,7 @@
         android:id="@+id/btnExit"
         style="@style/BtnNavigate"
         android:text="@string/str_exit"
+
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button

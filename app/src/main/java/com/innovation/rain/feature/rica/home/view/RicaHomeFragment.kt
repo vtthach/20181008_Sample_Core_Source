@@ -10,7 +10,7 @@ import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.home.view.RicaHomeView
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
 import javax.inject.Inject
 
@@ -27,7 +27,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
 
     override fun getPresenter() = viewPresenter
 
-    override fun getLayoutId() = R.layout.fragment_dashboard
+    override fun getLayoutId() = R.layout.fragment_rica_home
 
     override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
         btnProceed.isEnabled = allowEnableProceedButton

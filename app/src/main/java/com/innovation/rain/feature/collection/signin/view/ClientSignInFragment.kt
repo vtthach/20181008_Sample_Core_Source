@@ -6,8 +6,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.app.util.NavigateUtil
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenter
+import com.innovation.rain.feature.collection.signin.view.exception.NoOrderFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
@@ -22,8 +24,11 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
 
     override fun getPresenter() = viewPresenter
 
-    companion object {
+    override fun showDialogNoOrder(apiCode: String) {
+        NoOrderFragment.newInstance(apiCode).show(fragmentManager, NoOrderFragment::class.java.simpleName)
+    }
 
+    companion object {
         fun showMe(activity: FragmentActivity?) {
             val intentBuilder = ContainerActivity.IntentBuilder(activity)
             intentBuilder.setFragmentClass(ClientSignInFragment::class.java)
@@ -54,7 +59,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnExit.setOnClickListener {
-            activity?.finish()
+            NavigateUtil.goToAgentSignIn(this.activity!!)
         }
 
         edId.addTextChangedListener(textIdChangeListener)

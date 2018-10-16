@@ -9,9 +9,7 @@ public abstract class ClientSignInCallback extends BaseCallbackImpl<ClientSignIn
         super(view);
     }
 
-    public void onNoOrder() {
-
+    public void onNoOrder(String apiCode) {
+        view.showDialogNoOrder(apiCode);
     }
-
-
 }

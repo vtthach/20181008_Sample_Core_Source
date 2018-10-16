@@ -10,4 +10,6 @@ public interface ClientSignInView extends BasePresenterView {
     void goToCollectionOrder(ClientSignInUiModel info);
 
     void notifyIdInvalid();
+
+    void showDialogNoOrder(String apiCode);
 }

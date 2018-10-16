@@ -9,6 +9,7 @@ import com.sf0404.core.application.business.core.exception.BaseException;
 import com.sf0404.core.application.business.core.exception.BusinessErrorException;
 import com.sf0404.core.application.business.core.exception.ErrorModel;
 import com.sf0404.core.application.business.mapper.BaseMapper;
+import com.sf0404.core.application.business.model.BaseUiModel;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -21,15 +22,16 @@ import retrofit2.Response;
 import timber.log.Timber;
 
 /**
- * @param <T> UI Model likely is extended from {@link com.sf0404.core.application.business.model.BaseMapperResult}
+ * @param <T> UI Model likely is extended from {@link BaseUiModel}
  * @param <E> request type which is used for Repository
  * @param <R> response type which is return from Repository
  * @param <P> param type
  */
-public abstract class UseCaseImpl<T, P extends BaseParam, E, R> implements UseCase<T, P>, BaseSubscriber.UseCaseCallback<T> {
+public abstract class UseCaseImpl<T extends BaseUiModel, P extends BaseParam, E, R, C extends BaseCallBack<T>>
+        implements UseCase<T, P, C>, BaseSubscriber.UseCaseCallback<T> {
 
     private final BaseMapper<T, P, E, R> mapper;
-    protected BaseCallBack<T> callback;
+    protected C callback;
 
     public UseCaseImpl(BaseMapper<T, P, E, R> mapper) {
         this.mapper = mapper;
@@ -38,7 +40,7 @@ public abstract class UseCaseImpl<T, P extends BaseParam, E, R> implements UseCa
     protected abstract Observable<R> getRepositoryObservable(E requestFromParam);
 
     @Override
-    public UseCase<T, P> setCallback(BaseCallBack<T> callback) {
+    public UseCase<T, P, C> setCallback(C callback) {
         this.callback = callback;
         return this;
     }
@@ -103,6 +105,7 @@ public abstract class UseCaseImpl<T, P extends BaseParam, E, R> implements UseCa
     @Override
     @CallSuper
     public void onError(Throwable e) {
+        // TODO check network if need // NOSONAR
         onCommonError(e);
     }
 
@@ -120,7 +123,13 @@ public abstract class UseCaseImpl<T, P extends BaseParam, E, R> implements UseCa
      * @param e
      */
     protected void onBusinessException(BusinessErrorException e) {
-        callback.onError(e);
+        if (!handleBusiness(e)) {
+            callback.onError(e);
+        }
+    }
+
+    protected boolean handleBusiness(BusinessErrorException e) {
+        return false;
     }
 
     /**

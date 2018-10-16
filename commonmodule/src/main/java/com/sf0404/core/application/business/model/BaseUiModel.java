@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class BaseMapperResult implements Serializable {
+public class BaseUiModel implements Serializable {
     @SerializedName("api_code")
     private String apiCode; // Use to check generic exception (ie: invalid token)
 

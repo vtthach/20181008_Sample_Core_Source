@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/default_card_width"
+        android:layout_height="@dimen/default_card_height"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_card_view_shadow"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextTitle"
+            android:layout_marginTop="@dimen/dialog_margin_top_bot"
+            android:text="@string/client_sign_in_no_order_dialog_title"
+            app:layout_constraintBottom_toTopOf="@+id/img"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/default_image_size"
+            android:layout_height="@dimen/default_image_size"
+            android:src="@drawable/ic_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dialog_margin_top_bot"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img"
+            app:layout_constraintVertical_bias="1">
+
+            <Button
+                android:id="@+id/btnMainMenu"
+                style="@style/BtnNavigate"
+                android:layout_width="@dimen/btn_dialog_width"
+                android:layout_height="@dimen/btn_action_height"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/bkg_solid_corner"
+                android:text="@string/client_sign_in_no_order_dialog_btn_1"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnWelcomeScreen"
+                style="@style/BtnNavigate"
+                android:layout_width="@dimen/btn_dialog_width"
+                android:layout_height="@dimen/btn_action_height"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/bkg_solid_corner"
+                android:text="@string/client_sign_in_no_order_dialog_btn_2"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvApiCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:text="Api Code"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

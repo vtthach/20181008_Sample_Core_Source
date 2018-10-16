@@ -1,6 +1,7 @@
 package com.innovation.rain.feature.agentlogin.view
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -31,6 +32,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         fun showMe(activity: Activity) {
             val intentBuilder = ContainerActivity.IntentBuilder(activity)
             intentBuilder.setFragmentClass(AgentLoginFragment::class.java)
+                    .setFlag(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     .setActionMode(ToolbarMode.NONE)
             intentBuilder.start()
         }

@@ -56,7 +56,8 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (REQUEST_CODE == requestCode && resultCode == RESULT_OK) {
-            val state: RicaState = RicaState.valueOf(data?.extras?.getInt(BUNDLE_KEY_RICA_STATE) ?: -1)
+            val state: RicaState = RicaState.valueOf(data?.extras?.getInt(BUNDLE_KEY_RICA_STATE)
+                    ?: -1)
             if (state == RicaState.STATE_DONE) {
                 val index = getCurrentIndex()
                 mFragments[index].ricaState = RicaState.STATE_DONE
@@ -74,14 +75,14 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
                 return i
             }
         }
-        return 0
+        return -1
     }
 
     /**
      * fragment list
      */
     private fun getFragments(): List<BaseRicaFragment<*>> {
-        val firstFragment : BaseRicaFragment<*> = SampleFragment()
+        val firstFragment: BaseRicaFragment<*> = SampleFragment()
         val b = Bundle()
         b.putInt(BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
         firstFragment.arguments = b

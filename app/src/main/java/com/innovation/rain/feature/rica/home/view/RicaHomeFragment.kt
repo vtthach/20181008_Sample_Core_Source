@@ -18,7 +18,6 @@ import javax.inject.Inject
 class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), RicaHomeView {
 
     private val REQUEST_CODE = 1001
-    public val BUNDLE_KEY_RICA_STATE = "BUNDLE_KEY_RICA_STATE"
 
     @Inject
     lateinit var viewPresenter: RicaHomePresenter
@@ -53,8 +52,6 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         transaction?.add(R.id.container_sa_por, mFragments[1])
         transaction?.add(R.id.container_sa_rica, mFragments[2])
         transaction?.commitAllowingStateLoss()
-        // load first fragment by default
-        mFragments[0].ricaState = RicaState.STATE_LOADED
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -84,6 +81,14 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
      * fragment list
      */
     private fun getFragments(): List<BaseRicaFragment<*>> {
-        return Arrays.asList<BaseRicaFragment<*>>(SampleFragment(), SampleFragment(), SampleFragment())
+        val firstFragment : BaseRicaFragment<*> = SampleFragment()
+        val b = Bundle()
+        b.putInt(BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
+        firstFragment.arguments = b
+        return Arrays.asList<BaseRicaFragment<*>>(firstFragment, SampleFragment(), SampleFragment())
+    }
+
+    companion object {
+        const val BUNDLE_KEY_RICA_STATE = "BUNDLE_KEY_RICA_STATE"
     }
 }

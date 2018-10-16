@@ -23,7 +23,12 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ricaState = RicaState.STATE_PRE_LOADED
+        val state: RicaState = RicaState.valueOf(arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, -1) ?: -1)
+        ricaState = if (state != RicaState.UNKNOWN) {
+            state
+        } else {
+            RicaState.STATE_PRE_LOADED
+        }
     }
 
     protected fun enableButtonProceed(allowEnableProceedButton: Boolean) {

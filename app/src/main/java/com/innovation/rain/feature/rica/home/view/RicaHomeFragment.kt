@@ -22,7 +22,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     @Inject
     lateinit var viewPresenter: RicaHomePresenter
 
-    lateinit var mFragments: List<BaseRicaFragment<*>>
+    private lateinit var mFragments: List<BaseRicaFragment<*>>
 
     override fun getPresenter() = viewPresenter
 

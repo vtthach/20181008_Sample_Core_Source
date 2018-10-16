@@ -67,6 +67,9 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (toastManagerHelper != null) {
+            toastManagerHelper.stopIfAny();
+        }
         if (unbinder != null) {
             unbinder.unbind();
         }

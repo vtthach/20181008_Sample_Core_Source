@@ -18,11 +18,12 @@ import butterknife.ButterKnife;
 public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, DialogInterface.OnDismissListener, DialogInterface.OnShowListener, DialogInterface.OnCancelListener {
 
     private final MaterialDialog mDialog;
-    protected Activity mActivity;
+    protected Activity activity;
     protected StubPositiveNegativeButtonClick positiveNegativeButtonClick;
     private DialogInterface.OnDismissListener outDismissListener;
 
     public BaseMaterialDialog(Activity activity, int layoutID, boolean isFullScreen) {
+        this.activity = activity;
         MaterialDialog.Builder builder = new MaterialDialog.Builder(activity);
         if (layoutID != 0) {
             builder.customView(layoutID, false);
@@ -36,16 +37,11 @@ public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, 
         mDialog.setOnCancelListener(this);
         mDialog.setOnShowListener(this);
         Window window = mDialog.getWindow();
-        if (isFullScreen && window != null) {
-            window.setBackgroundDrawableResource(android.R.color.transparent);
-            window.setStatusBarColor(ContextCompat.getColor(activity, R.color.primary));
-            window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.MATCH_PARENT);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_FULLSCREEN); // TODO add new flag for this line
-            window.setGravity(Gravity.CENTER);
-        }
-        mActivity = activity;
+        window.setBackgroundDrawableResource(android.R.color.transparent);
+        window.setStatusBarColor(ContextCompat.getColor(activity, R.color.primary));
+        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        window.setGravity(Gravity.CENTER);
         View customView = mDialog.getCustomView();
         ButterKnife.bind(this, customView);
     }
@@ -67,7 +63,7 @@ public class BaseMaterialDialog implements MaterialDialog.SingleButtonCallback, 
     }
 
     private boolean activityAvailable() {
-        return mActivity != null && !mActivity.isFinishing();
+        return activity != null && !activity.isFinishing();
     }
 
     public void hideDialog() {

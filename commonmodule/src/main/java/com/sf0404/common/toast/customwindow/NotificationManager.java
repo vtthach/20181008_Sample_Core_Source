@@ -1,25 +1,24 @@
 package com.sf0404.common.toast.customwindow;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 
 import com.cbsa.ui.widget.notification.OverlayWindowView;
 import com.sf0404.common.R;
-import com.sf0404.common.utils.UiUtil;
 
 public class NotificationManager implements OverlayWindowView.NotificationCallback {
-    private final Context appContext;
+    private final Activity activity;
     protected OverlayWindowView.Builder<NotificationData> builder;
     protected OverlayWindowView<NotificationData> notificationView;
     protected NotificationData notificationData = new NotificationData();
     Handler handler = new Handler();
 
-    public NotificationManager(Context appContext) {
-        this.appContext = appContext;
-        this.builder = this.getDefaultBuilder(appContext);
+    public NotificationManager(Activity activity) {
+        this.activity = activity;
+        this.builder = this.getDefaultBuilder(activity);
     }
 
     protected OverlayWindowView.Builder<NotificationData> getDefaultBuilder(Context context) {
@@ -33,11 +32,11 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
     }
 
     private int getDefaultMarginTop(Context context) {
-        return UiUtil.getScreenSize(context)[1] / 7;
+        return 10;
     }
 
     public void showNotifyError(String msg) {
-        showNotify(ToastType.TYPE_ERROR, getDefaultMarginTop(appContext), msg);
+        showNotify(ToastType.TYPE_ERROR, getDefaultMarginTop(activity), msg);
     }
 
     public void showNotifyError(int viewPosition, String errorMessage) {
@@ -49,12 +48,15 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
     }
 
     public void showNotifyInfo(String errorMessage) {
-        showNotify(ToastType.TYPE_INFO, getDefaultMarginTop(appContext), errorMessage);
+        showNotify(ToastType.TYPE_INFO, getDefaultMarginTop(activity), errorMessage);
     }
 
     public void showNotify(ToastType type, int topMargin, String msg) {
         handler.removeCallbacksAndMessages(null);
         handler.postDelayed(() -> {
+            if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
+                return;
+            }
             notificationData.msg = msg;
             if (notificationView != null) {
                 notificationView.dismiss();
@@ -67,7 +69,6 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
                     .withViewHolder(new NotificationViewHolder(type))
                     .show();
         }, 200);
-
     }
 
     public void hideNotify() {
@@ -79,6 +80,11 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
     @Override
     public void onViewClicked(View view) {
         // Use later
+    }
+
+    public void stopIfAny() {
+        hideNotify();
+        handler.removeCallbacksAndMessages(null);
     }
 
     public class NotificationData {

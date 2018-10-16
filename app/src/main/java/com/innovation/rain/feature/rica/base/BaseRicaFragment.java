@@ -7,8 +7,8 @@ import android.view.View;
 import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment;
 import com.innovation.rain.app.base.presenter.BasePresenter;
 import com.innovation.rain.app.enums.RicaState;
-import com.innovation.rain.feature.agentlogin.view.DashboardFragment;
-import com.innovation.rain.feature.rica.dashboard.callback.RicaStateView;
+import com.innovation.rain.feature.agentlogin.view.RicaHomeFragment;
+import com.innovation.rain.feature.rica.home.callback.RicaStateView;
 
 public abstract class BaseRicaFragment<T extends BasePresenter> extends BasePresenterInjectionFragment<T> implements RicaStateView {
 
@@ -21,7 +21,7 @@ public abstract class BaseRicaFragment<T extends BasePresenter> extends BasePres
     }
 
     protected void enableButtonProceed(boolean allowEnableProceedButton) {
-        DashboardFragment f = (DashboardFragment) getParentFragment();
+        RicaHomeFragment f = (RicaHomeFragment) getParentFragment();
         f.enableButtonProceed(allowEnableProceedButton);
     }
 

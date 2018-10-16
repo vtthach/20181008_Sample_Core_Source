@@ -8,20 +8,20 @@ import com.innovation.rain.R
 import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
-import com.innovation.rain.feature.rica.dashboard.presenter.DashboardPresenter
-import com.innovation.rain.feature.rica.dashboard.view.DashboardView
+import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
+import com.innovation.rain.feature.rica.home.view.RicaHomeView
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import java.util.*
 import javax.inject.Inject
 
 
-class DashboardFragment : BasePresenterInjectionFragment<DashboardPresenter>(), DashboardView {
+class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), RicaHomeView {
 
     private val REQUEST_CODE = 1001
     public val BUNDLE_KEY_RICA_STATE = "BUNDLE_KEY_RICA_STATE"
 
     @Inject
-    lateinit var viewPresenter: DashboardPresenter
+    lateinit var viewPresenter: RicaHomePresenter
 
     lateinit var mFragments: List<BaseRicaFragment<*>>
 

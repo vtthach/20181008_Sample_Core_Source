@@ -10,7 +10,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class SampleViewModule {
+abstract class RicaHomeViewModule {
 
     @PerView
     @Binds

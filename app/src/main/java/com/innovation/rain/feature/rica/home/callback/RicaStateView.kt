@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.rica.dashboard.callback
+package com.innovation.rain.feature.rica.home.callback
 
 interface RicaStateView {
     fun onRicaStatePreLoad()

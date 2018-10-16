@@ -2,8 +2,8 @@ package com.innovation.rain.app.injection.module.feature;
 
 import com.innovation.rain.feature.collection.orders.injection.OrderListBuilderModule;
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
-import com.innovation.rain.feature.dashboard.injection.DashboardBuilderModule;
-import com.innovation.rain.feature.dashboard.injection.SampleBuilderModule;
+import com.innovation.rain.feature.rica.dashboard.injection.DashboardBuilderModule;
+import com.innovation.rain.feature.rica.dashboard.injection.SampleBuilderModule;
 
 import dagger.Module;
 

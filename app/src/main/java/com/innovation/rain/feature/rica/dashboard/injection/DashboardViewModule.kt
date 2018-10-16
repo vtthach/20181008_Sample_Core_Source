@@ -1,16 +1,16 @@
-package com.innovation.rain.feature.dashboard.injection
+package com.innovation.rain.feature.rica.dashboard.injection
 
 import com.innovation.rain.app.injection.scope.PerView
 import com.innovation.rain.feature.agentlogin.view.DashboardFragment
-import com.innovation.rain.feature.dashboard.presenter.DashboardPresenter
-import com.innovation.rain.feature.dashboard.presenter.DashboardPresenterImpl
-import com.innovation.rain.feature.dashboard.view.DashboardView
+import com.innovation.rain.feature.rica.dashboard.presenter.DashboardPresenter
+import com.innovation.rain.feature.rica.dashboard.presenter.DashboardPresenterImpl
+import com.innovation.rain.feature.rica.dashboard.view.DashboardView
 
 import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class SampleViewModule {
+abstract class DashboardViewModule {
 
     @PerView
     @Binds

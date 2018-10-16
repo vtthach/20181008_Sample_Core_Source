@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.dashboard.injection
+package com.innovation.rain.feature.rica.dashboard.injection
 
 import com.innovation.rain.app.injection.scope.PerView
 import com.innovation.rain.feature.agentlogin.view.DashboardFragment

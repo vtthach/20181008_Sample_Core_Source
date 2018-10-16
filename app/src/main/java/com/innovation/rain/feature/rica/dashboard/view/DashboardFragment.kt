@@ -7,11 +7,9 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.enums.RicaState
-import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.dashboard.base.BaseRicaFragment
-import com.innovation.rain.feature.dashboard.presenter.DashboardPresenter
-import com.innovation.rain.feature.dashboard.view.DashboardView
-import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
+import com.innovation.rain.feature.rica.base.BaseRicaFragment
+import com.innovation.rain.feature.rica.dashboard.presenter.DashboardPresenter
+import com.innovation.rain.feature.rica.dashboard.view.DashboardView
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import java.util.*
 import javax.inject.Inject
@@ -75,13 +73,16 @@ class DashboardFragment : BasePresenterInjectionFragment<DashboardPresenter>(), 
 
     private fun getCurrentIndex(): Int {
         for (i in mFragments.indices) {
-            if (mFragments[i].ricaState === RicaState.STATE_LOADED) {
+            if (mFragments[i].ricaState == RicaState.STATE_LOADED) {
                 return i
             }
         }
         return 0
     }
 
+    /**
+     * fragment list
+     */
     private fun getFragments(): List<BaseRicaFragment<*>> {
         return Arrays.asList<BaseRicaFragment<*>>(SampleFragment(), SampleFragment(), SampleFragment())
     }

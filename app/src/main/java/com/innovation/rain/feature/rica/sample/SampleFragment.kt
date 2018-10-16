@@ -1,8 +1,8 @@
 package com.innovation.rain.feature.agentlogin.view
 
 import com.innovation.rain.R
-import com.innovation.rain.feature.dashboard.base.BaseRicaFragment
-import com.innovation.rain.feature.dashboard.presenter.DashboardPresenter
+import com.innovation.rain.feature.rica.base.BaseRicaFragment
+import com.innovation.rain.feature.rica.dashboard.presenter.DashboardPresenter
 
 
 class SampleFragment : BaseRicaFragment<DashboardPresenter>() {
@@ -14,13 +14,13 @@ class SampleFragment : BaseRicaFragment<DashboardPresenter>() {
     override fun getLayoutId() = R.layout.fragment_sample
 
 
-    override fun onViewPreLoad() {
+    override fun onRicaStatePreLoad() {
     }
 
-    override fun onViewLoaded() {
+    override fun onRicaStateLoaded() {
     }
 
-    override fun onViewDone() {
+    override fun onRicaStateDone() {
     }
 
     override fun onProceedButtonClicked() {

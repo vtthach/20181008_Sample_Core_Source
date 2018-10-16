@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.dashboard.presenter
+package com.innovation.rain.feature.rica.dashboard.presenter
 
 import com.innovation.rain.app.base.presenter.BasePresenter
 

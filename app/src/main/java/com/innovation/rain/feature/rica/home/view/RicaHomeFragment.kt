@@ -18,6 +18,10 @@ import javax.inject.Inject
 
 class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), RicaHomeView {
 
+    companion object {
+        const val BUNDLE_KEY_RICA_STATE = "BUNDLE_KEY_RICA_STATE"
+    }
+
     private val REQUEST_CODE = 1001
 
     @Inject
@@ -32,6 +36,14 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
         btnProceed.isEnabled = allowEnableProceedButton
         btnProceed.isActivated = allowEnableProceedButton
+    }
+
+    override fun notifyRicaStateDone() {
+        val index = getCurrentIndex()
+        mFragments[index].ricaState = RicaState.STATE_DONE
+        if (index < mFragments.size - 1) {
+            mFragments[index + 1].ricaState = RicaState.STATE_LOADED
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,11 +72,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
             val state: RicaState = RicaState.valueOf(data?.extras?.getInt(BUNDLE_KEY_RICA_STATE)
                     ?: -1)
             if (state == RicaState.STATE_DONE) {
-                val index = getCurrentIndex()
-                mFragments[index].ricaState = RicaState.STATE_DONE
-                if (index < mFragments.size - 1) {
-                    mFragments[index + 1].ricaState = RicaState.STATE_LOADED
-                }
+                notifyRicaStateDone()
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
@@ -89,9 +97,5 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         b.putInt(BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
         firstFragment.arguments = b
         return Arrays.asList<BaseRicaFragment<*>>(firstFragment, SampleFragment(), ricaVerifyFragment)
-    }
-
-    companion object {
-        const val BUNDLE_KEY_RICA_STATE = "BUNDLE_KEY_RICA_STATE"
     }
 }

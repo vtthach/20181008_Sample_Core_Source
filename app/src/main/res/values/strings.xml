@@ -20,7 +20,8 @@
     <string name="str_rica">RICA</string>
 
     <!--Rica agent declaration-->
-    <string name="rica_agent_declaration_title">RICA agent \nverification</string>
-    <string name="rica_agent_declaration_desc">RICA verified</string>
+    <string name="rica_verify_title">RICA agent \nverification</string>
+    <string name="rica_verify_desc">The RICA agent present will \nverify your documents and \ncomplete your RICA process.</string>
+    <string name="rica_verify_done_title">RICA verified</string>
 
 </resources>

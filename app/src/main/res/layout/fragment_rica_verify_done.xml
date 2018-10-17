@@ -5,30 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/fragment_padding"
+    android:background="@drawable/card_blue"
     tools:context=".StartActivity">
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/layout1"
-        android:layout_width="400dp"
-        android:layout_height="500dp"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/riceAgentTitle"
             style="@style/TextTitle"
-            android:textColor="@color/text_white"
+            android:textColor="@color/text_primary"
             android:layout_marginTop="50dp"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:gravity="center"
-            android:text="@string/rica_agent_declaration_title"
+            android:text="@string/rica_verify_done_title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
-    </android.support.constraint.ConstraintLayout>
-
 
 </android.support.constraint.ConstraintLayout>

@@ -8,6 +8,7 @@ import com.innovation.rain.app.base.presenter.BasePresenter
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.agentlogin.view.RicaHomeFragment
 import com.innovation.rain.feature.rica.home.callback.RicaStateView
+import com.innovation.rain.feature.rica.home.view.RicaHomeView
 
 abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragment<T>(), RicaStateView {
 
@@ -31,8 +32,13 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
         }
     }
 
-    protected open fun enableButtonProceed(allowEnableProceedButton: Boolean) {
-        val f = parentFragment as RicaHomeFragment?
+    protected fun enableButtonProceed(allowEnableProceedButton: Boolean) {
+        val f = parentFragment as RicaHomeView?
         f?.enableButtonProceed(allowEnableProceedButton)
+    }
+
+    protected fun notifyRicaStateDone() {
+        val f = parentFragment as RicaHomeView?
+        f?.notifyRicaStateDone()
     }
 }

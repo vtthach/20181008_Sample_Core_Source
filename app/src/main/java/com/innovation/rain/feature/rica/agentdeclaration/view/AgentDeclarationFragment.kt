@@ -1,23 +1,31 @@
 package  com.innovation.rain.feature.rica.agentdeclaration.view
 
-import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
-import com.innovation.rain.feature.rica.agentdeclaration.presenter.AgentDeclarationPresenter
+import android.os.Bundle
+import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
-import javax.inject.Inject
+import kotlinx.android.synthetic.main.fragment_rica_verify_loaded.*
 
 
-class AgentDeclarationFragment : BaseRicaFragment<RicaHomePresenter>(), AgentDeclarationView {
+class AgentDeclarationFragment() : BaseRicaFragment<RicaHomePresenter>(){
 
     /*@Inject
     lateinit var presenter: RicaHomePresenter*/
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ricaVerifyFragment.setOnClickListener {
+            activity?.finish()
+        }
+
+    }
 
     override fun getPresenter(): RicaHomePresenter? {
         return null
     }
 
-    override fun getLayoutId() = R.layout.fragment_rica_agent_declaration
+    override fun getLayoutId() = R.layout.fragment_rica_verify_loaded
 
 
     override fun onRicaStatePreLoad() {
@@ -32,8 +40,5 @@ class AgentDeclarationFragment : BaseRicaFragment<RicaHomePresenter>(), AgentDec
     override fun onProceedButtonClicked() {
     }
 
-    override fun enableButtonProceed(allowEnableProceedButton: Boolean){
-
-    }
 
 }

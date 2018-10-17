@@ -7,6 +7,8 @@ import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.util.NavigateUtil
+import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.collection.orders.view.OrderListFragment
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenter
 import com.innovation.rain.feature.collection.signin.view.exception.NoOrderFragment
@@ -46,8 +48,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
     }
 
     override fun goToCollectionOrder(info: ClientSignInUiModel?) {
-        // TODO integrate @JAV here
-        showToastInfo("Ok -> Goto Order")
+        activity?.showFragment<OrderListFragment>()
     }
 
     override fun getLayoutId(): Int {

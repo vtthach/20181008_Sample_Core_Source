@@ -1,7 +1,7 @@
 package com.innovation.rain.feature.collection.orders.presenter
 
 import android.os.Bundle
-import com.innovation.rain.app.base.presenter.BasePresenterImpl
+import com.sf0404.core.application.base.presenter.BasePresenterImpl
 import com.innovation.rain.feature.collection.orders.model.OrderEntity
 import com.innovation.rain.feature.collection.orders.view.OrderListView
 

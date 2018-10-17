@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.util.NavigateUtil
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment
 import com.innovation.rain.feature.welcomemenu.presenter.WelcomeMenuPresenter
 import com.sf0404.common.container.activity.BackPressCallback

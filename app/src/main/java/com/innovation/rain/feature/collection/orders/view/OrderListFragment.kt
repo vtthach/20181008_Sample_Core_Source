@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.agentlogin.view.RicaHomeFragment
 import com.innovation.rain.feature.collection.orders.model.OrderEntity
 import com.innovation.rain.feature.collection.orders.presenter.OrderListPresenter
+import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.collection_order_list_fragment.*
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.collection.orders.injection
 
-import com.innovation.rain.app.injection.scope.PerView
+import com.sf0404.core.application.scope.PerView
 import com.innovation.rain.feature.collection.orders.presenter.OrderListPresenter
 import com.innovation.rain.feature.collection.orders.presenter.OrderListPresenterImpl
 import com.innovation.rain.feature.collection.orders.view.OrderListFragment

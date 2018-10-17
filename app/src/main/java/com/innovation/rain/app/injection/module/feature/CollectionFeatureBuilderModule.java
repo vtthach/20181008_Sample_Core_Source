@@ -5,12 +5,16 @@ import com.innovation.rain.feature.collection.scaniddoc.scan.idbook.injection.Sc
 import com.innovation.rain.feature.collection.scaniddoc.scan.idcard.injection.ScanIdCardBuilderModule;
 import com.innovation.rain.feature.collection.scaniddoc.scan.passport.injection.ScanPassportBuilderModule;
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
+import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
+import com.innovation.rain.feature.rica.home.injection.SampleBuilderModule;
 
 import dagger.Module;
 
 @Module(includes = {
         ClientSignInBuilderModule.class,
         OrderListBuilderModule.class,
+        RicaHomeBuilderModule.class,
+        SampleBuilderModule.class,
         ScanIdBookBuilderModule.class,
         ScanIdCardBuilderModule.class,
         ScanPassportBuilderModule.class

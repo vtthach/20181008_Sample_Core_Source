@@ -1,12 +1,11 @@
 package com.sf0404.common.toast.customwindow;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Handler;
+import android.support.annotation.DrawableRes;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.cbsa.ui.widget.notification.OverlayWindowView;
 import com.sf0404.common.R;
 
 public class NotificationManager implements OverlayWindowView.NotificationCallback {
@@ -21,22 +20,20 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
         this.builder = this.getDefaultBuilder(activity);
     }
 
-    protected OverlayWindowView.Builder<NotificationData> getDefaultBuilder(Context context) {
-        return new OverlayWindowView.Builder<NotificationData>(context)
+    protected OverlayWindowView.Builder<NotificationData> getDefaultBuilder(Activity activity) {
+        return new OverlayWindowView.Builder<NotificationData>(activity.getWindow())
                 .withData(this.notificationData)
-                .windowType(WindowManager.LayoutParams.TYPE_APPLICATION)
-                .animationStyle(R.style.AppNotificationAnim)
-                .withMarginTop(getDefaultMarginTop(context))
+                .withMarginTop(getDefaultMarginTop())
                 .withCallback(this)
-                .withViewHolder(new NotificationViewHolder(ToastType.TYPE_INFO));
+                .withViewHolder(new NotificationViewHolder());
     }
 
-    private int getDefaultMarginTop(Context context) {
+    private int getDefaultMarginTop() {
         return 10;
     }
 
     public void showNotifyError(String msg) {
-        showNotify(ToastType.TYPE_ERROR, getDefaultMarginTop(activity), msg);
+        showNotify(ToastType.TYPE_ERROR, getDefaultMarginTop(), msg);
     }
 
     public void showNotifyError(int viewPosition, String errorMessage) {
@@ -48,7 +45,7 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
     }
 
     public void showNotifyInfo(String errorMessage) {
-        showNotify(ToastType.TYPE_INFO, getDefaultMarginTop(activity), errorMessage);
+        showNotify(ToastType.TYPE_INFO, getDefaultMarginTop(), errorMessage);
     }
 
     public void showNotify(ToastType type, int topMargin, String msg) {
@@ -57,7 +54,8 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
             if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
                 return;
             }
-            notificationData.msg = msg;
+            notificationData.message = msg;
+            notificationData.resIcon = type == ToastType.TYPE_ERROR ? R.drawable.ic_error : R.drawable.ic_success;
             if (notificationView != null) {
                 notificationView.dismiss();
             }
@@ -65,8 +63,7 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
                     .withData(notificationData)
                     .withMarginTop(topMargin)
                     .windowWidth(WindowManager.LayoutParams.MATCH_PARENT)
-                    .animationStyle(R.style.AppNotificationAnim)
-                    .withViewHolder(new NotificationViewHolder(type))
+                    .withViewHolder(new NotificationViewHolder())
                     .show();
         }, 200);
     }
@@ -88,6 +85,8 @@ public class NotificationManager implements OverlayWindowView.NotificationCallba
     }
 
     public class NotificationData {
-        String msg;
+        @DrawableRes
+        public int resIcon = R.drawable.ic_success; // Default
+        public String message; // NOSONAR -> just want access this field public
     }
 }

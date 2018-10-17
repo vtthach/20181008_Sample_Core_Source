@@ -71,7 +71,4 @@ dependencies {
 
     testImplementation testDependency.junit
     implementation kotlinComponent.kotlinStdlibJdk7
-
-    // Overlay window
-    compileOnly(name: 'toastnotify-0.1', ext: 'aar')
 }

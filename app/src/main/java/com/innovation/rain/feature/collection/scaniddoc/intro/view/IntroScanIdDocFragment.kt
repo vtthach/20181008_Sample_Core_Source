@@ -5,9 +5,9 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.base.fragment.BaseFragment
 import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.collection.scaniddoc.scanidbook.view.ScanIdBookFragment
-import com.innovation.rain.feature.collection.scaniddoc.scanidcard.view.ScanIdCardFragment
-import com.innovation.rain.feature.collection.scaniddoc.scanpassport.view.ScanPassportFragment
+import com.innovation.rain.feature.collection.scaniddoc.scan.idbook.view.ScanIdBookFragment
+import com.innovation.rain.feature.collection.scaniddoc.scan.idcard.view.ScanIdCardFragment
+import com.innovation.rain.feature.collection.scaniddoc.scan.passport.view.ScanPassportFragment
 import kotlinx.android.synthetic.main.intro_scan_id_doc_fragment.*
 
 

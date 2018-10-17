@@ -17,4 +17,8 @@
     <dimen name="btn_dialog_width">190dp</dimen>
     <dimen name="dialog_margin_top_bot">50dp</dimen>
 
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="rica_home_card_margin_top">40dp</dimen>
+    <dimen name="rica_home_card_height">440dp</dimen>
+    <dimen name="rica_home_card_padding">20dp</dimen>
 </resources>

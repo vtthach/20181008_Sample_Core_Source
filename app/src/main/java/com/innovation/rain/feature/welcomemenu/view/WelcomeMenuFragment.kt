@@ -52,7 +52,7 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnCollection.setOnClickListener {
-            ClientSignInFragment.showMe(activity)
+            activity?.showFragment<ClientSignInFragment>()
         }
     }
 }

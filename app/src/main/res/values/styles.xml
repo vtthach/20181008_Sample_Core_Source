@@ -36,4 +36,14 @@
         <item name="android:textColor">@color/dark_gray</item>
         <item name="android:textColorHint">@color/primary</item>
     </style>
+
+    <style name="TextTitle.ItemTitle" parent="TextTitle">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="ItemContent">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

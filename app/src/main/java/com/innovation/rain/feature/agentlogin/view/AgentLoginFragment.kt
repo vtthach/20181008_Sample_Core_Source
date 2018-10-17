@@ -1,17 +1,14 @@
 package com.innovation.rain.feature.agentlogin.view
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
 import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
-import com.sf0404.common.container.activity.ContainerActivity
-import com.sf0404.common.container.mode.ToolbarMode
-import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.agent_login_fragment.*
 import javax.inject.Inject
 
@@ -26,16 +23,6 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
     override fun enableButtonSignIn(allowEnableSignInButton: Boolean) {
         btnLogin.isEnabled = allowEnableSignInButton
         btnLogin.isActivated = allowEnableSignInButton
-    }
-
-    companion object {
-        fun showMe(activity: Activity) {
-            val intentBuilder = ContainerActivity.IntentBuilder(activity)
-            intentBuilder.setFragmentClass(AgentLoginFragment::class.java)
-                    .setFlag(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    .setActionMode(ToolbarMode.NONE)
-            intentBuilder.start()
-        }
     }
 
     override fun getLayoutId(): Int {
@@ -77,7 +64,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             activity?.finish()
         }
         btnLogin.setOnClickListener {
-            WelcomeMenuFragment.showMe(activity)
+            activity?.showFragment<WelcomeMenuFragment>()
         }
     }
 }

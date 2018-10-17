@@ -14,9 +14,12 @@
     <!--Client login-->
     <string name="client_login_title">client sign in</string>
     <string name="client_login_enter_id">enter ID number</string>
-    <string name="str_proceed">proceed</string>
     <string name="client_sign_in_no_order_dialog_title">you have not placed any orders</string>
     <string name="client_sign_in_no_order_dialog_btn_1">back to home</string>
     <string name="client_sign_in_no_order_dialog_btn_2">main menu</string>
+
+    <!--dashboard-->
+    <string name="str_proceed">proceed</string>
+    <string name="str_rica">RICA</string>
 
 </resources>

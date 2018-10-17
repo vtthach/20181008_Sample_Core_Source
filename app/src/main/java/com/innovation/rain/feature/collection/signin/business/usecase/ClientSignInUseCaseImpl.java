@@ -1,5 +1,6 @@
 package com.innovation.rain.feature.collection.signin.business.usecase;
 
+import com.innovation.rain.app.constant.ApiConstants;
 import com.innovation.rain.feature.collection.signin.business.mapper.ClientSignInMapper;
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInCallback;
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInParam;
@@ -31,17 +32,29 @@ public class ClientSignInUseCaseImpl extends UseCaseImpl<ClientSignInUiModel, Cl
     }
 
     @Override
+    public void onSuccess(ClientSignInUiModel clientSignInUiModel) {
+        super.onSuccess(clientSignInUiModel);
+    }
+
+    @Override
     protected boolean handleBusiness(BusinessErrorException e) {
         return isNoOrderException(e);
     }
 
-    @Override
-    protected void onUnknownError(Throwable e) { // TODO remove this method when integrate real API caused only hard code to test onNoOrder
-        callback.onNoOrder(e.getMessage());
-    }
-
     private boolean isNoOrderException(BusinessErrorException e) {
-        callback.onNoOrder(e.getCode());
-        return true; // TODO update when have real API
+        String code = e.getCode();
+        if (code == null) {
+            return false;
+        }
+        switch (e.getCode()) {
+            case ApiConstants.ErrorCode.NO_ORDER:
+                callback.onNoOrder(e.getCode());
+                return true;
+            case ApiConstants.ErrorCode.NON_REGISTER:
+                callback.onNonRegisterId(e.getCode());
+                return true;
+            default:
+                return false;
+        }
     }
 }

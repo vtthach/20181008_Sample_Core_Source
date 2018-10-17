@@ -2,14 +2,11 @@
   "version": "1.0",
   "config": [
     {
-      "name": "login",
-      "endpoint": "/login",
+      "name": "clientlogin",
+      "endpoint": "api/clientlogin",
       "data": [
         {
-          "dataField": "email"
-        },
-        {
-          "dataField": "password"
+          "dataField": "identityNumber"
         }
       ]
     }

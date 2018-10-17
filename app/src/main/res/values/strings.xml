@@ -16,7 +16,7 @@
     <string name="client_login_enter_id">enter ID number</string>
     <string name="str_proceed">proceed</string>
     <string name="client_sign_in_no_order_dialog_title">you have not placed any orders</string>
-    <string name="client_sign_in_no_order_dialog_btn_1">Back to Home</string>
-    <string name="client_sign_in_no_order_dialog_btn_2">Main menu</string>
+    <string name="client_sign_in_no_order_dialog_btn_1">back to home</string>
+    <string name="client_sign_in_no_order_dialog_btn_2">main menu</string>
 
 </resources>

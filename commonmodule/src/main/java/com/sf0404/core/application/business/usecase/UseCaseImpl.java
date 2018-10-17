@@ -11,6 +11,9 @@ import com.sf0404.core.application.business.core.exception.ErrorModel;
 import com.sf0404.core.application.business.mapper.BaseMapper;
 import com.sf0404.core.application.business.model.BaseUiModel;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -59,7 +62,7 @@ public abstract class UseCaseImpl<T extends BaseUiModel, P extends BaseParam, E,
                 Response<?> response = httpException.response();
                 ResponseBody errorBody = response != null ? response.errorBody() : null;
                 if (errorBody != null) {
-                    ErrorModel errorModel = parseError(errorBody.toString());
+                    ErrorModel errorModel = parseError(getStringFromResponseBody(errorBody));
                     if (errorModel != null) {
                         exception.setCode(errorModel.code);
                         exception.setMessage(errorModel.message);
@@ -78,11 +81,34 @@ public abstract class UseCaseImpl<T extends BaseUiModel, P extends BaseParam, E,
         return disposal;
     }
 
+    private String getStringFromResponseBody(ResponseBody responseBody) {
+        BufferedReader reader = null;
+        StringBuilder sb = new StringBuilder();
+        try {
+            reader = new BufferedReader(new InputStreamReader(responseBody.byteStream(), "UTF8"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        } catch (java.io.IOException e) {
+            Timber.e(e, "Get string error");
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (java.io.IOException e) {
+                    Timber.e(e, "Get string error");
+                }
+            }
+        }
+        return sb.toString();
+    }
+
     private ErrorModel parseError(String jsonStr) {
         try {
             return new Gson().fromJson(jsonStr, ErrorModel.class);
         } catch (Exception e) {
-            Timber.e("UseCaseImp - Parse ");
+            Timber.e(e,"UseCaseImp - Parse ");
             return null;
         }
     }
@@ -105,7 +131,7 @@ public abstract class UseCaseImpl<T extends BaseUiModel, P extends BaseParam, E,
     @Override
     @CallSuper
     public void onError(Throwable e) {
-        // TODO check network if need // NOSONAR
+        // TODO check generic exception if need // NOSONAR
         onCommonError(e);
     }
 

@@ -1,10 +1,10 @@
 package com.innovation.rain.feature.collection.orders.injection
 
-import com.sf0404.core.application.scope.PerView
 import com.innovation.rain.feature.collection.orders.presenter.OrderListPresenter
 import com.innovation.rain.feature.collection.orders.presenter.OrderListPresenterImpl
 import com.innovation.rain.feature.collection.orders.view.OrderListFragment
 import com.innovation.rain.feature.collection.orders.view.OrderListView
+import com.sf0404.core.application.scope.PerView
 import dagger.Binds
 import dagger.Module
 

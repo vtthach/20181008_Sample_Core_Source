@@ -8,6 +8,7 @@ import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
 class NavigateUtil {
     companion object {
         fun logout(activity: Activity) {
+            // TODO goto launcher Need confirmation
             AgentLoginFragment.showMe(activity)
             activity.finishAffinity()
             activity.overridePendingTransition(R.anim.anim_activity_next, R.anim.anim_activity_previous)

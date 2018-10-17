@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ViewAnimator
 import com.innovation.rain.R
-import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
-import com.sf0404.core.application.base.presenter.BasePresenter
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.home.callback.RicaStateView
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.innovation.rain.feature.rica.home.view.RicaHomeView
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
+import com.sf0404.core.application.base.presenter.BasePresenter
 import kotlinx.android.synthetic.main.fragment_rica.*
 
 abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragment<T>(), RicaStateView {

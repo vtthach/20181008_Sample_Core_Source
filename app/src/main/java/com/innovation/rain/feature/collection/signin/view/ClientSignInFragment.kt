@@ -44,7 +44,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
     }
 
     override fun notifyIdInvalid() {
-        showToastError("Please enter your South African ID number.")
+        showToastError("Please enter your South African ID number")
     }
 
     override fun goToCollectionOrder(info: ClientSignInUiModel?) {

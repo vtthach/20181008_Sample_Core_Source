@@ -7,12 +7,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
-import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
 import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.agent_login_fragment.*
 import javax.inject.Inject
 

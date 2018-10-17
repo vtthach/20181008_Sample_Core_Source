@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.agentdeclaration.presenter
+package com.innovation.rain.feature.rica.agentdeclaration.presenter
 
 import com.innovation.rain.app.base.presenter.BasePresenter
 

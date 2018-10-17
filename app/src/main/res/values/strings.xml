@@ -15,6 +15,10 @@
     <string name="client_login_title">client sign in</string>
     <string name="client_login_enter_id">enter ID number</string>
 
+    <!--dashboard-->
+    <string name="str_proceed">proceed</string>
+    <string name="str_rica">RICA</string>
+
     <!--Rica agent declaration-->
     <string name="rica_agent_declaration_title">RICA agent \nverification</string>
     <string name="rica_agent_declaration_desc">RICA verified</string>

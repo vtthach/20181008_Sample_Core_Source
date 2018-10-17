@@ -1,7 +1,7 @@
-package com.innovation.rain.feature.agentdeclaration.injection
+package com.innovation.rain.feature.rica.agentdeclaration.injection
 
 import com.innovation.rain.app.injection.scope.PerView
-import com.innovation.rain.feature.agentdeclaration.view.AgentDeclarationFragment
+import com.innovation.rain.feature.rica.agentdeclaration.view.AgentDeclarationFragment
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

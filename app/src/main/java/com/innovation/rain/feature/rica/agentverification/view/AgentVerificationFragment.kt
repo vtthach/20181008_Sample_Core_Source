@@ -2,6 +2,7 @@ package  com.innovation.rain.feature.rica.agentverification.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
@@ -25,12 +26,9 @@ class AgentVerificationFragment() : BaseRicaFragment<RicaHomePresenter>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ricaVerifyFragment.setOnClickListener {
-            //            activity?.finish()
+            ricaState = RicaState.STATE_DONE
             enableButtonProceed(true)
         }
-
-        ricaState = RicaState.STATE_LOADED
-
     }
 
     override fun getPresenter(): RicaHomePresenter? {

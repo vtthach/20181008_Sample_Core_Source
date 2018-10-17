@@ -7,7 +7,7 @@ import com.innovation.rain.feature.collection.scaniddoc.scan.passport.injection.
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.SampleBuilderModule;
-import com.innovation.rain.feature.rica.scaniddoc.injection.ScanIdDocBuilderModule;
+import com.innovation.rain.feature.rica.scaniddoc.home.injection.ScanIdDocBuilderModule;
 
 import dagger.Module;
 

@@ -1,11 +1,11 @@
-package com.innovation.rain.feature.rica.scaniddoc.view
+package com.innovation.rain.feature.rica.scaniddoc.home.view
 
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
-import com.innovation.rain.feature.rica.scaniddoc.presenter.ScanIdDocPresenter
+import com.innovation.rain.feature.rica.scaniddoc.home.presenter.ScanIdDocPresenter
 import kotlinx.android.synthetic.main.fragment_home_scan_id_doc.*
 import javax.inject.Inject
 

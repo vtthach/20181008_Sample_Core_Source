@@ -1,6 +1,6 @@
 package com.innovation.rain.app.injection.module.feature;
 
-import com.innovation.rain.feature.rica.agentdeclaration.injection.AgentDeclarationBuilderModule;
+import com.innovation.rain.feature.rica.agentverification.injection.AgentVerificationBuilderModule;
 import com.innovation.rain.feature.collection.orders.injection.OrderListBuilderModule;
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
@@ -12,7 +12,7 @@ import dagger.Module;
         ClientSignInBuilderModule.class,
         OrderListBuilderModule.class,
         RicaHomeBuilderModule.class,
-        AgentDeclarationBuilderModule.class,
+        AgentVerificationBuilderModule.class,
         SampleBuilderModule.class
 })
 public class CollectionFeatureBuilderModule {

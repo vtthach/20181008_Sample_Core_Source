@@ -1,7 +1,7 @@
-package  com.innovation.rain.feature.rica.agentdeclaration.view
+package  com.innovation.rain.feature.rica.agentverification.view
 
 import com.innovation.rain.app.base.presenter.BasePresenterView
 
-interface AgentDeclarationView : BasePresenterView {
+interface AgentVerificationView : BasePresenterView {
     fun enableButtonProceed(allowEnableProceedButton: Boolean)
 }

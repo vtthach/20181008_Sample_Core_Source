@@ -5,7 +5,7 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.enums.RicaState
-import com.innovation.rain.feature.rica.agentdeclaration.view.AgentDeclarationFragment
+import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.sample.SampleFragment
@@ -57,11 +57,13 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
 
     private fun initView() {
         mFragments = getFragments()
-        val transaction = fragmentManager?.beginTransaction()
-        transaction?.add(R.id.container_sa_id, mFragments[0])
-        transaction?.add(R.id.container_sa_por, mFragments[1])
-        transaction?.add(R.id.container_sa_rica, mFragments[2])
-        transaction?.commitAllowingStateLoss()
+        val transaction = childFragmentManager.beginTransaction().apply {
+            add(R.id.container_sa_id, mFragments[0])
+            add(R.id.container_sa_por, mFragments[1])
+            add(R.id.container_sa_rica, mFragments[2])
+            commitAllowingStateLoss()
+        }
+
     }
 
     private fun getCurrentIndex(): Int {
@@ -78,7 +80,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
      */
     private fun getFragments(): List<BaseRicaFragment<*>> {
         val firstFragment: BaseRicaFragment<*> = SampleFragment()
-        var ricaVerifyFragment :  BaseRicaFragment<*> = AgentDeclarationFragment()
+        var ricaVerifyFragment :  BaseRicaFragment<*> = AgentVerificationFragment()
         val b = Bundle()
         b.putInt(BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
         firstFragment.arguments = b

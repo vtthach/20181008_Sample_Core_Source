@@ -24,15 +24,6 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
     @Inject
     lateinit var viewPresenter: ClientSignInPresenter
 
-    companion object {
-        fun showMe(activity: FragmentActivity?) {
-            val intentBuilder = ContainerActivity.IntentBuilder(activity)
-            intentBuilder.setFragmentClass(ClientSignInFragment::class.java)
-                    .setActionMode(ToolbarMode.NONE)
-            intentBuilder.start()
-        }
-    }
-
     override fun getPresenter() = viewPresenter
 
     override fun notifyNonRegisterId(apiCode: String?) {

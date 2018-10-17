@@ -73,8 +73,7 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
     }
 
     protected fun enableButtonProceed(allowEnableProceedButton: Boolean) {
-        val f = parentFragment as RicaHomeView?
-        f?.enableButtonProceed(allowEnableProceedButton)
+        (parentFragment as? RicaHomeView)?.enableButtonProceed(allowEnableProceedButton)
     }
 
     protected fun notifyRicaStateDone() {

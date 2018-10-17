@@ -1,6 +1,5 @@
 package com.innovation.rain.feature.welcomemenu.view
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -11,14 +10,13 @@ import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment
 import com.innovation.rain.feature.welcomemenu.presenter.WelcomeMenuPresenter
 import com.sf0404.common.container.activity.BackPressCallback
 import com.sf0404.common.container.activity.BaseActivity
-import com.sf0404.common.container.activity.ContainerActivity
-import com.sf0404.common.container.mode.ToolbarMode
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.welcome_menu_fragment.*
 import javax.inject.Inject
 
 
 class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>(), WelcomeMenuView, BackPressCallback {
+
     @Inject
     lateinit var viewPresenter: WelcomeMenuPresenter
 
@@ -27,15 +25,6 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
     override fun onHandleBackPress(): Boolean {
         NavigateUtil.logout(activity!!)
         return true
-    }
-
-    companion object {
-        fun showMe(activity: Activity?) {
-            val intentBuilder = ContainerActivity.IntentBuilder(activity)
-            intentBuilder.setFragmentClass(WelcomeMenuFragment::class.java)
-                    .setActionMode(ToolbarMode.NONE)
-            intentBuilder.start()
-        }
     }
 
     override fun getLayoutId(): Int {

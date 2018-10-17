@@ -53,7 +53,7 @@
                 android:layout_width="@dimen/btn_dialog_width"
                 android:layout_height="@dimen/btn_action_height"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/bkg_solid_corner"
+                android:background="@drawable/ripple_button_solid"
                 android:text="@string/client_sign_in_no_order_dialog_btn_1"
                 android:textColor="@color/text_primary" />
 
@@ -63,7 +63,7 @@
                 android:layout_width="@dimen/btn_dialog_width"
                 android:layout_height="@dimen/btn_action_height"
                 android:layout_marginStart="5dp"
-                android:background="@drawable/bkg_solid_corner"
+                android:background="@drawable/ripple_button_solid"
                 android:text="@string/client_sign_in_no_order_dialog_btn_2"
                 android:textColor="@color/text_primary" />
         </LinearLayout>
@@ -73,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:textColor="@color/dark_gray"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toBottomOf="parent"

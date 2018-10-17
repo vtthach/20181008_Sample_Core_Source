@@ -12,4 +12,9 @@ public abstract class ClientSignInCallback extends BaseCallbackImpl<ClientSignIn
     public void onNoOrder(String apiCode) {
         view.showDialogNoOrder(apiCode);
     }
+
+    public void onNonRegister(String apiCode) {
+        // TODO integrate with real api
+        view.notifyNonRegisterId(apiCode);
+    }
 }

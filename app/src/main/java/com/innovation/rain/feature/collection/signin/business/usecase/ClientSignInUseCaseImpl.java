@@ -31,16 +31,17 @@ public class ClientSignInUseCaseImpl extends UseCaseImpl<ClientSignInUiModel, Cl
     }
 
     @Override
-    protected void onCommonError(Throwable e) { // TODO remove  this method when integrate real API
-        callback.onNoOrder("TODO CODE");
-    }
-
-    @Override
     protected boolean handleBusiness(BusinessErrorException e) {
         return isNoOrderException(e);
     }
 
+    @Override
+    protected void onUnknownError(Throwable e) { // TODO remove this method when integrate real API caused only hard code to test onNoOrder
+        callback.onNoOrder(e.getMessage());
+    }
+
     private boolean isNoOrderException(BusinessErrorException e) {
+        callback.onNoOrder(e.getCode());
         return true; // TODO update when have real API
     }
 }

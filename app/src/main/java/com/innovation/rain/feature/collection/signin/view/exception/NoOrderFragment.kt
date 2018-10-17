@@ -25,7 +25,7 @@ class NoOrderFragment : BaseDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnMainMenu.setOnClickListener {
-            NavigateUtil.goToAgentSignIn(activity!!)
+            NavigateUtil.logout(activity!!)
             dismiss()
         }
 

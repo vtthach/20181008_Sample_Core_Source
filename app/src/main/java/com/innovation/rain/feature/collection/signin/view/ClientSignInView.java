@@ -12,4 +12,6 @@ public interface ClientSignInView extends BasePresenterView {
     void notifyIdInvalid();
 
     void showDialogNoOrder(String apiCode);
+
+    void notifyNonRegisterId(String apiCode);
 }

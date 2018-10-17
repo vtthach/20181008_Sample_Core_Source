@@ -89,17 +89,6 @@ public abstract class BaseFragment extends Fragment {
         return SpannableUtils.getSpanColor(getString(strId), color);
     }
 
-//    protected void showSnackBarMessage(@StringRes int snackBarMsg) {
-//        showSnackBarMessage(getString(snackBarMsg));
-//    }
-
-//    protected void showSnackBarMessage(String message) {
-//        View view = getView();
-//        if (view != null) {
-//            Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
-//        }
-//    }
-
     protected void showToastInfo(String stringExtra) {
         ToastManagerHelper toastHelper = getToastHelper();
         if (toastHelper != null) {

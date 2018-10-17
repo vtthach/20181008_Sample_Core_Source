@@ -24,7 +24,7 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
     override fun getPresenter() = viewPresenter
 
     override fun onHandleBackPress(): Boolean {
-        NavigateUtil.goToAgentSignIn(activity!!)
+        NavigateUtil.logout(activity!!)
         return true
     }
 

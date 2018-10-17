@@ -22,12 +22,6 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
     @Inject
     lateinit var viewPresenter: ClientSignInPresenter
 
-    override fun getPresenter() = viewPresenter
-
-    override fun showDialogNoOrder(apiCode: String) {
-        NoOrderFragment.newInstance(apiCode).show(fragmentManager, NoOrderFragment::class.java.simpleName)
-    }
-
     companion object {
         fun showMe(activity: FragmentActivity?) {
             val intentBuilder = ContainerActivity.IntentBuilder(activity)
@@ -35,6 +29,16 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
                     .setActionMode(ToolbarMode.NONE)
             intentBuilder.start()
         }
+    }
+
+    override fun getPresenter() = viewPresenter
+
+    override fun notifyNonRegisterId(apiCode: String?) {
+        showToastError("Invalid ID [$apiCode]")
+    }
+
+    override fun showDialogNoOrder(apiCode: String) {
+        NoOrderFragment.newInstance(apiCode).show(fragmentManager, NoOrderFragment::class.java.simpleName)
     }
 
     override fun notifyIdInvalid() {
@@ -59,7 +63,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnExit.setOnClickListener {
-            NavigateUtil.goToAgentSignIn(this.activity!!)
+            NavigateUtil.logout(this.activity!!)
         }
 
         edId.addTextChangedListener(textIdChangeListener)

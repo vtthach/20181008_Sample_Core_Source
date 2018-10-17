@@ -5,22 +5,12 @@ import android.widget.TextView;
 
 import com.cbsa.ui.widget.notification.OverlayWindowView;
 import com.sf0404.common.R;
-import com.sf0404.common.R2;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 class NotificationViewHolder implements OverlayWindowView.OverlayViewHolder<NotificationManager.NotificationData> {
 
     private final ToastType type;
 
-    @BindView(R2.id.tvMessage)
-    TextView tvMessage;
-
-    private Unbinder unBinder;
-
-    View rootView;
+    private TextView tvMessage;
 
     public NotificationViewHolder(ToastType type) {
         this.type = type;
@@ -37,8 +27,7 @@ class NotificationViewHolder implements OverlayWindowView.OverlayViewHolder<Noti
 
     @Override
     public void initView(View view) {
-        rootView = view;
-        unBinder = ButterKnife.bind(this, view);
+        tvMessage = view.findViewById(R.id.tvMessage);
     }
 
     @Override
@@ -55,6 +44,4 @@ class NotificationViewHolder implements OverlayWindowView.OverlayViewHolder<Noti
     public void setNotificationView(OverlayWindowView overlayWindowView) {
         // Stub method
     }
-
-    // TODO add callback when onDismiss occur to clean data - for ex:unBinder
 }

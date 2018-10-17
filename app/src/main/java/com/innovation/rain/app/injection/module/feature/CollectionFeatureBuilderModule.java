@@ -7,6 +7,7 @@ import com.innovation.rain.feature.collection.scaniddoc.scan.passport.injection.
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.SampleBuilderModule;
+import com.innovation.rain.feature.rica.scaniddoc.injection.ScanIdDocBuilderModule;
 
 import dagger.Module;
 
@@ -17,7 +18,8 @@ import dagger.Module;
         SampleBuilderModule.class,
         ScanIdBookBuilderModule.class,
         ScanIdCardBuilderModule.class,
-        ScanPassportBuilderModule.class
+        ScanPassportBuilderModule.class,
+        ScanIdDocBuilderModule.class
 })
 public class CollectionFeatureBuilderModule {
     // Use later

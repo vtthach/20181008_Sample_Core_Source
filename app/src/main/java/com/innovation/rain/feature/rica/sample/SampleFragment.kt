@@ -1,15 +1,13 @@
 package com.innovation.rain.feature.rica.sample
 
-import android.widget.ViewAnimator
+import com.innovation.rain.R
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 
 
 class SampleFragment : BaseRicaFragment<RicaHomePresenter>() {
     override fun getLoadedStateLayout(): Int {
-        TODO("return layout of loaded state")
-        return 0;
-//       return R.layout.sample_view
+        return R.layout.fragment_home_scan_id_doc
     }
 
     override fun getPreLoadStateTitle(): String {

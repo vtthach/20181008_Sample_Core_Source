@@ -18,5 +18,9 @@
     <!--dashboard-->
     <string name="str_proceed">proceed</string>
     <string name="str_rica">RICA</string>
+    <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides</string>
+    <string name="scan_below">scan below</string>
+    <string name="id_verified">ID verified</string>
+    <string name="scan_id">Scan Id</string>
 
 </resources>

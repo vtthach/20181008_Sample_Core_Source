@@ -1,7 +1,7 @@
 package com.innovation.rain.feature.rica.home.injection
 
 import com.innovation.rain.app.injection.scope.PerView
-import com.innovation.rain.feature.agentlogin.view.SampleFragment
+import com.innovation.rain.feature.rica.sample.SampleFragment
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

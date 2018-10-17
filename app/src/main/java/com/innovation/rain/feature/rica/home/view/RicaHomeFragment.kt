@@ -1,7 +1,5 @@
-package com.innovation.rain.feature.agentlogin.view
+package com.innovation.rain.feature.rica.home.view
 
-import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
@@ -10,7 +8,7 @@ import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.agentdeclaration.view.AgentDeclarationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
-import com.innovation.rain.feature.rica.home.view.RicaHomeView
+import com.innovation.rain.feature.rica.sample.SampleFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
 import javax.inject.Inject
@@ -20,9 +18,8 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
 
     companion object {
         const val BUNDLE_KEY_RICA_STATE = "BUNDLE_KEY_RICA_STATE"
+        const val REQUEST_CODE = 1001
     }
-
-    private val REQUEST_CODE = 1001
 
     @Inject
     lateinit var viewPresenter: RicaHomePresenter
@@ -65,17 +62,6 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         transaction?.add(R.id.container_sa_por, mFragments[1])
         transaction?.add(R.id.container_sa_rica, mFragments[2])
         transaction?.commitAllowingStateLoss()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (REQUEST_CODE == requestCode && resultCode == RESULT_OK) {
-            val state: RicaState = RicaState.valueOf(data?.extras?.getInt(BUNDLE_KEY_RICA_STATE)
-                    ?: -1)
-            if (state == RicaState.STATE_DONE) {
-                notifyRicaStateDone()
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun getCurrentIndex(): Int {

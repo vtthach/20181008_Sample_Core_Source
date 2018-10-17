@@ -1,11 +1,11 @@
 package com.innovation.rain.feature.rica.home.callback
 
 interface RicaStateView {
-    fun onRicaStatePreLoad()
+    fun showPreLoadState()
 
-    fun onRicaStateLoaded()
+    fun showLoadedState()
 
-    fun onRicaStateDone()
+    fun showDoneState()
 
     fun onProceedButtonClicked()
 }

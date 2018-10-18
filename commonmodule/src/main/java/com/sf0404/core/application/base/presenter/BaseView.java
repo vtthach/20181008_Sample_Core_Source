@@ -6,7 +6,7 @@ import android.support.annotation.StringRes;
 import com.sf0404.core.application.business.core.callback.BaseCallbackView;
 
 
-public interface BasePresenterView extends BaseCallbackView {
+public interface BaseView extends BaseCallbackView {
     Context getAppContext();
 
     boolean isAttached();

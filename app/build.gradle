@@ -125,3 +125,6 @@ dependencies {
     // Unit test
     testImplementation testDependency.junit
 }
+androidExtensions {
+    experimental = true
+}

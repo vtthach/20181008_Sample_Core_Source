@@ -14,9 +14,9 @@
     <!--Client login-->
     <string name="client_login_title">client sign in</string>
     <string name="client_login_enter_id">enter ID number</string>
-    <string name="client_sign_in_no_order_dialog_title">You currently do not have any orders placed with us</string>
+    <string name="client_sign_in_no_order_dialog_title">You currently do not have any orders for collection. \nIf you would like to order, simply click shop rain\non the home screen.</string>
     <string name="client_sign_in_no_order_dialog_btn_1">exit</string>
-    <string name="client_sign_in_no_order_dialog_btn_2">main menu</string>
+    <string name="client_sign_in_no_order_dialog_btn_2">home</string>
     <string name="manual_address_title">Please add your home address</string>
 
     <!--dashboard-->

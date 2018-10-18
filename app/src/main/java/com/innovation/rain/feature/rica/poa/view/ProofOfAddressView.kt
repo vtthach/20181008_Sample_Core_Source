@@ -7,4 +7,5 @@ interface ProofOfAddressView : BaseView {
     fun showAddressList(list: List<String>)
     fun showManualCaptureBtn()
     fun showCaptureManualScreen()
+    fun onDone()
 }

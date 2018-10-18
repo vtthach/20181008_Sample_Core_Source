@@ -7,13 +7,16 @@
     <FrameLayout
         android:id="@+id/preloadState"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/card_grey"
-        android:layout_height="match_parent">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <TextView
             android:id="@+id/preloadTitleTv"
             style="@style/TextTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_top_home_title"
@@ -23,10 +26,10 @@
     </FrameLayout>
 
     <FrameLayout
-        android:background="@drawable/card_blue_outline"
         android:id="@+id/loadedState"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/card_blue_outline">
 
     </FrameLayout>
 
@@ -35,11 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/card_blue"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <TextView
             android:id="@+id/doneTitleTv"
             style="@style/TextTitle"
+            android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_top_home_title"
             android:textColor="@android:color/white"

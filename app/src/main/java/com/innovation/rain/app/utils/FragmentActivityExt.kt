@@ -24,3 +24,12 @@ inline fun <reified T : Fragment> Fragment.showFragment(flag: Int = ContainerAct
             .setRequestCode(requestCode)
             .start()
 }
+
+inline fun <reified T : Fragment> Fragment.startForResult(requestCode: Int) {
+    ContainerActivity.IntentBuilder(this).apply {
+        setRequestCode(requestCode)
+        setFragmentClass(T::class.java)
+        setActionMode(ToolbarMode.NONE)
+        start()
+    }
+}

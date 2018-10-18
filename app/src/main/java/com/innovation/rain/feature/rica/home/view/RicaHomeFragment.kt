@@ -8,10 +8,10 @@ import com.innovation.rain.feature.rica.agentverification.view.AgentVerification
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
-import com.innovation.rain.feature.rica.sample.SampleFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
+import timber.log.Timber
 import java.util.*
 import javax.inject.Inject
 
@@ -52,7 +52,12 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         }
         btnProceed.setOnClickListener {
             // handle logic for current fragment
-            mFragments[getCurrentIndex()].onProceedButtonClicked()
+            val currentIndex = getCurrentIndex()
+            if (getCurrentIndex() < 3) {
+                mFragments[getCurrentIndex()].onProceedButtonClicked()
+            } else {
+                Timber.i("Handle next button")
+            }
         }
         initView()
     }

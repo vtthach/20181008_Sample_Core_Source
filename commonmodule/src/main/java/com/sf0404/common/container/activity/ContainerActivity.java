@@ -60,7 +60,7 @@ public class ContainerActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       initActionBar();
+        initActionBar();
         // Inflate fragment only in state create new not in restart(by change orientation, low memory, etc...)
         if (savedInstanceState == null) {
             hostFragment(getDefaultFragmentToHost());
@@ -407,10 +407,7 @@ public class ContainerActivity extends BaseActivity {
             return this;
         }
 
-        /**
-         * Start.
-         */
-        public void start() {
+        public Intent buildIntent() {
             Intent intent = new Intent(activity, ContainerActivity.class);
             if (navigateButtonVisibility != 0) {
                 intent.putExtra(EXTRA_TOOLBAR_NAVIGATE_BUTTON_VISIBILITY, navigateButtonVisibility);
@@ -440,6 +437,14 @@ public class ContainerActivity extends BaseActivity {
             if (data != null) {
                 intent.putExtra(EXTRA_FRAGMENT_BUNDLE_ARGS, data);
             }
+            return intent;
+        }
+
+        /**
+         * Start.
+         */
+        public void start() {
+            Intent intent = buildIntent();
             if (requestCode != UNUSED_VALUE) {
                 if (fragment != null) {
                     fragment.startActivityForResult(intent, requestCode);

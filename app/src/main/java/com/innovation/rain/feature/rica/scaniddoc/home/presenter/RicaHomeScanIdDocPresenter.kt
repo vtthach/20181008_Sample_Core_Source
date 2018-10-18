@@ -1,5 +1,5 @@
 package com.innovation.rain.feature.rica.scaniddoc.home.presenter
 
-import com.innovation.rain.app.base.presenter.BasePresenter
+import com.sf0404.core.application.base.presenter.BasePresenter
 
 interface RicaHomeScanIdDocPresenter : BasePresenter

@@ -1,12 +1,12 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.passport.injection
 
-import com.innovation.rain.app.injection.scope.PerView
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraController
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraControllerImpl
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.presenter.ScanPassportPresenter
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.presenter.ScanPassportPresenterImpl
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.view.ScanPassportFragment
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.view.ScanPassportView
+import com.sf0404.core.application.scope.PerView
 import dagger.Binds
 import dagger.Module
 

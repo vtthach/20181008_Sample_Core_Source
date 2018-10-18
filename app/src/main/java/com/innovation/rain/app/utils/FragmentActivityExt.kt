@@ -5,9 +5,6 @@ import android.support.v4.app.FragmentActivity
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
 
-/**
- * Created by AnhVu on 12-Oct-2018.
- */
 
 inline fun <reified T : Fragment> FragmentActivity.showFragment(flag: Int? = null) {
     val intentBuilder = ContainerActivity.IntentBuilder(this)
@@ -19,17 +16,11 @@ inline fun <reified T : Fragment> FragmentActivity.showFragment(flag: Int? = nul
             .start()
 }
 
-inline fun <reified T : Fragment> Fragment.showFragmentWithRequest(requestCode: Int = ContainerActivity.UNUSED_VALUE) {
-    val intentBuilder = ContainerActivity.IntentBuilder(this)
-    intentBuilder.setFragmentClass(T::class.java)
-            .setRequestCode(requestCode)
-            .start()
-}
-
-inline fun <reified T : Fragment> Fragment.showFragmentWithFlag(flag: Int = ContainerActivity.UNUSED_VALUE) {
+inline fun <reified T : Fragment> Fragment.showFragment(flag: Int = ContainerActivity.UNUSED_VALUE,
+                                                        requestCode: Int = ContainerActivity.UNUSED_VALUE) {
     val intentBuilder = ContainerActivity.IntentBuilder(this)
     intentBuilder.setFragmentClass(T::class.java)
             .setFlag(flag)
-            .setRequestCode(ContainerActivity.UNUSED_VALUE)
+            .setRequestCode(requestCode)
             .start()
 }

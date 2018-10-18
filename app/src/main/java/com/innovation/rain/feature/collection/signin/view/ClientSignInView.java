@@ -2,9 +2,9 @@ package com.innovation.rain.feature.collection.signin.view;
 
 
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel;
-import com.sf0404.core.application.base.presenter.BasePresenterView;
+import com.sf0404.core.application.base.presenter.BaseView;
 
-public interface ClientSignInView extends BasePresenterView {
+public interface ClientSignInView extends BaseView {
     void enableButtonProceed(boolean enable);
 
     void goToCollectionOrder(ClientSignInUiModel info);

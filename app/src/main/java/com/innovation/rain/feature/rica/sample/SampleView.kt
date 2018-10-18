@@ -1,8 +1,8 @@
 package com.innovation.rain.feature.rica.home.view
 
 
-import com.sf0404.core.application.base.presenter.BasePresenterView
+import com.sf0404.core.application.base.presenter.BaseView
 
-interface SampleView : BasePresenterView {
+interface SampleView : BaseView {
     fun enableButtonProceed(allowEnableProceedButton: Boolean)
 }

@@ -15,11 +15,11 @@ import android.widget.EditText;
 
 import com.sf0404.common.R;
 import com.sf0404.core.application.base.presenter.BasePresenter;
-import com.sf0404.core.application.base.presenter.BasePresenterView;
+import com.sf0404.core.application.base.presenter.BaseView;
 import com.sf0404.core.application.injection.Injectable;
 import com.sf0404.common.container.activity.BaseActivity;
 
-public abstract class BasePresenterInjectionFragment<T extends BasePresenter> extends BaseInjectionFragment implements BasePresenterView, Injectable {
+public abstract class BasePresenterInjectionFragment<T extends BasePresenter> extends BaseInjectionFragment implements BaseView, Injectable {
 
     protected abstract T getPresenter();
 

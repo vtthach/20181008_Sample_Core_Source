@@ -1,7 +1,7 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.common.base.view
 
-import com.innovation.rain.app.base.presenter.BasePresenterView
+import com.sf0404.core.application.base.presenter.BaseView
 
-interface BaseScanIdDocView : BasePresenterView {
+interface BaseScanIdDocView : BaseView {
     fun backToHomeRica()
 }

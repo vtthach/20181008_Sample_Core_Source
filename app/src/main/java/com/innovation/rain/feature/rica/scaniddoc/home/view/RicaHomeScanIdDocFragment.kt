@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
-import com.innovation.rain.app.utils.showFragmentWithRequest
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.presenter.RicaHomeScanIdDocPresenter
@@ -36,7 +36,7 @@ class RicaHomeScanIdDocFragment : BaseRicaFragment<RicaHomeScanIdDocPresenter>()
         ricaState = RicaState.valueOf( stateId ?: RicaState.STATE_LOADED.id)
 
         rootView.setOnClickListener{
-            showFragmentWithRequest<IntroScanIdDocFragment>(RicaHomeFragment.REQUEST_CODE)
+            showFragment<IntroScanIdDocFragment>(requestCode = RicaHomeFragment.REQUEST_CODE)
         }
     }
 }

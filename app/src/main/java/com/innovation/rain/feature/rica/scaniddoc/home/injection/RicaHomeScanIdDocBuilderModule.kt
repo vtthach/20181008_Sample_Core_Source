@@ -1,7 +1,7 @@
 package com.innovation.rain.feature.rica.scaniddoc.home.injection
 
-import com.innovation.rain.app.injection.scope.PerView
 import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
+import com.sf0404.core.application.scope.PerView
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

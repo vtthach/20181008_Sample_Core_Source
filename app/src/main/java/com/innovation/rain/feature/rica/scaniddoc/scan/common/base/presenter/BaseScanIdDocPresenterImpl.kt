@@ -1,10 +1,10 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.common.base.presenter
 
 import android.os.Bundle
-import com.innovation.rain.app.base.presenter.BasePresenterImpl
 import com.innovation.rain.app.widget.AutoFitTextureView
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraCallback
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraController
+import com.sf0404.core.application.base.presenter.BasePresenterImpl
 
 abstract class BaseScanIdDocPresenterImpl<T>(view: T,
                                              private val cameraController: CameraController)

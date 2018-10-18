@@ -2,13 +2,14 @@ package com.innovation.rain.feature.rica.scaniddoc.intro.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.base.fragment.BaseFragment
-import com.innovation.rain.app.utils.showFragmentWithFlag
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.scaniddoc.scan.idbook.view.ScanIdBookFragment
 import com.innovation.rain.feature.rica.scaniddoc.scan.idcard.view.ScanIdCardFragment
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.view.ScanPassportFragment
+import com.sf0404.core.application.base.fragment.BaseFragment
 import kotlinx.android.synthetic.main.intro_scan_id_doc_fragment.*
 
 
@@ -21,18 +22,20 @@ class IntroScanIdDocFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnIdBook.setOnClickListener {
-            showFragmentWithFlag<ScanIdBookFragment>(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
-            finish()
+            showFragmentAndFinish<ScanIdBookFragment>()
         }
 
         btnIdCard.setOnClickListener {
-            showFragmentWithFlag<ScanIdCardFragment>(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
-            finish()
+            showFragmentAndFinish<ScanIdCardFragment>()
         }
 
         btnPassport.setOnClickListener {
-            showFragmentWithFlag<ScanPassportFragment>(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
-            finish()
+            showFragmentAndFinish<ScanPassportFragment>()
         }
+    }
+
+    private inline fun <reified T : Fragment> showFragmentAndFinish() {
+        showFragment<T>(flag = Intent.FLAG_ACTIVITY_FORWARD_RESULT)
+        finish()
     }
 }

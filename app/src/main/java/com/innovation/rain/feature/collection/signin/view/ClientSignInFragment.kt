@@ -1,7 +1,6 @@
 package com.innovation.rain.feature.collection.signin.view
 
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -12,8 +11,6 @@ import com.innovation.rain.feature.collection.orders.view.OrderListFragment
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenter
 import com.innovation.rain.feature.collection.signin.view.exception.NoOrderFragment
-import com.sf0404.common.container.activity.ContainerActivity
-import com.sf0404.common.container.mode.ToolbarMode
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.collection_client_login_fragment.*
 import javax.inject.Inject
@@ -27,7 +24,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
     override fun getPresenter() = viewPresenter
 
     override fun notifyNonRegisterId(apiCode: String?) {
-        showToastError("Invalid ID [$apiCode]")
+        showToastError("Please enter a valid South African ID number [$apiCode]")
     }
 
     override fun showDialogNoOrder(apiCode: String) {

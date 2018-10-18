@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/card_blue_outline"
-    android:padding="@dimen/fragment_rica_padding"
     android:id="@+id/ricaVerifyFragment"
     tools:context=".StartActivity">
 
@@ -16,7 +15,7 @@
             android:gravity="center"
             android:text="@string/rica_verify_title"
             android:textColor="@color/primary"
-            android:textSize="25sp"
+            android:textSize="@dimen/title_text_size_25"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,12 +23,13 @@
         <TextView
             android:id="@+id/riceAgentDesc"
             style="@style/TextTitle"
-            android:layout_width="784dp"
-            android:layout_marginTop="50dp"
             android:gravity="center"
+            android:layout_marginTop="@dimen/margin_top_home_title"
+            android:paddingStart="@dimen/fragment_rica_padding"
+            android:paddingEnd="@dimen/fragment_rica_padding"
             android:text="@string/rica_verify_desc"
             android:textColor="@color/light_gray"
-            android:textSize="15sp"
+            android:textSize="@dimen/title_text_size_15"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/riceAgentTitle" />

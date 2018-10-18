@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
+import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.presenter.ScanIdDocPresenter
+import com.innovation.rain.feature.rica.scaniddoc.intro.view.IntroScanIdDocFragment
 import kotlinx.android.synthetic.main.fragment_home_scan_id_doc.*
 import javax.inject.Inject
 
@@ -28,7 +31,12 @@ class ScanIdDocFragment : BaseRicaFragment<ScanIdDocPresenter>(), ScanIdDocView 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ricaState = RicaState.STATE_LOADED
-        btScan.setOnClickListener{ricaState = RicaState.STATE_DONE}
+
+        val stateId = arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
+        ricaState = RicaState.valueOf( stateId ?: RicaState.STATE_LOADED.id)
+
+        btScan.setOnClickListener{
+            activity?.showFragment<IntroScanIdDocFragment>()
+        }
     }
 }

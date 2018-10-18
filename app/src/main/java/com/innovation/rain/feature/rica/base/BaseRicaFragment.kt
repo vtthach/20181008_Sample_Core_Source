@@ -45,13 +45,9 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val state: RicaState = RicaState.valueOf(arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, -1)
-                ?: -1)
-        ricaState = if (state != RicaState.UNKNOWN) {
-            state
-        } else {
-            RicaState.STATE_PRE_LOADED
-        }
+
+        val stateId = arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, RicaState.STATE_PRE_LOADED.id)
+        ricaState = RicaState.valueOf( stateId ?: RicaState.STATE_PRE_LOADED.id)
 
         preloadTitleTv.text = getPreLoadStateTitle()
         doneTitleTv.text = getDoneStateTitle()

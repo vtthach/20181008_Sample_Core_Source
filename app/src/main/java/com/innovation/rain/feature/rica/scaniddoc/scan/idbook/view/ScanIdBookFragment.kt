@@ -2,9 +2,9 @@ package com.innovation.rain.feature.rica.scaniddoc.scan.idbook.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.innovation.rain.R
 import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
+import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.innovation.rain.feature.rica.scaniddoc.scan.idbook.presenter.ScanIdBookPresenter
 import kotlinx.android.synthetic.main.scan_id_fragment.*
 import javax.inject.Inject
@@ -26,6 +26,6 @@ class ScanIdBookFragment : BasePresenterInjectionFragment<ScanIdBookPresenter>()
     }
 
     override fun showSuccessScreen() {
-        Toast.makeText(context, "Captured", Toast.LENGTH_SHORT).show()
+        RicaHomeFragment.showMe(activity, RicaHomeFragment.DONE_STEP_1)
     }
 }

@@ -74,7 +74,7 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
     }
 
     protected fun notifyRicaStateDone() {
-        val f = parentFragment as RicaHomeView?
+        val f = fragmentManager?.findFragmentByTag(RicaHomeFragment::class.java.name) as? RicaHomeView
         f?.notifyRicaStateDone()
     }
 

@@ -1,9 +1,7 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.idcard.view
 
-import com.innovation.rain.app.base.presenter.BasePresenterView
+import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.view.BaseScanIdDocView
 
-interface ScanIdCardView : BasePresenterView {
-    fun showSuccessScreen()
-
+interface ScanIdCardView : BaseScanIdDocView {
     fun showFlipCardMessage()
 }

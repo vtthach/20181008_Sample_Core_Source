@@ -1,7 +1,5 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.passport.view
 
-import com.innovation.rain.app.base.presenter.BasePresenterView
+import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.view.BaseScanIdDocView
 
-interface ScanPassportView : BasePresenterView {
-    fun showSuccessScreen()
-}
+interface ScanPassportView : BaseScanIdDocView

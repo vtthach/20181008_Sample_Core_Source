@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.idbook.presenter
 
-import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.BaseScanIdDocPresenterImpl
+import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.presenter.BaseScanIdDocPresenterImpl
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraCallback
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraController
 import com.innovation.rain.feature.rica.scaniddoc.scan.idbook.view.ScanIdBookView
@@ -18,7 +18,7 @@ class ScanIdBookPresenterImpl @Inject constructor(cameraController: CameraContro
     override fun getCameraCallback() = object : CameraCallback {
         override fun onSuccess(file: File) {
             this@ScanIdBookPresenterImpl.file = file
-            view.showSuccessScreen()
+            view.backToHomeRica()
             Timber.i("Saved image at $file")
         }
 

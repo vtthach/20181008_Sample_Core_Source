@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.rica.scaniddoc.scan.common.base
+package com.innovation.rain.feature.rica.scaniddoc.scan.common.base.presenter
 
 import android.os.Bundle
 import com.innovation.rain.app.base.presenter.BasePresenterImpl

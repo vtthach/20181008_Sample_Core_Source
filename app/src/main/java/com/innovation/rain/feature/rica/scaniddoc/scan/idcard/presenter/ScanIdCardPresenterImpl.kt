@@ -1,6 +1,6 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.idcard.presenter
 
-import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.BaseScanIdDocPresenterImpl
+import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.presenter.BaseScanIdDocPresenterImpl
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraCallback
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraController
 import com.innovation.rain.feature.rica.scaniddoc.scan.idcard.view.ScanIdCardView
@@ -28,7 +28,7 @@ class ScanIdCardPresenterImpl @Inject constructor(cameraController: CameraContro
             } else {
                 secondsFile = file
                 isScanFirstTime = true
-                view.showSuccessScreen()
+                view.backToHomeRica()
             }
             Timber.i("Saved image at $file")
         }

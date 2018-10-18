@@ -7,15 +7,15 @@ import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.app.utils.showFragmentWithRequest
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
-import com.innovation.rain.feature.rica.scaniddoc.home.presenter.ScanIdDocPresenter
+import com.innovation.rain.feature.rica.scaniddoc.home.presenter.RicaHomeScanIdDocPresenter
 import com.innovation.rain.feature.rica.scaniddoc.intro.view.IntroScanIdDocFragment
 import kotlinx.android.synthetic.main.fragment_home_scan_id_doc.*
 import javax.inject.Inject
 
-class ScanIdDocFragment : BaseRicaFragment<ScanIdDocPresenter>(), ScanIdDocView {
+class RicaHomeScanIdDocFragment : BaseRicaFragment<RicaHomeScanIdDocPresenter>(), RicaHomeScanIdDocView {
 
     @Inject
-    lateinit var mPresenter: ScanIdDocPresenter
+    lateinit var mPresenter: RicaHomeScanIdDocPresenter
 
     override fun getPreLoadStateTitle() = ""
 

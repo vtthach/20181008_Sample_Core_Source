@@ -8,7 +8,7 @@ import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.sample.SampleFragment
-import com.innovation.rain.feature.rica.scaniddoc.home.view.ScanIdDocFragment
+import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
 import javax.inject.Inject
@@ -77,6 +77,6 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
      * fragment list
      */
     private fun getFragments(): List<BaseRicaFragment<*>> {
-        return Arrays.asList<BaseRicaFragment<*>>(ScanIdDocFragment(), SampleFragment(), SampleFragment())
+        return Arrays.asList<BaseRicaFragment<*>>(RicaHomeScanIdDocFragment(), SampleFragment(), SampleFragment())
     }
 }

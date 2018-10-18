@@ -3,13 +3,13 @@ package com.innovation.rain.feature.rica.home.view
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
 import com.innovation.rain.feature.rica.sample.SampleFragment
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
 import javax.inject.Inject

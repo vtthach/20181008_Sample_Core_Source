@@ -5,7 +5,7 @@ import com.innovation.rain.feature.rica.poa.presenter.ProofOfAddressPresenterImp
 import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
 import com.innovation.rain.feature.rica.poa.view.ProofOfAddressView
 
-import com.innovation.rain.app.injection.scope.PerView
+import com.sf0404.core.application.scope.PerView
 import dagger.Binds
 import dagger.Module
 

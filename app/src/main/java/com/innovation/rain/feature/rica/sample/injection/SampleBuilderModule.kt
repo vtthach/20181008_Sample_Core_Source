@@ -1,7 +1,8 @@
-package com.innovation.rain.feature.rica.home.injection
+package com.innovation.rain.feature.rica.sample.injection
 
-import com.innovation.rain.app.injection.scope.PerView
+import com.innovation.rain.feature.rica.home.injection.SampleViewModule
 import com.innovation.rain.feature.rica.sample.SampleFragment
+import com.sf0404.core.application.scope.PerView
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

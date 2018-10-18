@@ -1,6 +1,7 @@
-<manifest package="com.sf0404.common">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sf0404.common">
 
     <application>
-
+        <activity android:name=".container.activity.ContainerActivity" />
     </application>
 </manifest>

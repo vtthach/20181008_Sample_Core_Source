@@ -21,8 +21,8 @@ import com.innovation.rain.app.logger.FileLogger;
 import com.innovation.rain.app.logger.KioskLoggerConfig;
 import com.innovation.rain.app.logger.KioskLoggerConfigImpl;
 import com.innovation.rain.app.properties.BuildInProperties;
-import com.sf0404.common.application.BaseApplication;
 import com.sf0404.common.properties.AppPropertiesModule;
+import com.sf0404.core.application.BaseApplication;
 
 import java.util.Arrays;
 
@@ -65,7 +65,7 @@ public class MyApplication extends BaseApplication {
                 .appModule(new AppModule(getApplicationContext()))
                 .retrofitModule(getRetrofitModule())
                 .okHttpModule(getOkHttpModule())
-                .appPropertiesModule(new AppPropertiesModule(CachedPath.PROPERTIES_FOLDER_PATH, CachedPath.PROPERTIES_ASSET_PATH))
+                .appPropertiesModule(new AppPropertiesModule(CachedPath.PROPERTIES_FILE_PATH, CachedPath.PROPERTIES_ASSET_PATH))
                 .build();
         appComponent.inject(this);
     }

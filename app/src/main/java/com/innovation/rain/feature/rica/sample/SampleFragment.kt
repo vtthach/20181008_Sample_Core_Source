@@ -1,6 +1,5 @@
 package com.innovation.rain.feature.rica.sample
 
-import android.widget.ViewAnimator
 import com.innovation.rain.R
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter

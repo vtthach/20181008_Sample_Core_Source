@@ -1,6 +1,6 @@
 package  com.innovation.rain.feature.rica.agentverification.view
 
-import com.innovation.rain.app.base.presenter.BasePresenterView
+import com.sf0404.core.application.base.presenter.BasePresenterView
 
 interface AgentVerificationView : BasePresenterView {
     fun enableButtonProceed(allowEnableProceedButton: Boolean)

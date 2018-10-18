@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import com.innovation.rain.R
-import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.feature.rica.address.presenter.ManualAddressPresenter
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_manual_address.*
 
 import javax.inject.Inject

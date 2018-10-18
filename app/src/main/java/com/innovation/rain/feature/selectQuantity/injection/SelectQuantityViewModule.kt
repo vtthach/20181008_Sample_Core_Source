@@ -4,8 +4,7 @@ import com.innovation.rain.feature.selectQuantity.presenter.SelectQuantityPresen
 import com.innovation.rain.feature.selectQuantity.presenter.SelectQuantityPresenterImpl
 import com.innovation.rain.feature.selectQuantity.view.SelectQuantityFragment
 import com.innovation.rain.feature.selectQuantity.view.SelectQuantityView
-
-import com.innovation.rain.app.injection.scope.PerView
+import com.sf0404.core.application.scope.PerView
 import dagger.Binds
 import dagger.Module
 

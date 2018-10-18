@@ -14,15 +14,33 @@
     <!--Client login-->
     <string name="client_login_title">client sign in</string>
     <string name="client_login_enter_id">enter ID number</string>
+    <string name="client_sign_in_no_order_dialog_title">You currently do not have any orders placed with us</string>
+    <string name="client_sign_in_no_order_dialog_btn_1">exit</string>
+    <string name="client_sign_in_no_order_dialog_btn_2">main menu</string>
+    <string name="manual_address_title">Please add your home address</string>
 
     <!--dashboard-->
     <string name="str_proceed">proceed</string>
     <string name="str_rica">RICA</string>
+    <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides</string>
+    <string name="scan_below">scan below</string>
+    <string name="id_verified">ID verified</string>
+    <string name="scan_id">Scan Id</string>
 
     <!--Rica agent declaration-->
     <string name="rica_verify_title">RICA agent \nverification</string>
     <string name="rica_verify_desc">The RICA agent present will \nverify your documents and \ncomplete your RICA process.</string>
     <string name="rica_verify_done_title">RICA verified</string>
+    <string name="poa_title">Proof of address</string>
+    <string name="poa_verified_title">Proof of address verified</string>
+    <string name="capture_manual">Capture Manual</string>
+    <string name="select_your_address">select your address</string>
+    <string name="suburb">Suburb*</string>
+    <string name="street_address">Street Address*</string>
+    <string name="address">Address</string>
+    <string name="town">Town*</string>
+    <string name="province">Province*</string>
+    <string name="ok">Ok</string>
 
     <!--Select Quantity-->
     <string name="select_quantity_title">select quantity</string>

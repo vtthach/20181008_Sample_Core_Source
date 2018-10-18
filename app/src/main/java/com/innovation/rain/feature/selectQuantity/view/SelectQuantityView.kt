@@ -1,7 +1,8 @@
 package  com.innovation.rain.feature.selectQuantity.view
 
-import com.innovation.rain.app.base.presenter.BasePresenterView
+import com.sf0404.core.application.base.presenter.BaseView
 
-interface SelectQuantityView : BasePresenterView {
+
+interface SelectQuantityView : BaseView {
 
 }

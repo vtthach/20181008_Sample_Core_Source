@@ -33,8 +33,10 @@
             android:text="@string/client_login_enter_id" />
 
         <EditText
-            android:id="@+id/edUserId"
+            android:id="@+id/edId"
+            android:inputType="numberDecimal"
             style="@style/InputText"
+            android:maxLength="13"
             android:layout_marginTop="20dp" />
     </LinearLayout>
 
@@ -48,7 +50,8 @@
         android:id="@+id/btnProceed"
         style="@style/BtnNavigate"
         android:layout_width="@dimen/btn_navigate_right_width"
-        android:text="Proceed"
+        android:enabled="false"
+        android:text="@string/str_proceed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

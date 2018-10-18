@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/fragment_padding"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextTitle"
+        android:text="@string/manual_address_title"
+        android:textSize="22dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <TextView
+        android:id="@+id/addressLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/address"
+        android:textSize="@dimen/manual_address_lb_size"
+        app:layout_constraintBaseline_toBaselineOf="@id/addressEt"
+        app:layout_constraintEnd_toStartOf="@id/guidelineLeft" />
+
+    <TextView
+        android:id="@+id/streetAddressLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/street_address"
+        android:textSize="@dimen/manual_address_lb_size"
+        app:layout_constraintBaseline_toBaselineOf="@id/streetAddressEt"
+        app:layout_constraintEnd_toEndOf="@id/addressLb"
+        tools:layout_editor_absoluteX="70dp" />
+
+    <TextView
+        android:id="@+id/suburbLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/suburb"
+        android:textSize="@dimen/manual_address_lb_size"
+        app:layout_constraintBaseline_toBaselineOf="@id/suburbEt"
+        app:layout_constraintEnd_toEndOf="@id/addressLb"
+        tools:layout_editor_absoluteX="70dp" />
+
+    <EditText
+        android:id="@+id/addressEt"
+        style="@style/InputText"
+        android:layout_width="0dp"
+        android:layout_marginTop="60dp"
+        android:textSize="@dimen/manual_address_et_size"
+        app:layout_constraintEnd_toStartOf="@id/guidelineMid"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+
+    <EditText
+        android:id="@+id/streetAddressEt"
+        style="@style/InputText"
+        android:layout_width="0dp"
+        android:textSize="@dimen/manual_address_et_size"
+        app:layout_constraintBottom_toTopOf="@+id/suburbEt"
+        app:layout_constraintEnd_toStartOf="@id/guidelineMid"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/addressEt" />
+
+    <EditText
+        android:id="@+id/suburbEt"
+        style="@style/InputText"
+        android:layout_width="0dp"
+        android:nextFocusDown="@+id/townEt"
+        android:textSize="@dimen/manual_address_et_size"
+        app:layout_constraintEnd_toStartOf="@id/guidelineMid"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/streetAddressEt" />
+
+    <TextView
+        android:id="@+id/townLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/town"
+        android:textSize="@dimen/manual_address_lb_size"
+        app:layout_constraintBaseline_toBaselineOf="@id/townEt"
+        app:layout_constraintEnd_toStartOf="@id/guidelineRight" />
+
+    <TextView
+        android:id="@+id/provinceLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/province"
+        android:textSize="@dimen/manual_address_lb_size"
+        app:layout_constraintBottom_toBottomOf="@+id/province"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintTop_toTopOf="@+id/province" />
+
+    <EditText
+        android:id="@+id/townEt"
+        style="@style/InputText"
+        android:layout_width="0dp"
+        android:nextFocusDown="@+id/province"
+        android:textSize="@dimen/manual_address_et_size"
+        app:layout_constraintBottom_toBottomOf="@id/addressEt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineRight"
+        app:layout_constraintTop_toTopOf="@id/addressEt" />
+
+    <Spinner
+        android:id="@+id/province"
+        style="@style/InputText"
+        android:layout_width="0dp"
+        android:popupBackground="@android:color/white"
+        android:spinnerMode="dropdown"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@id/townEt" />
+
+    <Button
+        android:id="@+id/btnExit"
+        style="@style/BtnNavigate"
+        android:text="@string/str_exit"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btnOk"
+        style="@style/BtnNavigate"
+        android:layout_width="@dimen/btn_navigate_right_width"
+        android:backgroundTint="@color/primary_light"
+        android:text="@string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

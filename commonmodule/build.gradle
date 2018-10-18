@@ -16,6 +16,7 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -50,14 +51,19 @@ android {
 dependencies {
     implementation fileTree(dir: 'Dependencys', include: ['*.jar'])
 
+    compileOnly utilDependency.butterKnife
     compileOnly utilDependency.gson
     compileOnly utilDependency.timber
+
     implementation supportDependency.recyclerViewV7
     compileOnly supportDependency.appcompatV7
+    compileOnly supportDependency.design
+
     compileOnly ioComponent.rxJava2
-    compileOnly utilDependency.butterKnife
+    implementation ioComponent.retrofitComponents
 
     compileOnly uiComponent.materialDialog
+
     compileOnly utilDependency.dagger
     kapt utilDependency.daggerCompiler
     compileOnly utilDependency.daggerAndroidSupport
@@ -65,7 +71,4 @@ dependencies {
 
     testImplementation testDependency.junit
     implementation kotlinComponent.kotlinStdlibJdk7
-
-    // Overlay window
-    implementation(name: 'toastnotify-0.1', ext: 'aar')
 }

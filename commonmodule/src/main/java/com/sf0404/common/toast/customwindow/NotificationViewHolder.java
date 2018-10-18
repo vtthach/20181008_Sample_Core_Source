@@ -1,60 +1,59 @@
 package com.sf0404.common.toast.customwindow;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cbsa.ui.widget.notification.OverlayWindowView;
 import com.sf0404.common.R;
-import com.sf0404.common.R2;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+class NotificationViewHolder implements OverlayWindowView.OverlayViewHolder<NotificationManager.NotificationData>, View.OnClickListener {
 
-class NotificationViewHolder implements OverlayWindowView.OverlayViewHolder<NotificationManager.NotificationData> {
+    OverlayWindowView<NotificationManager.NotificationData> notificationView;
 
-    private final ToastType type;
-
-    @BindView(R2.id.tvMessage)
-    TextView tvMessage;
-
-    private Unbinder unBinder;
-
-    View rootView;
-
-    public NotificationViewHolder(ToastType type) {
-        this.type = type;
-    }
+    private TextView tvMessage;
+    private ImageView imgIcon;
+    private OverlayWindowView.NotificationCallback notificationCallback;
 
     @Override
     public int getLayoutId() {
-        if (type == ToastType.TYPE_ERROR) {
-            return R.layout.view_notify_holder_error;
-        } else {
-            return R.layout.view_notify_holder_info;
-        }
+        return R.layout.toast_view_notification_with_icon;
     }
 
     @Override
     public void initView(View view) {
-        rootView = view;
-        unBinder = ButterKnife.bind(this, view);
+        // Get view
+        tvMessage = (TextView) view.findViewById(R.id.cbsa_tv_notify_message);
+        imgIcon = (ImageView) view.findViewById(R.id.img_notify_icon);
+        View notifyDismiss = view.findViewById(R.id.cbsa_btn_notify_dismiss);
+        // Click listener
+        notifyDismiss.setOnClickListener(this);
     }
 
     @Override
-    public void updateData(NotificationManager.NotificationData o) {
-        tvMessage.setText(o.msg);
+    public void updateData(NotificationManager.NotificationData data) {
+        tvMessage.setText(data.message);
+        if (data.resIcon != 0) {
+            imgIcon.setImageResource(data.resIcon);
+        }
     }
 
     @Override
-    public void setCallback(OverlayWindowView.NotificationCallback notificationCallback) {
-        // Stub method
+    public void setCallback(OverlayWindowView.NotificationCallback callback) {
+        notificationCallback = callback;
     }
 
     @Override
-    public void setNotificationView(OverlayWindowView overlayWindowView) {
-        // Stub method
+    public void setNotificationView(OverlayWindowView<NotificationManager.NotificationData> notificationView) {
+        this.notificationView = notificationView;
     }
 
-    // TODO add callback when onDismiss occur to clean data - for ex:unBinder
+    @Override
+    public void onClick(View viewClicked) {
+        if (notificationCallback != null) {
+            notificationCallback.onViewClicked(viewClicked);
+        }
+        if (notificationView != null && viewClicked.getId() == R.id.cbsa_btn_notify_dismiss) {
+            notificationView.dismiss();
+        }
+    }
 }

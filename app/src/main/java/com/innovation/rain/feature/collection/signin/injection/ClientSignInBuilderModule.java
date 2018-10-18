@@ -1,7 +1,7 @@
 package com.innovation.rain.feature.collection.signin.injection;
 
-import com.innovation.rain.app.injection.scope.PerView;
 import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment;
+import com.sf0404.core.application.scope.PerView;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -13,7 +13,7 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class ClientSignInBuilderModule {
     @PerView
     @ContributesAndroidInjector(modules = {ClientSignInViewModule.class
-//            , WelcomMenuUseCaseModule.class //TODO
+            , ClientSignInUseCaseModule.class
     })
     abstract ClientSignInFragment contributeFragment();
 }

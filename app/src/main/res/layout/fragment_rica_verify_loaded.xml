@@ -12,7 +12,7 @@
         <TextView
             android:id="@+id/riceAgentTitle"
             style="@style/TextTitle"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/margin_top_home_title_50"
             android:gravity="center"
             android:text="@string/rica_verify_title"
             android:textColor="@color/primary"

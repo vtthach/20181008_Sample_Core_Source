@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="30dp">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="22sp"
+        android:text="@string/select_your_address" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/addressRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnCaptureManual"
+        style="@style/BtnNavigate"
+        android:visibility="gone"
+        android:layout_width="@dimen/btn_navigate_right_width"
+        android:layout_height="@dimen/btn_action_height"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/primary_light"
+        android:text="@string/capture_manual"
+        android:textSize="20sp" />
+</RelativeLayout>

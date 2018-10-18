@@ -3,12 +3,15 @@ package com.innovation.rain.feature.rica.home.view
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.app.enums.RicaState
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
-import com.innovation.rain.feature.rica.sample.SampleFragment
+import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
+import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
+import com.innovation.rain.feature.selectQuantity.view.SelectQuantityFragment
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
 import javax.inject.Inject
@@ -46,24 +49,28 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnExit.setOnClickListener {
-            activity?.finish()
+            activity?.finishAffinity()
         }
         btnProceed.setOnClickListener {
             // handle logic for current fragment
-            mFragments[getCurrentIndex()].onProceedButtonClicked()
+            val currentIndex = getCurrentIndex()
+            if (currentIndex in 0 until mFragments.size) {
+                mFragments[getCurrentIndex()].onProceedButtonClicked()
+            } else {
+                showToastInfo("To be continue...")
+                activity?.showFragment<SelectQuantityFragment>()
+            }
         }
         initView()
     }
 
     private fun initView() {
         mFragments = getFragments()
-        val transaction = childFragmentManager.beginTransaction().apply {
-            add(R.id.container_sa_id, mFragments[0])
-            add(R.id.container_sa_por, mFragments[1])
-            add(R.id.container_sa_rica, mFragments[2])
-            commitAllowingStateLoss()
-        }
-
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.add(R.id.container_sa_id, mFragments[0])
+        transaction.add(R.id.container_sa_por, mFragments[1])
+        transaction.add(R.id.container_sa_rica, mFragments[2])
+        transaction.commitAllowingStateLoss()
     }
 
     private fun getCurrentIndex(): Int {
@@ -79,11 +86,6 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
      * fragment list
      */
     private fun getFragments(): List<BaseRicaFragment<*>> {
-        val firstFragment: BaseRicaFragment<*> = SampleFragment()
-        var ricaVerifyFragment :  BaseRicaFragment<*> = AgentVerificationFragment()
-        val b = Bundle()
-        b.putInt(BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
-        firstFragment.arguments = b
-        return Arrays.asList<BaseRicaFragment<*>>(firstFragment, SampleFragment(), ricaVerifyFragment)
+        return Arrays.asList<BaseRicaFragment<*>>(RicaHomeScanIdDocFragment(), ProofOfAddressFragment(), AgentVerificationFragment())
     }
 }

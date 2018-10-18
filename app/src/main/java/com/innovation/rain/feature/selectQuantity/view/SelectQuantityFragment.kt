@@ -1,13 +1,14 @@
 package  com.innovation.rain.feature.selectQuantity.view
 
 import android.os.Bundle
-import com.innovation.rain.app.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.feature.selectQuantity.presenter.SelectQuantityPresenter
 import com.innovation.rain.R
 import com.innovation.rain.feature.selectQuantity.model.Item
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.fragment_select_quantity.*
 import android.widget.ArrayAdapter
+import com.innovation.rain.R.id.listItem
+import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 
 
 class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPresenter>(), SelectQuantityView {

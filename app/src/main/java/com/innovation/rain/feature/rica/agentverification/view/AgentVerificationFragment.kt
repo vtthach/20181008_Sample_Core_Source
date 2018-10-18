@@ -2,11 +2,12 @@ package  com.innovation.rain.feature.rica.agentverification.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
+import com.innovation.rain.feature.selectQuantity.view.SelectQuantityFragment
 import kotlinx.android.synthetic.main.fragment_rica_verify_loaded.*
 
 

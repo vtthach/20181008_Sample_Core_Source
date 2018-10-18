@@ -5,6 +5,7 @@ import com.innovation.rain.feature.collection.orders.injection.OrderListBuilderM
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.SampleBuilderModule;
+import com.innovation.rain.feature.selectQuantity.injection.SelectQuantityBuilderModule;
 
 import dagger.Module;
 
@@ -13,6 +14,7 @@ import dagger.Module;
         OrderListBuilderModule.class,
         RicaHomeBuilderModule.class,
         AgentVerificationBuilderModule.class,
+        SelectQuantityBuilderModule.class,
         SampleBuilderModule.class
 })
 public class CollectionFeatureBuilderModule {

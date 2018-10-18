@@ -24,4 +24,17 @@
     <string name="rica_verify_desc">The RICA agent present will \nverify your documents and \ncomplete your RICA process.</string>
     <string name="rica_verify_done_title">RICA verified</string>
 
+    <!--Select Quantity-->
+    <string name="select_quantity_title">select quantity</string>
+    <string name="select_quantity_desc">R50 once off</string>
+    <string name="select_quantity_desc1">SIM + 10 data days</string>
+    <string name="select_quantity_desc2">R50 a gig</string>
+    <string name="select_quantity_desc3">pay at the end of the month</string>
+    <string name="select_quantity_desc4">cart summary</string>
+    <string name="select_quantity_desc5">sub total (1 items)</string>
+    <string name="select_quantity_desc6">total</string>
+    <string name="country_prompt">Choose a country</string>
+    <string-array name="empty_array">
+
+    </string-array>
 </resources>

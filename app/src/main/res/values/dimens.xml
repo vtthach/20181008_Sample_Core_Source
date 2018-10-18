@@ -11,4 +11,9 @@
     <dimen name="rica_home_card_height">440dp</dimen>
     <dimen name="rica_home_card_padding">20dp</dimen>
     <dimen name="fragment_rica_padding">20dp</dimen>
+
+    <!-- Select quantity -->
+    <dimen name="text_size_40">40sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_30">30sp</dimen>
 </resources>

@@ -9,6 +9,7 @@ import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.innovation.rain.feature.collection.orders.model.OrderEntity
 import com.innovation.rain.feature.collection.orders.presenter.OrderListPresenter
+import com.innovation.rain.feature.selectQuantity.view.SelectQuantityFragment
 import kotlinx.android.synthetic.main.collection_order_list_fragment.*
 import javax.inject.Inject
 
@@ -38,7 +39,8 @@ class OrderListFragment : BasePresenterInjectionFragment<OrderListPresenter>(), 
         orderRv.layoutManager = GridLayoutManager(activity, 3)
 
         btnProceed.setOnClickListener {
-            activity?.showFragment<RicaHomeFragment>()
+            //activity?.showFragment<RicaHomeFragment>()
+            activity?.showFragment<SelectQuantityFragment>()
         }
     }
 

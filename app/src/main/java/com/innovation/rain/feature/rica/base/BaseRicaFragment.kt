@@ -3,7 +3,9 @@ package com.innovation.rain.feature.rica.base
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ViewAnimator
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
@@ -43,6 +45,16 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
         return R.layout.fragment_rica
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = super.onCreateView(inflater, container, savedInstanceState)
+
+        val loadedStateView = layoutInflater.inflate(getLoadedStateLayout(), null)
+        val loadedStateLayout = view?.findViewById(R.id.loadedState) as ViewGroup
+        loadedStateLayout.addView(loadedStateView)
+
+        return view
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val state: RicaState = RicaState.valueOf(arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, -1)
@@ -52,13 +64,9 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
         } else {
             RicaState.STATE_PRE_LOADED
         }
-
         preloadTitleTv.text = getPreLoadStateTitle()
         doneTitleTv.text = getDoneStateTitle()
-        val loadedStateView = layoutInflater.inflate(getLoadedStateLayout(), null)
-        loadedState.addView(loadedStateView)
         showPreLoadState()
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

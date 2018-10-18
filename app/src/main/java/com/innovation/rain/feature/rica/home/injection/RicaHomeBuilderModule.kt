@@ -2,7 +2,6 @@ package com.innovation.rain.feature.rica.home.injection
 
 import com.innovation.rain.app.injection.scope.PerView
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
-
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

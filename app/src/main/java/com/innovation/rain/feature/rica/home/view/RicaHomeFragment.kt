@@ -8,6 +8,7 @@ import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
+import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
 import com.innovation.rain.feature.rica.sample.SampleFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
@@ -84,6 +85,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         val b = Bundle()
         b.putInt(BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
         firstFragment.arguments = b
+        return Arrays.asList<BaseRicaFragment<*>>(firstFragment, ProofOfAddressFragment(), SampleFragment())
         return Arrays.asList<BaseRicaFragment<*>>(firstFragment, SampleFragment(), ricaVerifyFragment)
     }
 }

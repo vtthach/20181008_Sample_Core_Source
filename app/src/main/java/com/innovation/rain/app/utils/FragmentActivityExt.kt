@@ -9,8 +9,11 @@ import com.sf0404.common.container.mode.ToolbarMode
  * Created by AnhVu on 12-Oct-2018.
  */
 
-inline fun <reified T : Fragment> FragmentActivity.showFragment() {
+inline fun <reified T : Fragment> FragmentActivity.showFragment(flag: Int? = null) {
     val intentBuilder = ContainerActivity.IntentBuilder(this)
+    flag?.let {
+        intentBuilder.setFlag(flag)
+    }
     intentBuilder.setFragmentClass(T::class.java)
             .setActionMode(ToolbarMode.NONE)
             .start()

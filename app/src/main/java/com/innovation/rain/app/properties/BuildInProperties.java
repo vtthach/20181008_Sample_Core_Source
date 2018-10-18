@@ -22,11 +22,13 @@ public class BuildInProperties {
     }
 
     public ApiMode getApiMode() {
+        appProperties.reloadProperties();
         String mockMode = appProperties.getProperty(PROPERTY_MOCK_METHOD, DEFAULT_MOCK_MODE);
         return ApiMode.getTypeFromId(mockMode);
     }
 
     public String getHostUrl() {
+        appProperties.reloadProperties();
         String url = appProperties.getProperty(PROPERTY_ENDPOINT_URL, AppConfig.END_POINT_URL);
         return getValidEndPointUrl(url);
     }

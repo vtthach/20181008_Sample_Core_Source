@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cbsa_notification_view_height"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="18dp"
+    android:layout_marginTop="@dimen/cbsa_notification_elevation"
+    android:layout_marginRight="18dp"
+    android:layout_marginBottom="@dimen/cbsa_notification_elevation"
+    android:background="@drawable/bkg_solid_corner"
+    android:elevation="@dimen/cbsa_notification_elevation">
+
+    <ImageView
+        android:id="@+id/img_notify_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:scaleType="fitXY"
+        tools:src="@drawable/ic_success" />
+
+    <TextView
+        android:id="@+id/cbsa_btn_notify_dismiss"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="@string/font_medium"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/cbsa_toast_dismiss"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/cbsa_tv_notify_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/cbsa_btn_notify_dismiss"
+        android:layout_toEndOf="@id/img_notify_icon"
+        android:fontFamily="@font/"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        tools:text="Neue Regular 16 black" />
+</RelativeLayout>

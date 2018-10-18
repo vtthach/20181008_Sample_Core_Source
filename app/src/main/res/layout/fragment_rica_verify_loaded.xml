@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card_blue_outline"
+    android:padding="@dimen/fragment_rica_padding"
+    android:id="@+id/ricaVerifyFragment"
+    tools:context=".StartActivity">
+
+        <TextView
+            android:id="@+id/riceAgentTitle"
+            style="@style/TextTitle"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/rica_verify_title"
+            android:textColor="@color/primary"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/riceAgentDesc"
+            style="@style/TextTitle"
+            android:layout_width="784dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/rica_verify_desc"
+            android:textColor="@color/light_gray"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/riceAgentTitle" />
+
+</android.support.constraint.ConstraintLayout>

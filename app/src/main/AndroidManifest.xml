@@ -32,10 +32,6 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="bc36156410e05b7c7fcb22dd93f9b812d1b05154" />
-
-        <activity
-            android:name="com.sf0404.common.container.activity.ContainerActivity"
-            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

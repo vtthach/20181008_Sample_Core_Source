@@ -1,7 +1,7 @@
 package com.sf0404.common.toast.customwindow;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.View;
 
@@ -10,12 +10,16 @@ import com.sf0404.common.utils.UiUtil;
 
 public class ToastManagerHelper {
 
-    private Context context;
+    private Activity context;
     private NotificationManager notificationManager;
 
-    public ToastManagerHelper(@NonNull Context context) {
+    public ToastManagerHelper(@NonNull Activity context) {
         this.context = context;
         this.notificationManager = new NotificationManager(context);
+    }
+
+    public void stopIfAny() {
+        notificationManager.stopIfAny();
     }
 
     public void showToastError(String errorMessage) {
@@ -52,7 +56,7 @@ public class ToastManagerHelper {
             anchorView.getLocationOnScreen(position);
             position[1] = position[1] + anchorView.getHeight();
         } else {
-            position[1] = UiUtil.getScreenSize(context)[1] / 7;
+            position[1] = 0;
         }
         return (int) (position[1] + UiUtil.getPixelFromDP(context, 20));
     }

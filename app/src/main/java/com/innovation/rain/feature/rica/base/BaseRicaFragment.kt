@@ -69,12 +69,12 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
     }
 
     protected fun enableButtonProceed(allowEnableProceedButton: Boolean) {
-        val f = fragmentManager?.findFragmentByTag(RicaHomeFragment::class.java.name) as? RicaHomeView
+        val f = parentFragment as RicaHomeView?
         f?.enableButtonProceed(allowEnableProceedButton)
     }
 
     protected fun notifyRicaStateDone() {
-        val f = fragmentManager?.findFragmentByTag(RicaHomeFragment::class.java.name) as? RicaHomeView
+        val f = parentFragment as RicaHomeView?
         f?.notifyRicaStateDone()
     }
 

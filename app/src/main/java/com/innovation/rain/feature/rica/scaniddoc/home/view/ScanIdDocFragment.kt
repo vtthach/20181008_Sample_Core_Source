@@ -35,7 +35,7 @@ class ScanIdDocFragment : BaseRicaFragment<ScanIdDocPresenter>(), ScanIdDocView 
         val stateId = arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
         ricaState = RicaState.valueOf( stateId ?: RicaState.STATE_LOADED.id)
 
-        btScan.setOnClickListener{
+        rootView.setOnClickListener{
             showFragmentWithRequest<IntroScanIdDocFragment>(RicaHomeFragment.REQUEST_CODE)
         }
     }

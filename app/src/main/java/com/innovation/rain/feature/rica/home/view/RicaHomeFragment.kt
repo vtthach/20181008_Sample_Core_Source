@@ -57,11 +57,11 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
 
     private fun initView() {
         mFragments = getFragments()
-        val transaction = fragmentManager?.beginTransaction()
-        transaction?.add(R.id.container_sa_id, mFragments[0])
-        transaction?.add(R.id.container_sa_por, mFragments[1])
-        transaction?.add(R.id.container_sa_rica, mFragments[2])
-        transaction?.commitAllowingStateLoss()
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.add(R.id.container_sa_id, mFragments[0])
+        transaction.add(R.id.container_sa_por, mFragments[1])
+        transaction.add(R.id.container_sa_rica, mFragments[2])
+        transaction.commitAllowingStateLoss()
     }
 
     private fun getCurrentIndex(): Int {

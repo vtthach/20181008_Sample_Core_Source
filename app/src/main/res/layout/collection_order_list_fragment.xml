@@ -40,6 +40,7 @@
         style="@style/BtnNavigate"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:text="Proceed to RICA"
+        android:backgroundTint="@color/primary_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

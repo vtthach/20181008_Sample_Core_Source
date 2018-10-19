@@ -24,6 +24,7 @@ class NoOrderFragment : BaseDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         btnMainMenu.setOnClickListener {
             NavigateUtil.logout(activity!!)
             dismiss()

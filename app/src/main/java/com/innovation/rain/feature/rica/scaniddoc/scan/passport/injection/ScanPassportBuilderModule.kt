@@ -11,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ScanPassportBuilderModule {
     @PerView
-    @ContributesAndroidInjector(modules = [ScanPassportViewModule::class])
+    @ContributesAndroidInjector(modules = [ScanPassportViewModule::class, ScanPassportControllerModule::class])
     internal abstract fun contributeFragment(): ScanPassportFragment
 }

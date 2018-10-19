@@ -5,6 +5,7 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
@@ -27,7 +28,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     @Inject
     lateinit var viewPresenter: RicaHomePresenter
 
-    private lateinit var mFragments: List<BaseRicaFragment<*>>
+    private var mFragments: List<BaseRicaFragment<*>>? = null
 
     override fun getPresenter() = viewPresenter
 
@@ -40,9 +41,9 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
 
     override fun notifyRicaStateDone() {
         val index = getCurrentIndex()
-        mFragments[index].ricaState = RicaState.STATE_DONE
-        if (index < mFragments.size - 1) {
-            mFragments[index + 1].ricaState = RicaState.STATE_LOADED
+        mFragments!![index].ricaState = RicaState.STATE_DONE
+        if (index < mFragments!!.size!! - 1) {
+            mFragments!![index + 1].ricaState = RicaState.STATE_LOADED
         }
     }
 
@@ -54,28 +55,31 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         btnProceed.setOnClickListener {
             // handle logic for current fragment
             val currentIndex = getCurrentIndex()
-            if (currentIndex in 0 until mFragments.size) {
-                mFragments[getCurrentIndex()].onProceedButtonClicked()
+            if (currentIndex in 0 until mFragments!!.size) {
+                mFragments!![getCurrentIndex()].onProceedButtonClicked()
             } else {
                 showToastInfo("To be continue...")
-                activity?.showFragment<SelectQuantityFragment>()
+                activity?.showFragment<SimDispenserFragment>()
             }
         }
-        initView()
+        if(savedInstanceState == null) {
+            initView()
+        }
     }
 
     private fun initView() {
         mFragments = getFragments()
         val transaction = childFragmentManager.beginTransaction()
-        transaction.add(R.id.container_sa_id, mFragments[0])
-        transaction.add(R.id.container_sa_por, mFragments[1])
-        transaction.add(R.id.container_sa_rica, mFragments[2])
+        transaction.add(R.id.container_sa_id, mFragments!![0])
+        transaction.add(R.id.container_sa_por, mFragments!![1])
+        transaction.add(R.id.container_sa_rica, mFragments!![2])
         transaction.commitAllowingStateLoss()
     }
 
     private fun getCurrentIndex(): Int {
-        for (i in mFragments.indices) {
-            if (mFragments[i].ricaState == RicaState.STATE_LOADED) {
+        if(mFragments == null) mFragments = childFragmentManager.fragments as List<BaseRicaFragment<*>>
+        for (i in mFragments!!.indices) {
+            if (mFragments!![i].ricaState == RicaState.STATE_LOADED) {
                 return i
             }
         }

@@ -3,7 +3,10 @@ package  com.innovation.rain.feature.rica.address.view
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.innovation.rain.R
 import com.innovation.rain.feature.rica.address.model.Address
@@ -14,8 +17,9 @@ import javax.inject.Inject
 
 
 class ManualAddressFragment : BasePresenterInjectionFragment<ManualAddressPresenter>(), ManualAddressView {
-    override fun enableOkButton() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun enableOkButton(enable: Boolean) {
+        btnOk.isEnabled = enable
+        btnOk.isActivated = enable
     }
 
     @Inject
@@ -27,10 +31,45 @@ class ManualAddressFragment : BasePresenterInjectionFragment<ManualAddressPresen
         return R.layout.fragment_manual_address
     }
 
+    val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            //not implement
+        }
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            //not implement
+        }
+
+        override fun afterTextChanged(p0: Editable?) {
+            validate()
+        }
+
+    }
+
+    private fun validate() {
+        presenter.validate(address = addressEt.text.toString(),
+                streetAddress = streetAddressEt.text.toString(),
+                suburb = suburbEt.text.toString(),
+                town = townEt.text.toString(),
+                province = province.selectedItem.toString())
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = ArrayAdapter.createFromResource(context!!, R.array.arr_south_african_provinces, R.layout.province_item)
         province.adapter = adapter
+        streetAddressEt.addTextChangedListener(textWatcher)
+        suburbEt.addTextChangedListener(textWatcher)
+        townEt.addTextChangedListener(textWatcher)
+        province.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                validate()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                validate()
+            }
+
+        }
         btnExit.setOnClickListener {
             activity?.run {
                 setResult(Activity.RESULT_CANCELED)
@@ -55,6 +94,7 @@ class ManualAddressFragment : BasePresenterInjectionFragment<ManualAddressPresen
                 finish()
             }
         }
+        enableOkButton(false)
     }
 
     companion object {

@@ -156,7 +156,6 @@
         android:id="@+id/btnOk"
         style="@style/BtnNavigate"
         android:layout_width="@dimen/btn_navigate_right_width"
-        android:backgroundTint="@color/primary_light"
         android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

@@ -14,9 +14,9 @@
     <!--Client login-->
     <string name="client_login_title">client sign in</string>
     <string name="client_login_enter_id">enter ID number</string>
-    <string name="client_sign_in_no_order_dialog_title">You currently do not have any orders placed with us</string>
+    <string name="client_sign_in_no_order_dialog_title">You currently do not have any orders for collection. \nIf you would like to order, simply click shop rain\non the home screen.</string>
     <string name="client_sign_in_no_order_dialog_btn_1">exit</string>
-    <string name="client_sign_in_no_order_dialog_btn_2">main menu</string>
+    <string name="client_sign_in_no_order_dialog_btn_2">home</string>
     <string name="manual_address_title">Please add your home address</string>
 
     <!--dashboard-->
@@ -25,7 +25,7 @@
     <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides</string>
     <string name="scan_below">scan below</string>
     <string name="id_verified">ID verified</string>
-    <string name="scan_id">Scan Id</string>
+    <string name="scan_id">Scan ID</string>
 
     <!--Rica agent declaration-->
     <string name="rica_verify_title">RICA agent \nverification</string>
@@ -41,6 +41,9 @@
     <string name="town">Town*</string>
     <string name="province">Province*</string>
     <string name="ok">Ok</string>
+    <string name="south_african_id_book">South African\nID Book</string>
+    <string name="south_african_id_card">South African\nID Card</string>
+    <string name="south_african_passport">South African\nPassport</string>
 
     <!--Select Quantity-->
     <string name="select_quantity_title">select quantity</string>

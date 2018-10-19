@@ -10,6 +10,8 @@ import javax.inject.Inject
 class ManualAddressPresenterImpl @Inject
 constructor(view: ManualAddressView) : BasePresenterImpl<ManualAddressView>(view), ManualAddressPresenter {
     override fun validate(address: String, streetAddress: String, suburb: String, town: String, province: String) {
+        val valid = streetAddress.isNotEmpty() && suburb.isNotEmpty() && town.isNotEmpty() && province.isNotEmpty()
+        view.enableOkButton(valid)
     }
 
 }

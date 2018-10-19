@@ -43,14 +43,15 @@ class AddressAdapter : RecyclerView.Adapter<AddressAdapter.AddressVH>() {
 
     class AddressVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: String, isSelected: Boolean) = with(itemView) {
-            val color = if (isSelected) {
-                ContextCompat.getColor(context, R.color.primary)
-            } else {
-                ContextCompat.getColor(context, R.color.dark_gray)
-            }
             (itemView as? TextView)?.let {
+                if (isSelected) {
+                    it.setBackgroundResource(R.drawable.address_item_selected)
+                    it.setTextColor(ContextCompat.getColor(context, android.R.color.white))
+                } else {
+                    it.setBackgroundResource(R.drawable.address_item_unselect)
+                    it.setTextColor(ContextCompat.getColor(context, R.color.dark_gray))
+                }
                 it.text = item
-                it.setTextColor(color)
             }
         }
     }

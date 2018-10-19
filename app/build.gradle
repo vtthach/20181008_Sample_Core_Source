@@ -110,6 +110,9 @@ dependencies {
     // Local mock api
     implementation(name: 'achilles-0.2.16-SNAPSHOT_20180821_1000', ext: 'aar')
 
+    // Circle progress
+    implementation uiComponent.circleProgressView
+
     // Crashlytic
     implementation(utilDependency.crashlytics) { transitive = true }
 

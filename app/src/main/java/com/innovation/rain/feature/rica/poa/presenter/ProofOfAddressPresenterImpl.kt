@@ -12,7 +12,7 @@ import javax.inject.Inject
 class ProofOfAddressPresenterImpl @Inject
 constructor(view: ProofOfAddressView) : BasePresenterImpl<ProofOfAddressView>(view), ProofOfAddressPresenter {
     override fun submitManualAddress(address: Address) {
-        //TODO: submit data
+        //TODO: uploadImage data
         view.onDone()
     }
 

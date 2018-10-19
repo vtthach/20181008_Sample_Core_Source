@@ -13,17 +13,22 @@ class ScanPassportPresenterImpl @Inject constructor(cameraController: CameraCont
                                                     view: ScanPassportView)
     : BaseScanIdDocPresenterImpl<ScanPassportView>(view, cameraController), ScanPassportPresenter {
 
-    private var file: File? = null
+    private var capturedFile: File? = null
 
     override fun getCameraCallback() = object : CameraCallback {
         override fun onSuccess(file: File) {
-            this@ScanPassportPresenterImpl.file = file
-            view.backToHomeRica()
+            capturedFile = file
+            view.reviewImage(file)
             Timber.i("Saved image at $file")
         }
 
         override fun onError(error: String) {
             //TODO: NTL
         }
+    }
+
+    override fun uploadImage() {
+        //TODO: call api. Then...
+        view.backToHomeRica()
     }
 }

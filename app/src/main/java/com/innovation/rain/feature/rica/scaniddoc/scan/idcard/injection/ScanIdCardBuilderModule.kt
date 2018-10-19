@@ -11,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ScanIdCardBuilderModule {
     @PerView
-    @ContributesAndroidInjector(modules = [ScanIdCardViewModule::class])
+    @ContributesAndroidInjector(modules = [ScanIdCardViewModule::class, ScanIdCardControllerModule::class])
     internal abstract fun contributeFragment(): ScanIdCardFragment
 }

@@ -13,12 +13,12 @@ class ScanIdBookPresenterImpl @Inject constructor(cameraController: CameraContro
                                                   view: ScanIdBookView)
     : BaseScanIdDocPresenterImpl<ScanIdBookView>(view, cameraController), ScanIdBookPresenter {
 
-    private var file: File? = null
+    private var capturedfile: File? = null
 
     override fun getCameraCallback() = object : CameraCallback {
         override fun onSuccess(file: File) {
-            this@ScanIdBookPresenterImpl.file = file
-            view.backToHomeRica()
+            capturedfile = file
+            view.reviewImage(file)
             Timber.i("Saved image at $file")
         }
 
@@ -27,4 +27,8 @@ class ScanIdBookPresenterImpl @Inject constructor(cameraController: CameraContro
         }
     }
 
+    override fun uploadImage() {
+        //TODO: call api. Then...
+        view.backToHomeRica()
+    }
 }

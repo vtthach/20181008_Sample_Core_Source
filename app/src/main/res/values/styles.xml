@@ -13,6 +13,10 @@
         <item name="android:textColor">@color/text_primary</item>
     </style>
 
+    <style name="BtnNavigate.Large">
+        <item name="android:background">@drawable/navigate_button_selector_large</item>
+    </style>
+
     <style name="TextTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -50,8 +54,8 @@
     <style name="StyleTextureView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginLeft">30dp</item>
-        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
         <item name="android:layout_marginBottom">70dp</item>
     </style>
 </resources>

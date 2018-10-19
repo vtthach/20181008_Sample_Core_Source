@@ -16,10 +16,10 @@
 
     <Button
         android:id="@+id/btnIdBook"
-        style="@style/BtnNavigate"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="South African ID Book"
+        style="@style/BtnNavigate.Large"
+        android:layout_width="@dimen/width_button_scan_id"
+        android:layout_height="@dimen/height_button_scan_id"
+        android:text="@string/south_african_id_book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/btnIdCard"
@@ -27,10 +27,10 @@
 
     <Button
         android:id="@+id/btnIdCard"
-        style="@style/BtnNavigate"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="South African ID Card"
+        style="@style/BtnNavigate.Large"
+        android:layout_width="@dimen/width_button_scan_id"
+        android:layout_height="@dimen/height_button_scan_id"
+        android:text="@string/south_african_id_card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/btnIdBook"
         app:layout_constraintRight_toLeftOf="@id/btnPassport"
@@ -38,10 +38,10 @@
 
     <Button
         android:id="@+id/btnPassport"
-        style="@style/BtnNavigate"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="South African Passport"
+        style="@style/BtnNavigate.Large"
+        android:layout_width="@dimen/width_button_scan_id"
+        android:layout_height="@dimen/height_button_scan_id"
+        android:text="@string/south_african_passport"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/btnIdCard"
         app:layout_constraintRight_toRightOf="parent"

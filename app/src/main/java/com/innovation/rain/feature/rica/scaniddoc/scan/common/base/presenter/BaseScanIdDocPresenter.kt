@@ -7,4 +7,6 @@ interface BaseScanIdDocPresenter : BasePresenter {
     fun capture()
 
     fun setTextureView(autoFitTextureView: AutoFitTextureView)
+
+    fun uploadImage()
 }

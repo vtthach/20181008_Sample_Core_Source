@@ -25,7 +25,7 @@
     <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides</string>
     <string name="scan_below">scan below</string>
     <string name="id_verified">ID verified</string>
-    <string name="scan_id">Scan Id</string>
+    <string name="scan_id">Scan ID</string>
 
     <!--Rica agent declaration-->
     <string name="rica_verify_title">RICA agent \nverification</string>
@@ -41,5 +41,8 @@
     <string name="town">Town*</string>
     <string name="province">Province*</string>
     <string name="ok">Ok</string>
+    <string name="south_african_id_book">South African\nID Book</string>
+    <string name="south_african_id_card">South African\nID Card</string>
+    <string name="south_african_passport">South African\nPassport</string>
 
 </resources>

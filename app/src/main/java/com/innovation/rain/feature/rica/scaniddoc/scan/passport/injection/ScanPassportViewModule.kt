@@ -1,7 +1,5 @@
 package com.innovation.rain.feature.rica.scaniddoc.scan.passport.injection
 
-import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraController
-import com.innovation.rain.feature.rica.scaniddoc.scan.common.cameracontroller.CameraControllerImpl
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.presenter.ScanPassportPresenter
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.presenter.ScanPassportPresenterImpl
 import com.innovation.rain.feature.rica.scaniddoc.scan.passport.view.ScanPassportFragment
@@ -20,8 +18,4 @@ abstract class ScanPassportViewModule {
     @PerView
     @Binds
     internal abstract fun providePresenter(presenter: ScanPassportPresenterImpl): ScanPassportPresenter
-
-    @PerView
-    @Binds
-    internal abstract fun provideController(controller: CameraControllerImpl): CameraController
 }

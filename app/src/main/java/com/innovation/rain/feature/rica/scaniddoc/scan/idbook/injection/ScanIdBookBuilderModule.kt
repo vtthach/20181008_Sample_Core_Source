@@ -11,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ScanIdBookBuilderModule {
     @PerView
-    @ContributesAndroidInjector(modules = [ScanIdBookViewModule::class])
-    internal abstract fun contributeFragment(): ScanIdBookFragment
+    @ContributesAndroidInjector(modules = [ScanIdBookViewModule::class, ScanIdBookControllerModule::class])
+    abstract fun contributeFragment(): ScanIdBookFragment
 }

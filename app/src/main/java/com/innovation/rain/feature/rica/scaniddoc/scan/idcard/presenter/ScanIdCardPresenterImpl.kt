@@ -15,26 +15,36 @@ class ScanIdCardPresenterImpl @Inject constructor(cameraController: CameraContro
 
     private var isScanFirstTime = true
 
+    private var capturedFile: File? = null
+
     private var firstFile: File? = null
 
     private var secondsFile: File? = null
 
     override fun getCameraCallback() = object : CameraCallback {
         override fun onSuccess(file: File) {
-            if (isScanFirstTime) {
-                firstFile = file
-                isScanFirstTime = false
-                view.showFlipCardMessage()
-            } else {
-                secondsFile = file
-                isScanFirstTime = true
-                view.backToHomeRica()
-            }
+            capturedFile = file
+            view.reviewImage(file)
             Timber.i("Saved image at $file")
         }
 
         override fun onError(error: String) {
             //TODO: NTL
+        }
+    }
+
+    override fun uploadImage() {
+        if (isScanFirstTime) {
+            firstFile = capturedFile
+            isScanFirstTime = false
+            view.showFlipCardMessage()
+            view.showTextureView(true)
+        } else {
+            secondsFile = capturedFile
+            isScanFirstTime = true
+
+            //TODO: call api. Then...
+            view.backToHomeRica()
         }
     }
 }

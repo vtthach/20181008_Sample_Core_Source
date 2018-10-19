@@ -67,6 +67,7 @@ open class BaseScanIdDocFragment<T : BaseScanIdDocPresenter> : BasePresenterInje
 
             imagePreview.visibility = View.VISIBLE
             btAccept.visibility = View.VISIBLE
+            btAccept.isActivated = true
             btCancel.visibility = View.VISIBLE
         }
     }

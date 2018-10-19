@@ -29,5 +29,5 @@
     <dimen name="manual_address_et_size">22sp</dimen>
     <dimen name="fragment_rica_padding">20dp</dimen>
     <dimen name="width_button_scan_id">200dp</dimen>
-    <dimen name="height_button_scan_id">150dp</dimen>
+    <dimen name="height_button_scan_id">300dp</dimen>
 </resources>

@@ -34,8 +34,7 @@ class RicaHomeScanIdDocFragment : BaseRicaFragment<RicaHomeScanIdDocPresenter>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val stateId = arguments?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE, RicaState.STATE_LOADED.id)
-        ricaState = RicaState.valueOf(stateId ?: RicaState.STATE_LOADED.id)
+        ricaState = RicaState.STATE_LOADED
 
         rootView.setOnClickListener {
             showFragment<IntroScanIdDocFragment>(requestCode = RicaHomeFragment.REQUEST_CODE)

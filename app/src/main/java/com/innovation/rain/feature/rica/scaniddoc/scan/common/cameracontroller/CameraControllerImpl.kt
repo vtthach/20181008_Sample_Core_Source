@@ -563,8 +563,8 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
                 override fun onCaptureCompleted(session: CameraCaptureSession,
                                                 request: CaptureRequest,
                                                 result: TotalCaptureResult) {
-                    cameraCallback?.onSuccess(file)
                     unlockFocus()
+                    cameraCallback?.onSuccess(file)
                 }
             }
 

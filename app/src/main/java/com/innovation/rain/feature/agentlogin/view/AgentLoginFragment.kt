@@ -1,6 +1,10 @@
 package com.innovation.rain.feature.agentlogin.view
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -56,6 +60,8 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
     }
 
+    private val MY_PERMISSIONS_REQUEST = 123
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         edPassword.addTextChangedListener(textPwChangeListener)
@@ -65,6 +71,17 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
         btnLogin.setOnClickListener {
             activity?.showFragment<WelcomeMenuFragment>()
+        }
+
+        //TODO remove following code when use knox
+        if (ContextCompat.checkSelfPermission(activity!!,
+                        Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(activity!!,
+                    arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    MY_PERMISSIONS_REQUEST)
         }
     }
 }

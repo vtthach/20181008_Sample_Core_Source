@@ -67,13 +67,14 @@ ext {
     ]
 
     uiComponent = [
-            bottomNavEx      : "com.github.ittianyu:BottomNavigationViewEx:1.2.0",
-            avLoading        : "com.wang.avi:library:2.1.3",
-            photoViewer      : "com.github.chrisbanes.photoview:library:1.2.4",
-            pageIndicator    : "com.romandanylyk:pageindicatorview:0.2.0@aar",
-            smoothProgressBar: "com.github.castorflex.smoothprogressbar:library:1.1.0",
-            circleIndicator  : "me.relex:circleindicator:1.2.1@aar",
-            materialDialog   : "com.afollestad.material-dialogs:core:${materialDialogVersion}"
+            bottomNavEx       : "com.github.ittianyu:BottomNavigationViewEx:1.2.0",
+            avLoading         : "com.wang.avi:library:2.1.3",
+            photoViewer       : "com.github.chrisbanes.photoview:library:1.2.4",
+            pageIndicator     : "com.romandanylyk:pageindicatorview:0.2.0@aar",
+            smoothProgressBar : "com.github.castorflex.smoothprogressbar:library:1.1.0",
+            circleIndicator   : "me.relex:circleindicator:1.2.1@aar",
+            materialDialog    : "com.afollestad.material-dialogs:core:${materialDialogVersion}",
+            circleProgressView: "com.github.jakob-grabner:Circle-Progress-View:v1.3"
     ]
 
     ioComponent = [
@@ -212,6 +213,7 @@ def addRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
     handler.mavenCentral()
+    handler.maven { url "https://jitpack.io" }
 }
 
 ext.addRepos = this.&addRepos

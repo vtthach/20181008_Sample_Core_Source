@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.selectQuantity.presenter
+package com.innovation.rain.feature.selectquantity.presenter
 
 import com.sf0404.core.application.base.presenter.BasePresenter
 

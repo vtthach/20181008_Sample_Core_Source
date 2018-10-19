@@ -10,7 +10,7 @@ import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
-import com.innovation.rain.feature.selectQuantity.view.SelectQuantityFragment
+import com.innovation.rain.feature.selectquantity.view.SelectQuantityFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*

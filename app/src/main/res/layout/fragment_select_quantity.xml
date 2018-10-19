@@ -21,7 +21,7 @@
         android:gravity="center"
         android:text="@string/select_quantity_title"
         android:textColor="@color/primary"
-        android:textSize="@dimen/text_size_40"
+        android:textSize="@dimen/title_text_size_25"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +34,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/selectQuantityTitle1" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/selectQuantityDesc"
         style="@style/TextTitle"
         android:layout_marginTop="20dp"
@@ -43,23 +43,62 @@
         android:textColor="@color/primary"
         android:textSize="@dimen/text_size_20"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/selectQuantityImg1" />
+        app:layout_constraintTop_toBottomOf="@+id/selectQuantityImg1" />-->
 
     <Spinner
-        android:id="@+id/listItem"
-        android:layout_width="200dp"
+        android:id="@+id/itemDropDown"
+        android:layout_width="260dp"
         android:layout_height="80dp"
-        android:entries="@array/empty_array"
-        android:prompt="@string/country_prompt"
+        android:spinnerMode="dropdown"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/selectQuantityDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/selectQuantityImg1" />
+
+    <ImageView
+        android:id="@+id/imgLine1"
+        android:layout_width="260dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/itemDropDown" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/light_gray"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine1"  />
+
+    <TextView
+        android:id="@+id/tv_name_desc"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_gray"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"  />
+
+    <TextView
+        android:id="@+id/tv_name_desc1"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/light_gray"
+        android:text="@string/select_quantity_desc3"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_desc"  />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineMiddle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="573dp" />
+        app:layout_constraintGuide_begin="450dp" />
 
     <TextView
         android:id="@+id/selectQuantityTitle2"
@@ -68,10 +107,9 @@
         android:gravity="center"
         android:text="@string/select_quantity_title"
         android:textColor="@color/primary"
-        android:textSize="@dimen/text_size_40"
+        android:textSize="@dimen/title_text_size_25"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
-        app:layout_constraintRight_toRightOf="@+id/guidelineRight"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.ConstraintLayout
@@ -80,7 +118,6 @@
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/plus_minus"
-        app:layout_constraintRight_toRightOf="@+id/guidelineRight"
         app:layout_constraintStart_toEndOf="@+id/guidelineMiddle"
         app:layout_constraintTop_toBottomOf="@+id/selectQuantityTitle2">
 
@@ -97,12 +134,68 @@
 
     </android.support.constraint.ConstraintLayout>
 
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineRight"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_cart_summary"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="100dp" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="152dp"
+        android:text="@string/cart_summary"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/selectQuantityImg2" />
+
+    <ImageView
+        android:id="@+id/imgLine2"
+        android:layout_width="260dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cart_summary" />
+
+    <TextView
+        android:id="@+id/tv_sub_total"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/light_gray"
+        android:text="@string/sub_total"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine2"  />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="50dp"
+        android:textColor="@color/light_gray"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintStart_toEndOf="@+id/tv_sub_total"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine2"  />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/primary"
+        android:text="@string/total"
+        android:textSize="@dimen/title_text_size_15"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sub_total"  />
+
+    <ImageView
+        android:id="@+id/imgLine3"
+        android:layout_width="260dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total" />
+
 
 </android.support.constraint.ConstraintLayout>

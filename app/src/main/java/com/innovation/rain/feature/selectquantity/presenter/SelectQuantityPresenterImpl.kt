@@ -1,7 +1,7 @@
-package com.innovation.rain.feature.selectQuantity.presenter
+package com.innovation.rain.feature.selectquantity.presenter
 
 
-import com.innovation.rain.feature.selectQuantity.view.SelectQuantityView
+import com.innovation.rain.feature.selectquantity.view.SelectQuantityView
 import com.sf0404.core.application.base.presenter.BasePresenterImpl
 
 import javax.inject.Inject

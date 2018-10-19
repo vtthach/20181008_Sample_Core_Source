@@ -1,9 +1,9 @@
-package com.innovation.rain.feature.selectQuantity.injection
+package com.innovation.rain.feature.selectquantity.injection
 
-import com.innovation.rain.feature.selectQuantity.presenter.SelectQuantityPresenter
-import com.innovation.rain.feature.selectQuantity.presenter.SelectQuantityPresenterImpl
-import com.innovation.rain.feature.selectQuantity.view.SelectQuantityFragment
-import com.innovation.rain.feature.selectQuantity.view.SelectQuantityView
+import com.innovation.rain.feature.selectquantity.presenter.SelectQuantityPresenter
+import com.innovation.rain.feature.selectquantity.presenter.SelectQuantityPresenterImpl
+import com.innovation.rain.feature.selectquantity.view.SelectQuantityFragment
+import com.innovation.rain.feature.selectquantity.view.SelectQuantityView
 import com.sf0404.core.application.scope.PerView
 import dagger.Binds
 import dagger.Module

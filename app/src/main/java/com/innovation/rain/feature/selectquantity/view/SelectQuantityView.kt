@@ -1,4 +1,4 @@
-package  com.innovation.rain.feature.selectQuantity.view
+package  com.innovation.rain.feature.selectquantity.view
 
 import com.sf0404.core.application.base.presenter.BaseView
 

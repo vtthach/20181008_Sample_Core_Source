@@ -5,7 +5,7 @@ import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuild
 import com.innovation.rain.feature.rica.address.injection.ManualAddressBuilderModule;
 import com.innovation.rain.feature.rica.agentverification.injection.AgentVerificationBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
-import com.innovation.rain.feature.selectQuantity.injection.SelectQuantityBuilderModule;
+import com.innovation.rain.feature.selectquantity.injection.SelectQuantityBuilderModule;
 import com.innovation.rain.feature.rica.poa.injection.ProofOfAddressBuilderModule;
 import com.innovation.rain.feature.rica.scaniddoc.home.injection.RicaHomeScanIdDocBuilderModule;
 import com.innovation.rain.feature.rica.scaniddoc.scan.idbook.injection.ScanIdBookBuilderModule;

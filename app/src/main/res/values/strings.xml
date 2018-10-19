@@ -48,9 +48,9 @@
     <string name="select_quantity_desc1">SIM + 10 data days</string>
     <string name="select_quantity_desc2">R50 a gig</string>
     <string name="select_quantity_desc3">pay at the end of the month</string>
-    <string name="select_quantity_desc4">cart summary</string>
-    <string name="select_quantity_desc5">sub total (1 items)</string>
-    <string name="select_quantity_desc6">total</string>
+    <string name="cart_summary">cart summary</string>
+    <string name="sub_total">sub total (1 items)</string>
+    <string name="total">total</string>
     <string name="country_prompt">Choose a country</string>
     <string-array name="empty_array">
 

@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.rica.address.model
+package com.innovation.rain.feature.rica.poa.address.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

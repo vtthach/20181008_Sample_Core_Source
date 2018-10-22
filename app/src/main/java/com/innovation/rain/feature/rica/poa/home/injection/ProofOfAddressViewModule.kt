@@ -1,9 +1,9 @@
-package com.innovation.rain.feature.rica.poa.injection
+package com.innovation.rain.feature.rica.poa.home.injection
 
-import com.innovation.rain.feature.rica.poa.presenter.ProofOfAddressPresenter
-import com.innovation.rain.feature.rica.poa.presenter.ProofOfAddressPresenterImpl
-import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
-import com.innovation.rain.feature.rica.poa.view.ProofOfAddressView
+import com.innovation.rain.feature.rica.poa.home.presenter.ProofOfAddressPresenter
+import com.innovation.rain.feature.rica.poa.home.presenter.ProofOfAddressPresenterImpl
+import com.innovation.rain.feature.rica.poa.home.view.ProofOfAddressFragment
+import com.innovation.rain.feature.rica.poa.home.view.ProofOfAddressView
 
 import com.sf0404.core.application.scope.PerView
 import dagger.Binds

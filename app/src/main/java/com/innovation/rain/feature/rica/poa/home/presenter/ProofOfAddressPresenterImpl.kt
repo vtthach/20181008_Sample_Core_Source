@@ -1,20 +1,13 @@
-package com.innovation.rain.feature.rica.poa.presenter
+package com.innovation.rain.feature.rica.poa.home.presenter
 
 import android.os.Bundle
-import com.innovation.rain.feature.rica.address.model.Address
-
-import com.innovation.rain.feature.rica.poa.view.ProofOfAddressView
+import com.innovation.rain.feature.rica.poa.home.view.ProofOfAddressView
 import com.sf0404.core.application.base.presenter.BasePresenterImpl
-
 import javax.inject.Inject
 
 
 class ProofOfAddressPresenterImpl @Inject
 constructor(view: ProofOfAddressView) : BasePresenterImpl<ProofOfAddressView>(view), ProofOfAddressPresenter {
-    override fun submitManualAddress(address: Address) {
-        //TODO: uploadImage data
-        view.onDone()
-    }
 
     private var selectedPos: Int? = null
     private var addressList: MutableList<String>? = null

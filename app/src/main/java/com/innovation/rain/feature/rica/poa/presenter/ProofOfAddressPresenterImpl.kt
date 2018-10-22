@@ -43,7 +43,8 @@ constructor(view: ProofOfAddressView) : BasePresenterImpl<ProofOfAddressView>(vi
                 "000, Street, Suburb, City",
                 "000, Street, Suburb, City",
                 "000, Street, Suburb, City",
-                "None of above")
+                "000, Street, Suburb, City",
+                "Manually Capture")
     }
 
     override fun handleProceedButtonClicked() {

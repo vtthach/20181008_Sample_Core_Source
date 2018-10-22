@@ -11,10 +11,12 @@ import javax.inject.Inject;
 import static com.innovation.rain.app.properties.DefaultProperties.DEFAULT_MOCK_MODE;
 import static com.innovation.rain.app.properties.DefaultProperties.DEFAULT_ZOOM_RATIO_ID_BOOK;
 import static com.innovation.rain.app.properties.DefaultProperties.DEFAULT_ZOOM_RATIO_ID_CARD;
+import static com.innovation.rain.app.properties.DefaultProperties.DEFAULT_ZOOM_RATIO_POA;
 import static com.sf0404.common.properties.ConstProperties.Key.PROPERTY_ENDPOINT_URL;
 import static com.sf0404.common.properties.ConstProperties.Key.PROPERTY_MOCK_METHOD;
 import static com.sf0404.common.properties.ConstProperties.Key.PROPERTY_ZOOM_RATIO_ID_BOOK;
 import static com.sf0404.common.properties.ConstProperties.Key.PROPERTY_ZOOM_RATIO_ID_CARD;
+import static com.sf0404.common.properties.ConstProperties.Key.PROPERTY_ZOOM_RATIO_POA;
 
 public class BuildInProperties {
 
@@ -40,6 +42,12 @@ public class BuildInProperties {
     public float getZoomRatioIdBook() {
         appProperties.reloadProperties();
         String zoomRatio = appProperties.getProperty(PROPERTY_ZOOM_RATIO_ID_BOOK, DEFAULT_ZOOM_RATIO_ID_BOOK);
+        return Float.parseFloat(zoomRatio);
+    }
+
+    public float getZoomRatioPOA() {
+        appProperties.reloadProperties();
+        String zoomRatio = appProperties.getProperty(PROPERTY_ZOOM_RATIO_POA, DEFAULT_ZOOM_RATIO_POA);
         return Float.parseFloat(zoomRatio);
     }
 

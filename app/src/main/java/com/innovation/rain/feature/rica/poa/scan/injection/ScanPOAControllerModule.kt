@@ -13,6 +13,6 @@ class ScanPOAControllerModule {
     @Provides
     @PerView
     fun provideController(context: Context, properties: BuildInProperties): CameraController {
-        return CameraControllerImpl(context, properties.zoomRatioIdBook)
+        return CameraControllerImpl(context, properties.zoomRatioPOA)
     }
 }

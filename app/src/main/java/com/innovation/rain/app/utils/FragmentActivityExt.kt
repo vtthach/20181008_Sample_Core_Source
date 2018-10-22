@@ -18,17 +18,10 @@ inline fun <reified T : Fragment> FragmentActivity.showFragment(flag: Int? = nul
 
 inline fun <reified T : Fragment> Fragment.showFragment(flag: Int = ContainerActivity.UNUSED_VALUE,
                                                         requestCode: Int = ContainerActivity.UNUSED_VALUE) {
-    val intentBuilder = ContainerActivity.IntentBuilder(this)
-    intentBuilder.setFragmentClass(T::class.java)
-            .setFlag(flag)
-            .setRequestCode(requestCode)
-            .start()
-}
-
-inline fun <reified T : Fragment> Fragment.startForResult(requestCode: Int) {
-    ContainerActivity.IntentBuilder(this).apply {
-        setRequestCode(requestCode)
+    ContainerActivity.IntentBuilder(this).run {
         setFragmentClass(T::class.java)
+        setFlag(flag)
+        setRequestCode(requestCode)
         setActionMode(ToolbarMode.NONE)
         start()
     }

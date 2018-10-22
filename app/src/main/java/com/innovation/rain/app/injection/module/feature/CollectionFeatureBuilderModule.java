@@ -6,6 +6,7 @@ import com.innovation.rain.feature.rica.address.injection.ManualAddressBuilderMo
 import com.innovation.rain.feature.rica.agentverification.injection.AgentVerificationBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
 import com.innovation.rain.feature.rica.poa.injection.ProofOfAddressBuilderModule;
+import com.innovation.rain.feature.rica.poa.scan.injection.ScanPOABuilderModule;
 import com.innovation.rain.feature.rica.scaniddoc.home.injection.RicaHomeScanIdDocBuilderModule;
 import com.innovation.rain.feature.rica.scaniddoc.scan.idbook.injection.ScanIdBookBuilderModule;
 import com.innovation.rain.feature.rica.scaniddoc.scan.idcard.injection.ScanIdCardBuilderModule;
@@ -23,6 +24,7 @@ import dagger.Module;
         RicaHomeScanIdDocBuilderModule.class,
         AgentVerificationBuilderModule.class,
         ManualAddressBuilderModule.class,
+        ScanPOABuilderModule.class,
         ProofOfAddressBuilderModule.class
 })
 public class CollectionFeatureBuilderModule {

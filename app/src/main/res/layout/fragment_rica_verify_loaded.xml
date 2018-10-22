@@ -24,14 +24,40 @@
             android:id="@+id/riceAgentDesc"
             style="@style/TextTitle"
             android:gravity="center"
-            android:layout_marginTop="@dimen/margin_top_home_title"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/rica_home_card_margin_top"
             android:paddingStart="@dimen/fragment_rica_padding"
             android:paddingEnd="@dimen/fragment_rica_padding"
             android:text="@string/rica_verify_desc"
-            android:textColor="@color/light_gray"
-            android:textSize="@dimen/title_text_size_15"
+            android:textColor="@color/mid_gray"
+            android:textSize="13sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/riceAgentTitle" />
+
+
+        <ImageView
+            android:id="@+id/imgCbVerify"
+            android:layout_width="@dimen/img_verify_width"
+            android:layout_height="@dimen/img_verify_height"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/checkbox_verify"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/riceAgentDesc" />
+
+        <TextView
+            android:id="@+id/cbVerifyDesc"
+            style="@style/TextTitle"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingStart="@dimen/fragment_rica_padding"
+            android:paddingEnd="@dimen/fragment_rica_padding"
+            android:text="@string/cb_verify_desc"
+            android:textColor="@color/mid_gray"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgCbVerify" />
 
 </android.support.constraint.ConstraintLayout>

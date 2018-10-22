@@ -44,5 +44,8 @@
     <string name="south_african_id_book">South African\nID Book</string>
     <string name="south_african_id_card">South African\nID Card</string>
     <string name="south_african_passport">South African\nPassport</string>
+    <string name="capture">Capture</string>
+    <string name="accept">Accept</string>
+    <string name="retake">Retake</string>
 
 </resources>

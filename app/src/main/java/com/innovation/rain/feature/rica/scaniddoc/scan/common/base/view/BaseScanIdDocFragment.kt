@@ -27,6 +27,7 @@ open class BaseScanIdDocFragment<T : BaseScanIdDocPresenter> : BasePresenterInje
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btCapture.isActivated = true
         btAccept.isActivated = true
         showTextureView(true)
         mPresenter.setTextureView(viewTexture)

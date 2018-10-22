@@ -30,4 +30,7 @@
     <dimen name="fragment_rica_padding">20dp</dimen>
     <dimen name="width_button_scan_id">200dp</dimen>
     <dimen name="height_button_scan_id">300dp</dimen>
+    <dimen name="img_verify_width">70dp</dimen>
+    <dimen name="img_verify_height">70dp</dimen>
+
 </resources>

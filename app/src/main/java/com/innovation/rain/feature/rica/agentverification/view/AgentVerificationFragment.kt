@@ -24,7 +24,7 @@ class AgentVerificationFragment() : BaseRicaFragment<RicaHomePresenter>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ricaVerifyFragment.setOnClickListener {
+        imgCbVerify.setOnClickListener {
             ricaState = RicaState.STATE_DONE
             enableButtonProceed(true)
         }

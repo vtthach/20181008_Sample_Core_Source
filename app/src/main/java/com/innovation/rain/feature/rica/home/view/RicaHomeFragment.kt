@@ -5,7 +5,6 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
@@ -59,7 +58,6 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
                 mFragments!![getCurrentIndex()].onProceedButtonClicked()
             } else {
                 showToastInfo("To be continue...")
-                activity?.showFragment<SimDispenserFragment>()
             }
         }
         if(savedInstanceState == null) {

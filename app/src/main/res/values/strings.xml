@@ -44,18 +44,18 @@
     <string name="south_african_id_book">South African\nID Book</string>
     <string name="south_african_id_card">South African\nID Card</string>
     <string name="south_african_passport">South African\nPassport</string>
+    <string name="cb_verify_desc">Click on check box to verify.</string>
 
     <!--Select Quantity-->
     <string name="select_quantity_title">select quantity</string>
     <string name="select_quantity_desc">R50 once off</string>
     <string name="select_quantity_desc1">SIM + 10 data days</string>
     <string name="select_quantity_desc2">R50 a gig</string>
-    <string name="select_quantity_desc3">pay at the end of the month</string>
+    <string name="pay_at_end">pay at the end of the month</string>
     <string name="cart_summary">cart summary</string>
-    <string name="sub_total">sub total (1 items)</string>
+    <string name="sub_total">sub total </string>
+    <string name="sub_total_item">(1 item)</string>
     <string name="total">total</string>
     <string name="country_prompt">Choose a country</string>
-    <string-array name="empty_array">
 
-    </string-array>
 </resources>

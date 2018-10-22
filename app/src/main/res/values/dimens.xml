@@ -34,7 +34,7 @@
     <dimen name="img_verify_width">70dp</dimen>
     <dimen name="img_verify_height">70dp</dimen>
     <dimen name="margin_30">30dp</dimen>
-    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
 
     <!-- Select quantity -->
     <dimen name="text_size_40">40sp</dimen>

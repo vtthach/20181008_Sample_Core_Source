@@ -9,7 +9,7 @@ class SelectQuantityPresenterImpl @Inject
 constructor(view: SelectQuantityView) : BasePresenterImpl<SelectQuantityView>(view), SelectQuantityPresenter {
 
     val minQuantity = 1
-    val maxQuantity = 10
+    val maxQuantity = 3
 
     override fun handleSpinnerChange(name: String) {
         when (name) {

@@ -58,6 +58,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
                 mFragments!![getCurrentIndex()].onProceedButtonClicked()
             } else {
                 showToastInfo("To be continue...")
+                activity?.showFragment<SelectQuantityFragment>()//todo
             }
         }
         if(savedInstanceState == null) {

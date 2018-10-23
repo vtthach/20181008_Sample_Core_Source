@@ -50,23 +50,14 @@
 
             <Button
                 android:id="@+id/btnMainMenu"
-                style="@style/BtnNavigate"
-                android:layout_width="@dimen/btn_dialog_width"
-                android:layout_height="@dimen/btn_action_height"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/ripple_button_solid"
-                android:text="@string/client_sign_in_no_order_dialog_btn_1"
-                android:textColor="@color/text_primary" />
+                style="@style/Btn.Dialog.Negative"
+                android:layout_marginEnd="@dimen/dialog_btn_gap"
+                android:text="@string/client_sign_in_no_order_dialog_btn_1"/>
 
             <Button
                 android:id="@+id/btnWelcomeScreen"
-                style="@style/BtnNavigate"
-                android:layout_width="@dimen/btn_dialog_width"
-                android:layout_height="@dimen/btn_action_height"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/ripple_button_solid"
-                android:text="@string/client_sign_in_no_order_dialog_btn_2"
-                android:textColor="@color/text_primary" />
+                style="@style/Btn.Dialog"
+                android:text="@string/client_sign_in_no_order_dialog_btn_2" />
         </LinearLayout>
 
         <TextView

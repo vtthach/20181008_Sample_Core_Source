@@ -148,13 +148,13 @@
 
     <Button
         android:id="@+id/btnExit"
-        style="@style/BtnNavigate"
+        style="@style/Btn"
         android:text="@string/str_exit"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/btnOk"
-        style="@style/BtnNavigate"
+        style="@style/Btn"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"

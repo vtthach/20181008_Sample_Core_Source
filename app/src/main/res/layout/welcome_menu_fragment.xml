@@ -35,7 +35,7 @@
 
         <Button
             android:id="@+id/btnShop"
-            style="@style/BtnNavigate"
+            style="@style/Btn"
             android:layout_width="@dimen/btn_navigate_right_width"
             android:layout_height="@dimen/btn_action_height"
             android:layout_marginBottom="15dp"
@@ -45,7 +45,7 @@
 
         <Button
             android:id="@+id/btnCollection"
-            style="@style/BtnNavigate"
+            style="@style/Btn"
             android:layout_width="@dimen/btn_navigate_right_width"
             android:layout_height="@dimen/btn_action_height"
             android:layout_marginTop="15dp"

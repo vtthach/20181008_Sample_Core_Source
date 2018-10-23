@@ -16,7 +16,7 @@
 
     <Button
         android:id="@+id/btnIdBook"
-        style="@style/BtnNavigate.Large"
+        style="@style/Btn.Large"
         android:layout_width="@dimen/width_button_scan_id"
         android:layout_height="@dimen/height_button_scan_id"
         android:text="@string/south_african_id_book"
@@ -27,7 +27,7 @@
 
     <Button
         android:id="@+id/btnIdCard"
-        style="@style/BtnNavigate.Large"
+        style="@style/Btn.Large"
         android:layout_width="@dimen/width_button_scan_id"
         android:layout_height="@dimen/height_button_scan_id"
         android:text="@string/south_african_id_card"
@@ -38,7 +38,7 @@
 
     <Button
         android:id="@+id/btnPassport"
-        style="@style/BtnNavigate.Large"
+        style="@style/Btn.Large"
         android:layout_width="@dimen/width_button_scan_id"
         android:layout_height="@dimen/height_button_scan_id"
         android:text="@string/south_african_passport"

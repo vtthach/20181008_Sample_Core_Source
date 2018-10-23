@@ -5,7 +5,7 @@ import com.innovation.rain.feature.collection.simdispenser.business.model.Dispen
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseParam;
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseUiModel;
 import com.innovation.rain.feature.collection.simdispenser.business.usecase.DispenseUseCase;
-import com.innovation.rain.feature.collection.simdispenser.view.DispenseView;
+import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserView;
 import com.sf0404.core.application.base.presenter.BasePresenterImpl;
 
 import org.jetbrains.annotations.NotNull;
@@ -13,12 +13,12 @@ import org.jetbrains.annotations.NotNull;
 import javax.inject.Inject;
 
 
-public class DispensePresenterImpl extends BasePresenterImpl<DispenseView> implements DispensePresenter {
+public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserView> implements SimDispenserPresenter {
 
     private final DispenseUseCase useCase;
 
     @Inject
-    public DispensePresenterImpl(DispenseView view, DispenseUseCase useCase) {
+    public SimDispenserPresenterImpl(SimDispenserView view, DispenseUseCase useCase) {
         super(view);
         this.useCase = useCase;
     }

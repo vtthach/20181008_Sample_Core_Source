@@ -9,11 +9,11 @@ import com.sf0404.common.fragment.util.BundleUtils
 import kotlinx.android.synthetic.main.collection_client_login_no_order_fragment.*
 
 
-class DispenseErrorFragment : BaseDialogFragment() {
+class SimDispenserErrorFragment : BaseDialogFragment() {
 
     companion object {
-        fun newInstance(code: String): DispenseErrorFragment {
-            val fragment = DispenseErrorFragment()
+        fun newInstance(code: String): SimDispenserErrorFragment {
+            val fragment = SimDispenserErrorFragment()
             fragment.arguments = BundleUtils.getStatusCodeBundle(code)
             return fragment
         }

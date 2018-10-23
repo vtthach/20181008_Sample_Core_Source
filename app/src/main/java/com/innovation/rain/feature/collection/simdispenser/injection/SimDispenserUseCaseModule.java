@@ -17,7 +17,7 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 
 @Module
-public class DispenseUseCaseModule {
+public class SimDispenserUseCaseModule {
 
     @Provides
     @PerView

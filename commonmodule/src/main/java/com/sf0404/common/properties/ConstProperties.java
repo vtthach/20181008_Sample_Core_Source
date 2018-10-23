@@ -42,6 +42,9 @@ public class ConstProperties {
         static final String PROPERTY_BARCODE_TRY_NUMBER_TIME = "barcode_try_number_time";
 
         // id document
+        public static final String PROPERTY_ZOOM_RATIO_ID_CARD = "zoomRatioIdCard";
+        public static final String PROPERTY_ZOOM_RATIO_ID_BOOK = "zoomRatioIdBook";
+        public static final String PROPERTY_ZOOM_RATIO_POA = "zoomRatioPOA";
         public static final String PROPERTY_OUT_THRESHOLD_ID_BOOK = "outThresholdIdBook";
         public static final String PROPERTY_IN_THRESHOLD_ID_BOOK = "inThresholdIdBook";
         public static final String PROPERTY_OUT_THRESHOLD_ID_CARD = "outThresholdIdCard";

@@ -24,7 +24,10 @@ import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class CameraControllerImpl @Inject constructor(private val context: Context) : CameraController {
+
+class CameraControllerImpl @Inject constructor(private val context: Context,
+                                               private val zoomRatio: Float
+) : CameraController {
 
     override fun onResume() {
         startBackgroundThread()
@@ -103,6 +106,8 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
     private lateinit var previewSize: Size
 
     private var cameraCallback: CameraCallback? = null
+
+    private var zoomRect: Rect? = null
 
     /**
      * [CameraDevice.StateCallback] is called when [CameraDevice] changes its state.
@@ -440,6 +445,9 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
                                 // Auto focus should be continuous for camera preview.
                                 previewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
                                         CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
+
+                                configureZooming()
+
                                 // Flash is automatically enabled when necessary.
                                 setAutoFlash(previewRequestBuilder)
 
@@ -453,12 +461,24 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
                         }
 
                         override fun onConfigureFailed(session: CameraCaptureSession) {
-                           Timber.e("Configure failed")
+                            Timber.e("Configure failed")
                         }
                     }, null)
         } catch (e: CameraAccessException) {
             cameraCallback?.onError(e.toString())
         }
+    }
+
+    private fun configureZooming() {
+        val manager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        val characteristics = manager.getCameraCharacteristics(cameraId)
+        val rect = characteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE)
+        val ratio = 1.toFloat() / zoomRatio
+        val croppedWidth = rect.width() - Math.round(rect.width() * ratio)
+        val croppedHeight = rect.height() - Math.round(rect.height() * ratio)
+        zoomRect = Rect(croppedWidth / 2, croppedHeight / 2,
+                rect.width() - croppedWidth / 2, rect.height() - croppedHeight / 2)
+        previewRequestBuilder.set(CaptureRequest.SCALER_CROP_REGION, zoomRect)
     }
 
     /**
@@ -556,6 +576,10 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
                 // Use the same AE and AF modes as the preview.
                 set(CaptureRequest.CONTROL_AF_MODE,
                         CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
+
+                if (zoomRect != null) {
+                    set(CaptureRequest.SCALER_CROP_REGION, zoomRect)
+                }
             }?.also { setAutoFlash(it) }
 
             val captureCallback = object : CameraCaptureSession.CaptureCallback() {
@@ -563,8 +587,8 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
                 override fun onCaptureCompleted(session: CameraCaptureSession,
                                                 request: CaptureRequest,
                                                 result: TotalCaptureResult) {
-                    cameraCallback?.onSuccess(file)
                     unlockFocus()
+                    cameraCallback?.onSuccess(file)
                 }
             }
 
@@ -676,7 +700,8 @@ class CameraControllerImpl @Inject constructor(private val context: Context) : C
          * @param aspectRatio       The aspect ratio
          * @return The optimal `Size`, or an arbitrary one if none were big enough
          */
-        @JvmStatic private fun chooseOptimalSize(
+        @JvmStatic
+        private fun chooseOptimalSize(
                 choices: Array<Size>,
                 textureViewWidth: Int,
                 textureViewHeight: Int,

@@ -18,8 +18,10 @@
             android:id="@+id/tvTitle"
             style="@style/TextTitle"
             android:layout_marginTop="@dimen/dialog_margin_top_bot"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingMultiplier="0.8"
             android:text="@string/client_sign_in_no_order_dialog_title"
-            app:layout_constraintBottom_toTopOf="@+id/img"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -31,21 +33,20 @@
             android:layout_width="@dimen/default_image_size"
             android:layout_height="@dimen/default_image_size"
             android:src="@drawable/ic_info"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/containerBtn"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <LinearLayout
+            android:id="@+id/containerBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginBottom="@dimen/dialog_margin_top_bot"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img"
-            app:layout_constraintVertical_bias="1">
+            app:layout_constraintRight_toRightOf="parent">
 
             <Button
                 android:id="@+id/btnMainMenu"
@@ -73,9 +74,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:textColor="@color/light_gray"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
+            android:textColor="@color/light_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:text="Api Code" />

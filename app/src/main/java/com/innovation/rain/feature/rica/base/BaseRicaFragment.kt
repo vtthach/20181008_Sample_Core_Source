@@ -1,5 +1,7 @@
 package com.innovation.rain.feature.rica.base
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,9 @@ import com.sf0404.core.application.base.presenter.BasePresenter
 import kotlinx.android.synthetic.main.fragment_rica.*
 
 abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragment<T>(), RicaStateView {
+
+    val RICA_STATE = "RICA_STATE"
+
     override fun showPreLoadState() {
         (view as? ViewAnimator)?.displayedChild = 0
     }
@@ -39,6 +44,20 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
                 }
             }
         }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        if (savedInstanceState != null && savedInstanceState.containsKey(RICA_STATE)) {
+            ricaState = RicaState.valueOf(savedInstanceState.getInt(RICA_STATE))
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if(ricaState != null) {
+            outState.putInt(RICA_STATE, ricaState?.id ?: -1)
+        }
+    }
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_rica
@@ -72,6 +91,16 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
     protected fun notifyRicaStateDone() {
         val f = parentFragment as RicaHomeView?
         f?.notifyRicaStateDone()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (RicaHomeFragment.REQUEST_CODE == requestCode && resultCode == Activity.RESULT_OK) {
+            val state: RicaState = RicaState.valueOf(data?.extras?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE) ?: -1)
+            if (state == RicaState.STATE_DONE) {
+                notifyRicaStateDone()
+            }
+        }
     }
 
     abstract fun getPreLoadStateTitle(): String

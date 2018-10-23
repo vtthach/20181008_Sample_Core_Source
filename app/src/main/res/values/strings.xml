@@ -34,7 +34,7 @@
     <string name="cb_verify_desc">Click on check box to verify.</string>
     <string name="poa_title">Proof of address</string>
     <string name="poa_verified_title">Proof of address verified</string>
-    <string name="capture_manual">Capture Manual</string>
+    <string name="capture_manual">Manually Capture</string>
     <string name="select_your_address">select your address</string>
     <string name="suburb">Suburb*</string>
     <string name="street_address">Street Address*</string>

@@ -49,4 +49,10 @@
     <string name="accept">Accept</string>
     <string name="retake">Retake</string>
 
+    <string name="sim_activation_success">SIM activation successful</string>
+    <string name="sim_iccid">ICCID: </string>
+    <string name="sim_no">SIM No: </string>
+    <string name="sim_more_info">visit rain.co.za to manage your SIM via your rain dashboard</string>
+
+
 </resources>

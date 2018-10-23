@@ -12,7 +12,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
         this.sims = sims
     }
 
-    override fun dispensing() {
+    override fun dispensing(callback: DispenseCallback) {
         val disposable = cardDispenser.checkAvailable()
                 .flatMap { barcodeScanner.checkAvailable() }
                 .flatMap { cardDispenser.issueCard() }
@@ -48,9 +48,9 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                     }
                 }
                 .subscribe({
-                    // call api with status success
+                    callback.onDispenseSuccess(sims!![0])
                 }, {
-                    // call api with status fail
+                    callback.onDispenseSuccess(sims!![0])
                 })
     }
 }

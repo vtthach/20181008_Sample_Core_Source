@@ -46,15 +46,16 @@ public class DispenseUseCaseImpl extends UseCaseImpl<DispenseUiModel, DispensePa
         if (code == null) {
             return false;
         }
-        switch (e.getCode()) {
-            case ApiConstants.ErrorCode.NO_ORDER:
-                callback.onNoOrder(e.getCode());
-                return true;
-            case ApiConstants.ErrorCode.NON_REGISTER:
-                callback.onNonRegisterId(e.getCode());
-                return true;
-            default:
-                return false;
-        }
+//        switch (e.getCode()) {
+//            case ApiConstants.ErrorCode.NO_ORDER:
+//                callback.onNoOrder(e.getCode());
+//                return true;
+//            case ApiConstants.ErrorCode.NON_REGISTER:
+//                callback.onNonRegisterId(e.getCode());
+//                return true;
+//            default:
+//                return false;
+//        }
+        return false;
     }
 }

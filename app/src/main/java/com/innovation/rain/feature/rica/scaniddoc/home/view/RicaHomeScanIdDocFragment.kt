@@ -1,7 +1,5 @@
 package com.innovation.rain.feature.rica.scaniddoc.home.view
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R

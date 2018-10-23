@@ -53,6 +53,8 @@
     <string name="sim_iccid">ICCID: </string>
     <string name="sim_no">SIM No: </string>
     <string name="sim_more_info">visit rain.co.za to manage your SIM via your rain dashboard</string>
-
+    <string name="str_scan_another_sim">scan another sim</string>
+    <string name="str_print_slip">print slip</string>
+    <string name="sim_dispensing_sim">dispensing SIM</string>
 
 </resources>

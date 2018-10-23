@@ -24,54 +24,17 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
 
     override fun getPresenter() = viewPresenter
 
-    override fun notifyNonRegisterId(apiCode: String?) {
-        showToastError("Please enter a valid South African ID number [$apiCode]")
-    }
-
-    override fun showDialogNoOrder(apiCode: String) {
+    override fun showDialogDispensingFail(apiCode: String) {
         SimDispenserErrorFragment.newInstance(apiCode).show(fragmentManager, SimDispenserErrorFragment::class.java.simpleName)
     }
 
-    override fun notifyIdInvalid() {
-        showToastError("Please enter your South African ID number")
-    }
-
-    override fun goToCollectionOrder(info: DispenseUiModel?) {
-        activity?.showFragment<OrderListFragment>()
-    }
-
     override fun getLayoutId() = R.layout.fragment_collection_dispensing
-
-    override fun enableButtonProceed(enable: Boolean) {
-        btnProceed.isEnabled = enable
-        btnProceed.isActivated = enable
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         btnExit.setOnClickListener {
             NavigateUtil.logout(this.activity!!)
-        }
-
-        edId.addTextChangedListener(textIdChangeListener)
-        edId.setOnEditorActionListener { _, _, _ -> presenter.onEditorAction(edId.text.toString()) }
-        btnProceed.setOnClickListener {
-            presenter.proceed(edId.text.toString())
-        }
-    }
-
-    private val textIdChangeListener: TextWatcher = object : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
-        }
-
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-
-        }
-
-        override fun afterTextChanged(s: Editable) {
-            presenter.onTextIdChanged(s.toString())
         }
     }
 }

@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
+import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.collection.signin.view.SimDispenserFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.poa.home.view.ProofOfAddressFragment
+import com.innovation.rain.feature.rica.poa.scan.view.ScanPOAFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
@@ -44,6 +47,10 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         }
     }
 
+    override fun goToSimDispenserScreen() {
+        showFragment<SimDispenserFragment>()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnExit.setOnClickListener {
@@ -55,7 +62,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
             if (currentIndex in 0 until mFragments!!.size) {
                 mFragments!![getCurrentIndex()].onProceedButtonClicked()
             } else {
-                showToastInfo("To be continue...")
+                presenter.dispensing()
             }
         }
         if(savedInstanceState == null) {

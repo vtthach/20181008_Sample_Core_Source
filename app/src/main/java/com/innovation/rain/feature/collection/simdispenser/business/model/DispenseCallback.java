@@ -8,13 +8,4 @@ public abstract class DispenseCallback extends BaseCallbackImpl<SimDispenserView
     public DispenseCallback(SimDispenserView view) {
         super(view);
     }
-
-    public void onNoOrder(String apiCode) {
-        view.showDialogNoOrder(apiCode);
-    }
-
-    public void onNonRegisterId(String apiCode) {
-        // TODO integrate with real api
-        view.notifyNonRegisterId(apiCode);
-    }
 }

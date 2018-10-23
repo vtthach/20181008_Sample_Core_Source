@@ -2,6 +2,7 @@ package com.innovation.rain.app.injection.module.feature;
 
 import com.innovation.rain.feature.collection.orders.injection.OrderListBuilderModule;
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
+import com.innovation.rain.feature.collection.simdispenser.injection.SimDispenserBuilderModule;
 import com.innovation.rain.feature.rica.poa.address.injection.ManualAddressBuilderModule;
 import com.innovation.rain.feature.rica.agentverification.injection.AgentVerificationBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
@@ -25,7 +26,8 @@ import dagger.Module;
         AgentVerificationBuilderModule.class,
         ManualAddressBuilderModule.class,
         ScanPOABuilderModule.class,
-        ProofOfAddressBuilderModule.class
+        ProofOfAddressBuilderModule.class,
+        SimDispenserBuilderModule.class
 })
 public class CollectionFeatureBuilderModule {
     // Use later

@@ -27,7 +27,7 @@ class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPres
     override fun getLayoutId(): Int {
         return R.layout.fragment_select_quantity
     }
-    private val spinnerItemSelectedListener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+    /*private val spinnerItemSelectedListener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
             viewPresenter.handleSpinnerChange(itemSpinner.selectedItem.toString())
         }
@@ -35,21 +35,21 @@ class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPres
         override fun onNothingSelected(parent: AdapterView<*>) {
 
         }
-    }
+    }*/
 
-    private fun initItemsSpinner(){
+    /*private fun initItemsSpinner(){
         val listItemsTxt = arrayOf("R50 once off", "R100 once off", "R200 once off", "R300 once off")
         itemSpinner.adapter = ArrayAdapter(activity, R.layout.view_drop_down_menu, listItemsTxt)
-    }
+    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initItemsSpinner()
+        //initItemsSpinner()
 
         enableButtonProceed(true)
 
-        itemSpinner.onItemSelectedListener = spinnerItemSelectedListener
+        //itemSpinner.onItemSelectedListener = spinnerItemSelectedListener
 
         btn_plus.setOnClickListener {
             viewPresenter.handleCalculateButton(tv_quantity.text.toString().toInt(), tv_price.text.toString().toDouble(), true)
@@ -91,5 +91,11 @@ class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPres
 
     override fun updateValueQuantity(value: String) {
         tv_quantity.text = value
+    }
+
+    override fun updateValueSubTotalItem(value: String) {
+        var item = "(" + value + " item )"
+        if(value.toInt() > 1) item = "(" + value + " items )"
+        tv_sub_total_item.text = item
     }
 }

@@ -11,5 +11,6 @@ interface SelectQuantityView : BaseView {
     fun updateValueItemPrice(value: String)
     fun updateValueItemTotalPrice(value: String)
     fun updateValueQuantity(value: String)
+    fun updateValueSubTotalItem(value: String)
 
 }

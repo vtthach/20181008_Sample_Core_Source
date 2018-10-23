@@ -34,7 +34,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/selectQuantityTitle1" />
 
-    <Spinner
+    <!--<Spinner
         android:id="@+id/itemSpinner"
         android:layout_width="280dp"
         android:layout_height="50dp"
@@ -42,13 +42,24 @@
         android:layout_marginBottom="10dp"
         android:spinnerMode="dropdown"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/selectQuantityImg1" />-->
+    <TextView
+        android:id="@+id/itemSpinner"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="R50 once off"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_size_20"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/selectQuantityImg1" />
 
     <ImageView
         android:id="@+id/imgLine1"
         android:layout_width="@dimen/img_line_width"
         android:layout_height="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="15dp"
         android:background="@color/light_gray"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/itemSpinner" />
@@ -59,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:textColor="@color/light_gray"
+        android:text="SIM +10 data days"
         android:textSize="@dimen/text_size_20"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/imgLine1"  />
@@ -70,6 +82,7 @@
         android:textColor="@color/light_gray"
         android:layout_marginTop="15dp"
         android:textSize="@dimen/text_size_20"
+        android:text="R50 a gip"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"  />
 
@@ -159,7 +172,7 @@
         android:id="@+id/tv_cart_summary"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="102dp"
         android:text="@string/cart_summary"
         android:textColor="@color/primary"
         android:textSize="@dimen/text_size_20"
@@ -199,16 +212,30 @@
         app:layout_constraintStart_toEndOf="@+id/tv_sub_total"  />
 
     <TextView
-        android:id="@+id/tv_price"
-        android:layout_width="100dp"
+        android:id="@+id/tv_price_R"
+        android:layout_width="20dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="295dp"
         android:layout_marginTop="15dp"
-        android:layout_marginStart="72dp"
         android:gravity="end"
+        android:text="R"
         android:textColor="@color/light_gray"
         android:textSize="@dimen/text_size_20"
-        app:layout_constraintStart_toEndOf="@+id/tv_sub_total_item"
-        app:layout_constraintTop_toBottomOf="@+id/imgLine2"  />
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine2" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="15dp"
+        android:gravity="end"
+        android:text="50.0"
+        android:textColor="@color/light_gray"
+        android:textSize="@dimen/text_size_20"
+        app:layout_constraintStart_toEndOf="@+id/tv_price_R"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine2" />
 
     <TextView
         android:id="@+id/tv_total"
@@ -222,22 +249,36 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_sub_total"  />
 
     <TextView
-        android:id="@+id/tv_total_price"
-        android:layout_width="100dp"
+        android:id="@+id/tv_total_price_R"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
         android:layout_marginTop="15dp"
-        android:layout_marginStart="97dp"
         android:gravity="end"
+        android:text="R"
         android:textColor="@color/primary"
         android:textSize="@dimen/text_size_20"
-        app:layout_constraintStart_toEndOf="@+id/tv_total"
-        app:layout_constraintTop_toBottomOf="@+id/tv_price"  />
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price_R" />
+
+    <TextView
+        android:id="@+id/tv_total_price"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:gravity="end"
+        android:text="50.0"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_size_20"
+        app:layout_constraintStart_toEndOf="@+id/tv_total_price_R"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
     <ImageView
         android:id="@+id/imgLine3"
         android:layout_width="@dimen/img_line_width"
         android:layout_height="2dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="30dp"
         android:background="@color/light_gray"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineMiddle"
         app:layout_constraintTop_toBottomOf="@+id/tv_total_price" />

@@ -1,4 +1,4 @@
-package com.innovation.rain.feature.rica.poa.adapter
+package com.innovation.rain.feature.rica.poa.home.adapter
 
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView

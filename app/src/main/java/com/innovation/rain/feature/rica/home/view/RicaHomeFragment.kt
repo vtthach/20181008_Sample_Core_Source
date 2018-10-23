@@ -8,7 +8,7 @@ import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
-import com.innovation.rain.feature.rica.poa.view.ProofOfAddressFragment
+import com.innovation.rain.feature.rica.poa.home.view.ProofOfAddressFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
 import com.innovation.rain.feature.selectquantity.view.SelectQuantityFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
@@ -58,7 +58,6 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
                 mFragments!![getCurrentIndex()].onProceedButtonClicked()
             } else {
                 showToastInfo("To be continue...")
-                activity?.showFragment<SelectQuantityFragment>()//todo
             }
         }
         if(savedInstanceState == null) {

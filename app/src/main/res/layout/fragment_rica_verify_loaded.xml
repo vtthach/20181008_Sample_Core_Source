@@ -36,7 +36,7 @@
             app:layout_constraintTop_toBottomOf="@+id/riceAgentTitle" />
 
 
-    <ImageView
+        <ImageView
             android:id="@+id/imgCbVerify"
             android:layout_width="@dimen/img_verify_width"
             android:layout_height="@dimen/img_verify_height"
@@ -50,7 +50,7 @@
             android:id="@+id/cbVerifyDesc"
             style="@style/TextTitle"
             android:gravity="center"
-            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginTop="10dp"
             android:paddingStart="@dimen/fragment_rica_padding"
             android:paddingEnd="@dimen/fragment_rica_padding"
             android:text="@string/cb_verify_desc"

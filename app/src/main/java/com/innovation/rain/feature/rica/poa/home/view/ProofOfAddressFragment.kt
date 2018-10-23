@@ -1,18 +1,16 @@
-package  com.innovation.rain.feature.rica.poa.view
+package  com.innovation.rain.feature.rica.poa.home.view
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.utils.startForResult
-import com.innovation.rain.feature.rica.address.model.Address
-import com.innovation.rain.feature.rica.address.view.ManualAddressFragment
-import com.innovation.rain.feature.rica.address.view.ManualAddressFragment.Companion.DATA_KEY
+import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
-import com.innovation.rain.feature.rica.poa.adapter.AddressAdapter
-import com.innovation.rain.feature.rica.poa.presenter.ProofOfAddressPresenter
+import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
+import com.innovation.rain.feature.rica.poa.address.view.ManualAddressFragment
+import com.innovation.rain.feature.rica.poa.home.adapter.AddressAdapter
+import com.innovation.rain.feature.rica.poa.home.presenter.ProofOfAddressPresenter
+import com.innovation.rain.feature.rica.poa.scan.view.ScanPOAFragment
 import kotlinx.android.synthetic.main.fragment_proof_of_address.*
 import javax.inject.Inject
 
@@ -57,15 +55,7 @@ class ProofOfAddressFragment : BaseRicaFragment<ProofOfAddressPresenter>(), Proo
     }
 
     override fun showCaptureManualScreen() {
-        startForResult<ManualAddressFragment>(requestCode = REQUEST_CODE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val address = data?.extras?.getParcelable(DATA_KEY) as Address
-            presenter.submitManualAddress(address)
-        }
-        super.onActivityResult(requestCode, resultCode, data)
+        showFragment<ManualAddressFragment>(requestCode = RicaHomeFragment.REQUEST_CODE)
     }
 
     override fun showAddressList(list: List<String>) {
@@ -74,10 +64,6 @@ class ProofOfAddressFragment : BaseRicaFragment<ProofOfAddressPresenter>(), Proo
     }
 
     override fun onDone() {
-        notifyRicaStateDone()
-    }
-
-    companion object {
-        const val REQUEST_CODE = 1001
+        showFragment<ScanPOAFragment>(requestCode = RicaHomeFragment.REQUEST_CODE)
     }
 }

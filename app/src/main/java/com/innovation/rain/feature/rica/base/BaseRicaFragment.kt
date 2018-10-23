@@ -1,5 +1,7 @@
 package com.innovation.rain.feature.rica.base
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -89,6 +91,16 @@ abstract class BaseRicaFragment<T : BasePresenter> : BasePresenterInjectionFragm
     protected fun notifyRicaStateDone() {
         val f = parentFragment as RicaHomeView?
         f?.notifyRicaStateDone()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (RicaHomeFragment.REQUEST_CODE == requestCode && resultCode == Activity.RESULT_OK) {
+            val state: RicaState = RicaState.valueOf(data?.extras?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE) ?: -1)
+            if (state == RicaState.STATE_DONE) {
+                notifyRicaStateDone()
+            }
+        }
     }
 
     abstract fun getPreLoadStateTitle(): String

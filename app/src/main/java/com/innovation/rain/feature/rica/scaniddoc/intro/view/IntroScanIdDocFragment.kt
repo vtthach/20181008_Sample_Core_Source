@@ -21,16 +21,25 @@ class IntroScanIdDocFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnIdBook.setOnClickListener {
-            showFragmentAndFinish<ScanIdBookFragment>()
+        btnIdBook.run {
+            setOnClickListener {
+                showFragmentAndFinish<ScanIdBookFragment>()
+            }
+            isActivated = true
         }
 
-        btnIdCard.setOnClickListener {
-            showFragmentAndFinish<ScanIdCardFragment>()
+        btnIdCard.run {
+            setOnClickListener {
+                showFragmentAndFinish<ScanIdCardFragment>()
+            }
+            isActivated = true
         }
 
-        btnPassport.setOnClickListener {
-            showFragmentAndFinish<ScanPassportFragment>()
+        btnPassport.run {
+            setOnClickListener {
+                showFragmentAndFinish<ScanPassportFragment>()
+            }
+            isActivated = true
         }
     }
 

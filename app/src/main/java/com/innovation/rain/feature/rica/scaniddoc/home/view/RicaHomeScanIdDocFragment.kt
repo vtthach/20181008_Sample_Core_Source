@@ -40,15 +40,4 @@ class RicaHomeScanIdDocFragment : BaseRicaFragment<RicaHomeScanIdDocPresenter>()
             showFragment<IntroScanIdDocFragment>(requestCode = RicaHomeFragment.REQUEST_CODE)
         }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (RicaHomeFragment.REQUEST_CODE == requestCode && resultCode == Activity.RESULT_OK) {
-            val state: RicaState = RicaState.valueOf(data?.extras?.getInt(RicaHomeFragment.BUNDLE_KEY_RICA_STATE)
-                    ?: -1)
-            if (state == RicaState.STATE_DONE) {
-                notifyRicaStateDone()
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-    }
 }

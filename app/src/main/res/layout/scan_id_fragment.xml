@@ -16,7 +16,7 @@
     <Button
         android:id="@+id/btCapture"
         style="@style/BtnNavigate"
-        android:text="Capture"
+        android:text="@string/capture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/btAccept"
         style="@style/BtnNavigate"
-        android:text="Accept"
+        android:text="@string/accept"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btCancel"
@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/btCancel"
         style="@style/BtnNavigate"
-        android:text="Cancel"
+        android:text="@string/retake"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

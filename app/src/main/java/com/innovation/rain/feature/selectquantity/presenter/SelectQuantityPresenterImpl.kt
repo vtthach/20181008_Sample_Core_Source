@@ -12,7 +12,7 @@ constructor(view: SelectQuantityView) : BasePresenterImpl<SelectQuantityView>(vi
     val maxQuantity = 3
 
     override fun handleSpinnerChange(name: String) {
-        when (name) {
+        /*when (name) {
             "R50 once off" -> {
                 view.updateValueItemName("SIM +5 data days")
                 view.updateValueItemNameDesc("R50 a gig")
@@ -48,7 +48,7 @@ constructor(view: SelectQuantityView) : BasePresenterImpl<SelectQuantityView>(vi
                 view.updateValueItemTotalPrice("")
                 view.updateValueQuantity("1")
             }
-        }
+        }*/
     }
 
     override fun handleCalculateButton(number: Int, price: Double, isPlus: Boolean) {
@@ -60,6 +60,7 @@ constructor(view: SelectQuantityView) : BasePresenterImpl<SelectQuantityView>(vi
         }
         view.updateValueQuantity(quantity.toString())
         view.updateValueItemTotalPrice(calculatePrice(quantity.toString().toDouble(), price).toString())
+        view.updateValueSubTotalItem(quantity.toString())
     }
 
     private fun calculatePrice(quantity: Double, price : Double) : Double {

@@ -1,6 +1,6 @@
-package com.innovation.rain.feature.rica.address.injection
+package com.innovation.rain.feature.rica.poa.address.injection
 
-import com.innovation.rain.feature.rica.address.view.ManualAddressFragment
+import com.innovation.rain.feature.rica.poa.address.view.ManualAddressFragment
 import com.sf0404.core.application.scope.PerView
 
 import dagger.Module

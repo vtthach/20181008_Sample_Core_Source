@@ -71,8 +71,8 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             activity?.finish()
         }
         btnLogin.setOnClickListener {
-            activity?.showFragment<WelcomeMenuFragment>()
-            //activity?.showFragment<SelectQuantityFragment>()//todo
+            //activity?.showFragment<WelcomeMenuFragment>()
+            activity?.showFragment<SelectQuantityFragment>()//todo
         }
 
         //TODO remove following code when use knox

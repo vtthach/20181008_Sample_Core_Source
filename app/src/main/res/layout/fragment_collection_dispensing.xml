@@ -13,7 +13,10 @@
             android:layout_height="500dp"
             android:layout_gravity="center"
             app:sf_loading_circular_auto_start="true"
-            app:sf_loading_circular_sweep_color="@color/accent" />
+            app:sf_loading_circular_track_color="@color/accent"
+            app:sf_loading_circular_sweep_color="@color/primary_light"
+            app:sf_loading_circular_track_width="3"
+            app:sf_loading_circular_sweep_width="6"/>
 
         <TextView
             android:id="@+id/txtDispensing"

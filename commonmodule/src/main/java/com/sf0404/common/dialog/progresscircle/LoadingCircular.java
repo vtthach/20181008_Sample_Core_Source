@@ -33,7 +33,8 @@ public class LoadingCircular extends View {
     RectF rectF = new RectF();
 
     private boolean mAutoStart;
-    private float mStrokeWidth;
+    private float mTrackWidth;
+    private float mSweepWidth;
     private int mTrackColor;
     private int mSweepColor;
 
@@ -72,7 +73,8 @@ public class LoadingCircular extends View {
     private void initAttr(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LoadingCircular);
         mAutoStart = typedArray.getBoolean(R.styleable.LoadingCircular_sf_loading_circular_auto_start, false);
-        mStrokeWidth = typedArray.getFloat(R.styleable.LoadingCircular_sf_loading_circular_stroke_width, 5f);
+        mTrackWidth = typedArray.getFloat(R.styleable.LoadingCircular_sf_loading_circular_track_width, 5f);
+        mSweepWidth = typedArray.getFloat(R.styleable.LoadingCircular_sf_loading_circular_sweep_width, 5f);
         mTrackColor = typedArray.getColor(R.styleable.LoadingCircular_sf_loading_circular_track_color, BLUE_30);
         mSweepColor = typedArray.getColor(R.styleable.LoadingCircular_sf_loading_circular_sweep_color, Color.BLUE);
         typedArray.recycle();
@@ -94,8 +96,10 @@ public class LoadingCircular extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mPaint.setColor(mTrackColor);
+        mPaint.setStrokeWidth(mTrackWidth);
         canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2 - mPadding, mPaint);
         mPaint.setColor(mSweepColor);
+        mPaint.setStrokeWidth(mSweepWidth);
         canvas.drawArc(rectF, startAngle, 100, false, mPaint);
     }
 
@@ -117,7 +121,6 @@ public class LoadingCircular extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(mStrokeWidth);
     }
 
     /**

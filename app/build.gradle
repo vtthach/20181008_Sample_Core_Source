@@ -97,6 +97,7 @@ dependencies {
     // Common module
     implementation project(':commonmodule')
     implementation project(':retrofit_wrapper')
+    implementation project(':carddispenser')
 
     // Dagger 2
     implementation utilDependency.dagger

@@ -70,4 +70,12 @@
     <string name="sim_10_data_days">SIM +10 data days</string>
     <string name="r50_once_off">R50 once off</string>
 
+    <string name="sim_activation_success">SIM activation successful</string>
+    <string name="sim_iccid">ICCID: </string>
+    <string name="sim_no">SIM No: </string>
+    <string name="sim_more_info">visit rain.co.za to manage your SIM via your rain dashboard</string>
+    <string name="str_scan_another_sim">scan another sim</string>
+    <string name="str_print_slip">print slip</string>
+    <string name="sim_dispensing_sim">dispensing SIM</string>
+
 </resources>

@@ -6,6 +6,8 @@ import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
+import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.collection.signin.view.SimDispenserFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
@@ -46,6 +48,10 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
         }
     }
 
+    override fun goToSimDispenserScreen() {
+        showFragment<SimDispenserFragment>()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnExit.setOnClickListener {
@@ -59,7 +65,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
             if (currentIndex in 0 until mFragments!!.size) {
                 mFragments!![getCurrentIndex()].onProceedButtonClicked()
             } else {
-                showToastInfo("To be continue...")
+                presenter.dispensing()
             }
         }
         if (savedInstanceState == null) {

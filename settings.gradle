@@ -1,2 +1,2 @@
-include ':app', ':retrofit_wrapper'
+include ':app', ':retrofit_wrapper', ':carddispenser'
 include ':commonmodule'

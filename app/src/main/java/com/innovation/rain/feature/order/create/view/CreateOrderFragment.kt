@@ -23,26 +23,10 @@ class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>
     override fun getLayoutId(): Int {
         return R.layout.fragment_create_order
     }
-    /*private val spinnerItemSelectedListener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-            viewPresenter.handleSpinnerChange(itemSpinner.selectedItem.toString())
-        }
-
-        override fun onNothingSelected(parent: AdapterView<*>) {
-
-        }
-    }*/
-
-    /*private fun initItemsSpinner(){
-        val listItemsTxt = arrayOf("R50 once off", "R100 once off", "R200 once off", "R300 once off")
-        itemSpinner.adapter = ArrayAdapter(activity, R.layout.view_drop_down_menu, listItemsTxt)
-    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*initItemsSpinner()
-        itemSpinner.onItemSelectedListener = spinnerItemSelectedListener*/
         viewPresenter.initPrice()
 
         enableButtonProceed(true)
@@ -69,14 +53,6 @@ class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>
     override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
         btnProceedToRICA.isEnabled = allowEnableProceedButton
         btnProceedToRICA.isActivated = allowEnableProceedButton
-    }
-
-    override fun updateValueItemName(value: String) {
-        tv_name.text = value
-    }
-
-    override fun updateValueItemNameDesc(value: String) {
-        tv_name_desc.text = value
     }
 
     override fun updateValueItemPrice(value: String) {

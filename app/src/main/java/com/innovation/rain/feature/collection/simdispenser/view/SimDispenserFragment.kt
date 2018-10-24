@@ -2,6 +2,7 @@ package com.innovation.rain.feature.collection.signin.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ViewAnimator
 import com.innovation.rain.R
 import com.innovation.rain.app.util.NavigateUtil
 import com.innovation.rain.feature.collection.signin.view.exception.SimDispenserErrorFragment
@@ -19,8 +20,21 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
 
     override fun getPresenter() = viewPresenter
 
+    override fun showViewDispensing() {
+        (view as? ViewAnimator)?.displayedChild = 0
+    }
+
+    override fun showDispensingSuccess() {
+        (view as? ViewAnimator)?.displayedChild = 1
+    }
+
     override fun showDialogDispensingFail(apiCode: String) {
         SimDispenserErrorFragment.newInstance(apiCode).show(fragmentManager, SimDispenserErrorFragment::class.java.simpleName)
+    }
+
+    override fun enableScanAnotherSim(enable: Boolean) {
+        btnScanAnotherSim.isEnabled = enable
+        btnScanAnotherSim.isActivated = enable
     }
 
     override fun getLayoutId() = R.layout.fragment_collection_dispensing
@@ -32,6 +46,17 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
             NavigateUtil.logout(this.activity!!)
         }
 
-        viewPresenter.dispensing()
+        btnScanAnotherSim.setOnClickListener {
+            viewPresenter.scanAnotherSim()
+        }
+
+        btnPrintSlip.setOnClickListener {
+            showToastInfo("To be continue...")
+            viewPresenter.printSlip()
+        }
+
+        if (savedInstanceState == null) {
+            viewPresenter.dispensing()
+        }
     }
 }

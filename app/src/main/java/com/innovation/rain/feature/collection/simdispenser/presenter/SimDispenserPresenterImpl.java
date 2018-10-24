@@ -26,7 +26,7 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
     private Disposable disposable;
 
     @Inject
-    public SimDispenserPresenterImpl(SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController, AppBus appBus) {
+    public SimDispenserPresenterImpl(AppBus appBus, SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
         super(view);
         this.useCase = useCase;
         this.dispenserController = dispenserController;
@@ -38,10 +38,12 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
 
     @Override
     public void dispensing() {
+        view.showViewDispensing();
         dispenserController.dispensing(dispenseCallback);
     }
 
     private DispenseCallback dispenseCallback = new DispenseCallback() {
+
         @Override
         public void onDispenseSuccess(@NotNull SimEntity simEntity) {
             addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
@@ -53,7 +55,7 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
-                    view.showDialogDispensingFail(null);
+                    view.showDialogDispensingFail("");
                 }
 
             }).execute(new DispenseParam()));
@@ -64,26 +66,31 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
             addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
                 @Override
                 public void onSuccess(DispenseUiModel info) {
-                    view.showDialogDispensingFail(null);
+                    view.showDialogDispensingFail("");
                 }
 
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
-                    view.showDialogDispensingFail(null);
+                    view.showDialogDispensingFail("");
                 }
             }).execute(new DispenseParam()));
+        }
+
+        @Override
+        public void onNoSimInQueue() {
+            view.enableScanAnotherSim(false);
         }
     };
 
     @Override
     public void scanAnotherSim() {
-
+        dispensing();
     }
 
     @Override
     public void printSlip() {
-
+        // todo
     }
 
     @Override

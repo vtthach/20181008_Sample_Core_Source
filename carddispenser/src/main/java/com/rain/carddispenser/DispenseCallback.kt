@@ -6,4 +6,6 @@ interface DispenseCallback {
     fun onDispenseSuccess(simEntity: SimEntity)
 
     fun onDispenseFail(simEntity: SimEntity)
+
+    fun onNoSimInQueue()
 }

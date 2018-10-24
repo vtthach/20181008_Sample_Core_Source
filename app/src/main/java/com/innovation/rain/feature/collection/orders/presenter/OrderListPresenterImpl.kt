@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class OrderListPresenterImpl @Inject
 constructor(view: OrderListView, appBus: AppBus) : BasePresenterImpl<OrderListView>(view), OrderListPresenter {
-    private val appBus: AppBus? = appBus
+    private val appBus: AppBus = appBus
 
     override fun onViewCreated(savedInstanceState: Bundle?, arguments: Bundle?) {
         super.onViewCreated(savedInstanceState, arguments)
@@ -19,7 +19,7 @@ constructor(view: OrderListView, appBus: AppBus) : BasePresenterImpl<OrderListVi
 
     override fun loadOrderList(): List<OrderEntity> {
         //TODO: remove mock data
-        val orderList =  listOf<OrderEntity>(OrderEntity("Sim 1", "No spend limit set as pay as you use "),
+        val orderList =  listOf(OrderEntity("Sim 1", "No spend limit set as pay as you use "),
                 OrderEntity("Sim 2", "No spend limit set as pay as you use "),
 //                OrderEntity("Sim 3", "No spend limit set as pay as you use "),
 //                OrderEntity("Sim 4", "No spend limit set as pay as you use "),
@@ -29,7 +29,7 @@ constructor(view: OrderListView, appBus: AppBus) : BasePresenterImpl<OrderListVi
 //                OrderEntity("Sim 8", "No spend limit set as pay as you use "),
                 OrderEntity("Sim 9", "No spend limit set as pay as you use ")
         )
-        this.appBus?.orderList = orderList
+        this.appBus.orderList = orderList
         return orderList
     }
 

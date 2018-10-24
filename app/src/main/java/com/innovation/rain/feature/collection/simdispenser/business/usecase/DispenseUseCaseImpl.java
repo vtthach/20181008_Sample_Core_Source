@@ -27,7 +27,7 @@ public class DispenseUseCaseImpl extends UseCaseImpl<DispenseUiModel, DispensePa
 
     @Override
     protected Observable<DispenseResponse> getRepositoryObservable(DispenseRequest requestFromParam) {
-        return repository.post(requestFromParam);
+        return repository.dispense(requestFromParam);
     }
 
     @Override

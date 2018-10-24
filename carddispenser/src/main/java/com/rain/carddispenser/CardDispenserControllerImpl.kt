@@ -19,7 +19,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
             val disposable = cardDispenser.checkAvailable()
                     .flatMap { barcodeScanner.checkAvailable() }
                     .flatMap { cardDispenser.issueCard() }
-                    .delay(1500, TimeUnit.MILLISECONDS)
+                    .delay(5000, TimeUnit.MILLISECONDS)
                     .flatMap { barcodeScanner.getBarcodeValue() }
                     .flatMap {
                         if (it != null && it.length > 0) {

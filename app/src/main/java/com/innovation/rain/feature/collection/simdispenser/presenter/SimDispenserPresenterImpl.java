@@ -1,5 +1,6 @@
 package com.innovation.rain.feature.collection.simdispenser.presenter;
 
+import com.innovation.rain.app.injection.module.model.AppBus;
 import com.innovation.rain.feature.collection.simdispenser.business.usecase.DispenseUseCase;
 import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserView;
 import com.rain.carddispenser.CardDispenserController;
@@ -11,6 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+
 
 public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserView> implements SimDispenserPresenter {
 
@@ -18,10 +22,14 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
     private final CardDispenserController dispenserController;
 
     @Inject
-    public SimDispenserPresenterImpl(SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
+    public SimDispenserPresenterImpl(SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController, AppBus appBus) {
         super(view);
         this.useCase = useCase;
         this.dispenserController = dispenserController;
+        Disposable disposable = Observable.fromIterable(appBus.getOrderList())
+                .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent()))
+                .toList()
+                .subscribe(simEntities -> this.dispenserController.init(simEntities));
     }
 
     @Override

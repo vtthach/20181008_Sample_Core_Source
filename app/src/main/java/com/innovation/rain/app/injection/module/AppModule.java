@@ -2,6 +2,8 @@ package com.innovation.rain.app.injection.module;
 
 import android.content.Context;
 
+import com.innovation.rain.app.injection.module.model.AppBus;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -20,5 +22,11 @@ public class AppModule {
     @Singleton
     Context provideApplicationContext() {
         return application;
+    }
+
+    @Provides
+    @Singleton
+    AppBus provideAppBus() {
+        return new AppBus();
     }
 }

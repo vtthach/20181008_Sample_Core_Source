@@ -2,8 +2,8 @@ package com.sf0404.core.application.business.mapper;
 
 import com.sf0404.core.application.business.usecase.BaseParam;
 
-public interface BaseMapper<T, P extends BaseParam, E, R> {
-    T getUiModelFromResponse(P param, R r);
+public interface BaseMapper<UiModel, Param extends BaseParam, Request, Response> {
+    UiModel getUiModelFromResponse(Response r);
 
-    E getRequestFromParam(P param);
+    Request getRequestFromParam(Param p);
 }

@@ -120,7 +120,7 @@ public abstract class UseCaseImpl<T extends BaseUiModel, P extends BaseParam, E,
 
     private Observable<T> getObservable(final P param) {
         return getRepositoryObservable(mapper.getRequestFromParam(param))
-                .map(r -> mapper.getUiModelFromResponse(param, r));
+                .map(mapper::getUiModelFromResponse);
     }
 
     @Override

@@ -44,7 +44,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
 
         override fun afterTextChanged(s: Editable) {
-            presenter.onTextPasswordChanged(s.toString())
+            viewPresenter.onTextPasswordChanged(s.toString())
         }
     }
     private val textUserIdChangeListener: TextWatcher = object : TextWatcher {
@@ -57,7 +57,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
 
         override fun afterTextChanged(s: Editable) {
-            presenter.onTextUserIdChanged(s.toString())
+            viewPresenter.onTextUserIdChanged(s.toString())
         }
     }
 
@@ -71,7 +71,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            activity?.showFragment<WelcomeMenuFragment>()
+            viewPresenter.login()
         }
 
         //TODO remove following code when use knox
@@ -84,5 +84,17 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
                             Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     MY_PERMISSIONS_REQUEST)
         }
+    }
+
+    override fun gotoWelcomeMenuScreen() {
+        activity?.showFragment<WelcomeMenuFragment>()
+    }
+
+    override fun showAlreadyLoginError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showAgentNotFoundError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

@@ -11,6 +11,6 @@ import retrofit2.http.POST;
 
 public interface DispenseApiService {
 
-    @POST(ApiConstants.Url.CLIENT_LOGIN)
-    Observable<DispenseResponse> post(@Body DispenseRequest request);
+    @POST(ApiConstants.Url.SIM_CARD_DISPENSE)
+    Observable<DispenseResponse> dispense(@Body DispenseRequest request);
 }

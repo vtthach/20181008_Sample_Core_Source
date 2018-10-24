@@ -7,5 +7,5 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 
 public interface DispenseRepository {
-    Observable<DispenseResponse> post(@Body DispenseRequest request);
+    Observable<DispenseResponse> dispense(@Body DispenseRequest request);
 }

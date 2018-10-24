@@ -5,5 +5,7 @@ import com.sf0404.core.application.base.presenter.BaseView;
 
 public interface SimDispenserView extends BaseView {
 
+    void showDispensingSuccess();
+
     void showDialogDispensingFail(String apiCode);
 }

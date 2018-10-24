@@ -20,7 +20,7 @@ public class DispenseRepositoryImpl extends BaseRepositoryImpl<DispenseApiServic
     }
 
     @Override
-    public Observable<DispenseResponse> post(@Body DispenseRequest request) {
-        return service.post(request);
+    public Observable<DispenseResponse> dispense(@Body DispenseRequest request) {
+        return service.dispense(request);
     }
 }

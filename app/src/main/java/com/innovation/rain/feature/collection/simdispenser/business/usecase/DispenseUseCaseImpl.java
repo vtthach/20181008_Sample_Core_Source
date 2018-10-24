@@ -1,8 +1,7 @@
 package com.innovation.rain.feature.collection.simdispenser.business.usecase;
 
-import com.innovation.rain.app.constant.ApiConstants;
 import com.innovation.rain.feature.collection.simdispenser.business.mapper.DispenseMapper;
-import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseCallback;
+import com.innovation.rain.feature.collection.simdispenser.business.model.SimDispenseCallback;
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseParam;
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseRequest;
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseResponse;
@@ -15,7 +14,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-public class DispenseUseCaseImpl extends UseCaseImpl<DispenseUiModel, DispenseParam, DispenseRequest, DispenseResponse, DispenseCallback>
+public class DispenseUseCaseImpl extends UseCaseImpl<DispenseUiModel, DispenseParam, DispenseRequest, DispenseResponse, SimDispenseCallback>
         implements DispenseUseCase {
 
     private final DispenseRepository repository;

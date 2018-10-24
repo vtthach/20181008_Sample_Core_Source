@@ -3,6 +3,8 @@ package  com.innovation.rain.feature.order.create.view
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.R.id.btnExitQuantity
+import com.innovation.rain.R.id.btnProceedQuantity
 import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
@@ -55,20 +57,20 @@ class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>
             viewPresenter.handleCalculateButton(tv_quantity.text.toString().toInt(), false)
         }
 
-        btnExitQuantity.setOnClickListener {
+        btnExitOrder.setOnClickListener {
             fragmentManager?.showExitDialog {
                 NavigateUtil.logout(activity!!)
             }
         }
 
-        btnProceedQuantity.setOnClickListener {
+        btnProceedToRICA.setOnClickListener {
             activity?.showFragment<RicaHomeFragment>()//todo
         }
     }
 
     override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
-        btnProceedQuantity.isEnabled = allowEnableProceedButton
-        btnProceedQuantity.isActivated = allowEnableProceedButton
+        btnProceedToRICA.isEnabled = allowEnableProceedButton
+        btnProceedToRICA.isActivated = allowEnableProceedButton
     }
 
     override fun updateValueItemName(value: String) {

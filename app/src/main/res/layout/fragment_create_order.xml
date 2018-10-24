@@ -256,7 +256,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_total_price" />
 
     <Button
-        android:id="@+id/btnExitQuantity"
+        android:id="@+id/btnExitOrder"
         style="@style/Btn"
         android:text="@string/str_exit"
         android:layout_marginTop="50dp"
@@ -266,7 +266,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/btnProceedQuantity"
+        android:id="@+id/btnProceedToRICA"
         style="@style/Btn"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:enabled="false"

@@ -1,19 +1,14 @@
 package com.innovation.rain.feature.collection.signin.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.util.NavigateUtil
-import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.collection.orders.view.OrderListFragment
 import com.innovation.rain.feature.collection.signin.view.exception.SimDispenserErrorFragment
-import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseUiModel
 import com.innovation.rain.feature.collection.simdispenser.presenter.SimDispenserPresenter
 import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserView
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
-import kotlinx.android.synthetic.main.collection_client_login_fragment.*
+import kotlinx.android.synthetic.main.fragment_collection_dispensing.*
 import javax.inject.Inject
 
 
@@ -36,5 +31,7 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         btnExit.setOnClickListener {
             NavigateUtil.logout(this.activity!!)
         }
+
+        viewPresenter.dispensing()
     }
 }

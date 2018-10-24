@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="770dp"
+        android:layout_height="470dp"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:paddingTop="60dp"
+        android:paddingBottom="68dp">
+
+
+        <TextView
+            android:id="@+id/textTitle"
+            style="@style/TextTitle"
+            android:text="@string/exit_dialog_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/default_image_size"
+            android:layout_height="@dimen/default_image_size"
+            android:src="@drawable/ic_info"
+            app:layout_constraintBottom_toTopOf="@+id/textContent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+
+        <TextView
+            android:id="@+id/textContent"
+            style="@style/TextTitle.ItemTitle"
+            android:text="@string/exit_dialog_content"
+            app:layout_constraintBottom_toTopOf="@+id/negativeBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img" />
+
+        <Button
+            android:id="@+id/negativeBtn"
+            style="@style/Btn.Dialog.Negative"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dialog_btn_gap"
+            android:text="@string/no_btn"
+            android:backgroundTint="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/positiveBtn"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/positiveBtn"
+            style="@style/Btn.Dialog"
+            android:text="@string/yes_btn"
+            app:layout_constraintBaseline_toBaselineOf="@id/negativeBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/negativeBtn" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

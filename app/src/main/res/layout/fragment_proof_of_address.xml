@@ -29,7 +29,7 @@
 
     <Button
         android:id="@+id/btnCaptureManual"
-        style="@style/BtnNavigate"
+        style="@style/Btn"
         android:visibility="gone"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:layout_height="@dimen/btn_action_height"

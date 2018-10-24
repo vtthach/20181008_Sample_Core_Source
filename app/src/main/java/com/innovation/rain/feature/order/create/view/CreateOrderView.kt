@@ -1,9 +1,9 @@
-package  com.innovation.rain.feature.selectquantity.view
+package  com.innovation.rain.feature.order.create.view
 
 import com.sf0404.core.application.base.presenter.BaseView
 
 
-interface SelectQuantityView : BaseView {
+interface CreateOrderView : BaseView {
 
     fun enableButtonProceed(allowEnableProceedButton: Boolean)
     fun updateValueItemName(value: String)

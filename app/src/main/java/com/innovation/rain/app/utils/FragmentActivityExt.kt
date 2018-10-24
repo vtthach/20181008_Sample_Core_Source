@@ -2,6 +2,8 @@ package com.innovation.rain.app.utils
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
+import com.innovation.rain.app.dialog.ExitDialogFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
 
@@ -24,5 +26,12 @@ inline fun <reified T : Fragment> Fragment.showFragment(flag: Int = ContainerAct
         setRequestCode(requestCode)
         setActionMode(ToolbarMode.NONE)
         start()
+    }
+}
+
+fun FragmentManager.showExitDialog(func: (() -> Unit)? = null) {
+    ExitDialogFragment().also {
+        it.positiveCallback = func
+        it.show(this, ExitDialogFragment::class.java.simpleName)
     }
 }

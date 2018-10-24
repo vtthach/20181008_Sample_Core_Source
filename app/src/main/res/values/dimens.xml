@@ -33,6 +33,7 @@
     <dimen name="height_button_scan_id">300dp</dimen>
     <dimen name="img_verify_width">70dp</dimen>
     <dimen name="img_verify_height">70dp</dimen>
+    <dimen name="dialog_btn_gap">30dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_10">10dp</dimen>
 

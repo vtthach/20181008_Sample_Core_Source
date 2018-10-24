@@ -1,31 +1,27 @@
-package  com.innovation.rain.feature.selectquantity.view
+package  com.innovation.rain.feature.order.create.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import com.innovation.rain.R
-import com.innovation.rain.R.id.*
+import com.innovation.rain.app.utils.NavigateUtil
+import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.selectquantity.presenter.SelectQuantityPresenter
-import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
+import com.innovation.rain.feature.order.create.presenter.CreateOrderPresenter
+import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.fragment_select_quantity.*
+import kotlinx.android.synthetic.main.fragment_create_order.*
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
-import kotlinx.android.synthetic.main.agent_login_fragment.*
-import kotlinx.android.synthetic.main.fragment_rica_home.*
-import kotlinx.android.synthetic.main.fragment_select_quantity.view.*
 
 
-class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPresenter>(), SelectQuantityView {
+class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>(), CreateOrderView {
 
     @Inject
-    lateinit var viewPresenter: SelectQuantityPresenter
+    lateinit var viewPresenter: CreateOrderPresenter
 
     override fun getPresenter() = viewPresenter
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_select_quantity
+        return R.layout.fragment_create_order
     }
     /*private val spinnerItemSelectedListener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -45,26 +41,28 @@ class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPres
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //initItemsSpinner()
+        /*initItemsSpinner()
+        itemSpinner.onItemSelectedListener = spinnerItemSelectedListener*/
+        viewPresenter.initPrice()
 
         enableButtonProceed(true)
 
-        //itemSpinner.onItemSelectedListener = spinnerItemSelectedListener
-
         btn_plus.setOnClickListener {
-            viewPresenter.handleCalculateButton(tv_quantity.text.toString().toInt(), tv_price.text.toString().toDouble(), true)
+            viewPresenter.handleCalculateButton(tv_quantity.text.toString().toInt(), true)
         }
 
         btn_minus.setOnClickListener {
-            viewPresenter.handleCalculateButton(tv_quantity.text.toString().toInt(), tv_price.text.toString().toDouble(), false)
+            viewPresenter.handleCalculateButton(tv_quantity.text.toString().toInt(), false)
         }
 
         btnExitQuantity.setOnClickListener {
-            activity?.finish()
+            fragmentManager?.showExitDialog {
+                NavigateUtil.logout(activity!!)
+            }
         }
 
         btnProceedQuantity.setOnClickListener {
-            activity?.showFragment<WelcomeMenuFragment>()//todo
+            activity?.showFragment<RicaHomeFragment>()//todo
         }
     }
 
@@ -95,7 +93,7 @@ class SelectQuantityFragment : BasePresenterInjectionFragment<SelectQuantityPres
 
     override fun updateValueSubTotalItem(value: String) {
         var item = "(" + value + " item )"
-        if(value.toInt() > 1) item = "(" + value + " items )"
+        if (value.toInt() > 1) item = "(" + value + " items )"
         tv_sub_total_item.text = item
     }
 }

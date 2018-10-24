@@ -9,9 +9,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
-import com.innovation.rain.feature.selectquantity.view.SelectQuantityFragment
 import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.agent_login_fragment.*
@@ -68,11 +68,10 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         edPassword.addTextChangedListener(textPwChangeListener)
         edUserId.addTextChangedListener(textUserIdChangeListener)
         btnExit.setOnClickListener {
-            activity?.finish()
+            fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            //activity?.showFragment<WelcomeMenuFragment>()
-            activity?.showFragment<SelectQuantityFragment>()//todo
+            activity?.showFragment<WelcomeMenuFragment>()
         }
 
         //TODO remove following code when use knox

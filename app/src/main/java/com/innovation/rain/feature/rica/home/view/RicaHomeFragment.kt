@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
-import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.app.utils.NavigateUtil
+import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
 import com.innovation.rain.feature.rica.poa.home.view.ProofOfAddressFragment
 import com.innovation.rain.feature.rica.scaniddoc.home.view.RicaHomeScanIdDocFragment
-import com.innovation.rain.feature.selectquantity.view.SelectQuantityFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_rica_home.*
 import java.util.*
@@ -49,7 +49,9 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnExit.setOnClickListener {
-            activity?.finishAffinity()
+            fragmentManager?.showExitDialog {
+                NavigateUtil.logout(activity!!)
+            }
         }
         btnProceed.setOnClickListener {
             // handle logic for current fragment
@@ -60,7 +62,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
                 showToastInfo("To be continue...")
             }
         }
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             initView()
         }
     }
@@ -75,7 +77,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     }
 
     private fun getCurrentIndex(): Int {
-        if(mFragments == null) mFragments = childFragmentManager.fragments as List<BaseRicaFragment<*>>
+        if (mFragments == null) mFragments = childFragmentManager.fragments as List<BaseRicaFragment<*>>
         for (i in mFragments!!.indices) {
             if (mFragments!![i].ricaState == RicaState.STATE_LOADED) {
                 return i

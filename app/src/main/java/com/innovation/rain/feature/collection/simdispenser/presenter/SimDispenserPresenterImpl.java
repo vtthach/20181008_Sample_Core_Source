@@ -31,7 +31,7 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
         this.useCase = useCase;
         this.dispenserController = dispenserController;
         this.disposable = Observable.fromIterable(appBus.getOrderList())
-                .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent()))
+                .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent(), "0000000000", "0000000000"))
                 .toList()
                 .subscribe(this.dispenserController::init);
     }
@@ -49,7 +49,7 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
             addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
                 @Override
                 public void onSuccess(DispenseUiModel info) {
-                    view.showDispensingSuccess();
+                    view.showDispensingSuccess(simEntity);
                 }
 
                 @Override

@@ -1,3 +1,3 @@
 package com.rain.carddispenser.model
 
-data class SimEntity(var title: String, var content: String)
+data class SimEntity(val title: String, val content: String, val iccid: String, val simNo: String)

@@ -8,6 +8,7 @@ import com.innovation.rain.app.util.NavigateUtil
 import com.innovation.rain.feature.collection.signin.view.exception.SimDispenserErrorFragment
 import com.innovation.rain.feature.collection.simdispenser.presenter.SimDispenserPresenter
 import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserView
+import com.rain.carddispenser.model.SimEntity
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.fragment_collection_dispensing.*
 import javax.inject.Inject
@@ -24,8 +25,10 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         (view as? ViewAnimator)?.displayedChild = 0
     }
 
-    override fun showDispensingSuccess() {
+    override fun showDispensingSuccess(simEntity: SimEntity) {
         (view as? ViewAnimator)?.displayedChild = 1
+        txtIccId.text = getString(R.string.sim_iccid) + simEntity.iccid
+        txtSimNo.text = getString(R.string.sim_no) + simEntity.simNo
     }
 
     override fun showDialogDispensingFail(apiCode: String) {
@@ -58,5 +61,8 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         if (savedInstanceState == null) {
             viewPresenter.dispensing()
         }
+    }
+
+    override fun toggleProgress(isShow: Boolean) {
     }
 }

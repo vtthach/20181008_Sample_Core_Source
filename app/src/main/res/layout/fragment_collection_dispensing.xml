@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ViewAnimator xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -28,9 +27,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/fragment_padding"
-        android:visibility="invisible"
-        tools:context=".StartActivity">
+        android:padding="@dimen/fragment_padding">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -45,8 +42,9 @@
             <ImageView
                 android:id="@+id/imgSuccess"
                 android:layout_width="270dp"
-                android:layout_height="240dp"
-                android:src="@drawable/checkbox_verify" />
+                android:layout_height="250dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/icon_checked" />
 
             <TextView
                 android:id="@+id/txtSuccessTitle"
@@ -69,6 +67,7 @@
                 android:id="@+id/txtSimNo"
                 style="@style/TextTitle.ItemTitle"
                 android:layout_alignBaseline="@+id/txtIccId"
+                android:layout_marginLeft="50dp"
                 android:layout_toRightOf="@+id/txtIccId"
                 android:text="@string/sim_no" />
 

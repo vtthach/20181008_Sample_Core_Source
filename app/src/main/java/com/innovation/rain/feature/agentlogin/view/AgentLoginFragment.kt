@@ -11,6 +11,7 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.account.create.view.CreateAccountFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
 import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
@@ -71,7 +72,8 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            activity?.showFragment<WelcomeMenuFragment>()
+            //activity?.showFragment<WelcomeMenuFragment>()
+            activity?.showFragment<CreateAccountFragment>()
         }
 
         //TODO remove following code when use knox

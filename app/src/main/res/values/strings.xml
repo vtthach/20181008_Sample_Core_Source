@@ -53,4 +53,11 @@
     <string name="no_btn">No</string>
     <string name="yes_btn">Yes</string>
 
+    <!-- Create account -->
+    <string name="create_account_title">create account</string>
+    <string name="email_error">please add a valid email</string>
+    <string name="confirm_email_error">email address does not match</string>
+    <string name="password_error">please add a password</string>
+    <string name="confirm_password_error">password does not match</string>
+
 </resources>

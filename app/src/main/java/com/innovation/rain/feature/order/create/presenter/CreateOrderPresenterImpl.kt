@@ -26,12 +26,7 @@ constructor(view: CreateOrderView) : BasePresenterImpl<CreateOrderView>(view), C
     }
 
     override fun handleCalculateButton(number: Int, isPlus: Boolean) {
-        var quantity = number
-        if (isPlus) {
-            if (number < maxQuantity && number >= minQuantity) quantity++
-        } else {
-            if (number <= maxQuantity && number > minQuantity) quantity--
-        }
+        var quantity = (number + if (isPlus) { 1 } else { -1 }).coerceIn(1, 3)
         var totalPrice = calculatePrice(quantity, itemPrice.toDouble())
         view.updateValueQuantity(quantity.toString())
         view.updateValueItemTotalPrice("R" + truncateDecimal(totalPrice, numberOfDecimals))

@@ -3,8 +3,6 @@ package  com.innovation.rain.feature.order.create.view
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.R.id.btnExitQuantity
-import com.innovation.rain.R.id.btnProceedQuantity
 import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment

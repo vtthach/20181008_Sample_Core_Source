@@ -49,13 +49,13 @@
 
     <Button
         android:id="@+id/btnExit"
-        style="@style/BtnNavigate"
+        style="@style/Btn"
         android:text="@string/str_exit"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
-        style="@style/BtnNavigate"
+        style="@style/Btn"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:enabled="false"
         android:text="@string/str_sign_in"

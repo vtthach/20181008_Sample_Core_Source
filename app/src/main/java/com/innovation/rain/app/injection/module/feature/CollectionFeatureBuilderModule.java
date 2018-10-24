@@ -6,6 +6,7 @@ import com.innovation.rain.feature.collection.simdispenser.injection.SimDispense
 import com.innovation.rain.feature.rica.poa.address.injection.ManualAddressBuilderModule;
 import com.innovation.rain.feature.rica.agentverification.injection.AgentVerificationBuilderModule;
 import com.innovation.rain.feature.rica.home.injection.RicaHomeBuilderModule;
+import com.innovation.rain.feature.order.create.injection.CreateOrderBuilderModule;
 import com.innovation.rain.feature.rica.poa.home.injection.ProofOfAddressBuilderModule;
 import com.innovation.rain.feature.rica.poa.scan.injection.ScanPOABuilderModule;
 import com.innovation.rain.feature.rica.scaniddoc.home.injection.RicaHomeScanIdDocBuilderModule;
@@ -24,6 +25,7 @@ import dagger.Module;
         ScanPassportBuilderModule.class,
         RicaHomeScanIdDocBuilderModule.class,
         AgentVerificationBuilderModule.class,
+        CreateOrderBuilderModule.class,
         ManualAddressBuilderModule.class,
         ScanPOABuilderModule.class,
         ProofOfAddressBuilderModule.class,

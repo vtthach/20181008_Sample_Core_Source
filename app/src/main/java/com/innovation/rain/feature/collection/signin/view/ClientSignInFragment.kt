@@ -5,7 +5,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.util.NavigateUtil
+import com.innovation.rain.app.utils.NavigateUtil
+import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.orders.view.OrderListFragment
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel
@@ -52,7 +53,9 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnExit.setOnClickListener {
-            NavigateUtil.logout(this.activity!!)
+            fragmentManager?.showExitDialog{
+                NavigateUtil.logout(this.activity!!)
+            }
         }
 
         edId.addTextChangedListener(textIdChangeListener)

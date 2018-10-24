@@ -87,13 +87,13 @@
 
         <Button
             android:id="@+id/btnExit"
-            style="@style/BtnNavigate"
+            style="@style/Btn"
             android:text="@string/str_exit"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <Button
             android:id="@+id/btnScanAnotherSim"
-            style="@style/BtnNavigate"
+            style="@style/Btn"
             android:layout_width="@dimen/btn_navigate_right_width"
             android:layout_marginRight="340dp"
             android:text="@string/str_scan_another_sim"
@@ -102,7 +102,7 @@
 
         <Button
             android:id="@+id/btnPrintSlip"
-            style="@style/BtnNavigate"
+            style="@style/Btn"
             android:layout_width="@dimen/btn_navigate_right_width"
             android:text="@string/str_print_slip"
             app:layout_constraintBottom_toBottomOf="parent"

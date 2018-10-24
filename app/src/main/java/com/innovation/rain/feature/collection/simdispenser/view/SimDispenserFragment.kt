@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ViewAnimator
 import com.innovation.rain.R
-import com.innovation.rain.app.util.NavigateUtil
+import com.innovation.rain.app.utils.NavigateUtil
+import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.feature.collection.signin.view.exception.SimDispenserErrorFragment
 import com.innovation.rain.feature.collection.simdispenser.presenter.SimDispenserPresenter
 import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserView
@@ -49,7 +50,9 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         btnPrintSlip.isActivated = true
 
         btnExit.setOnClickListener {
-            NavigateUtil.logout(this.activity!!)
+            fragmentManager?.showExitDialog {
+                NavigateUtil.goToWelcomeMenu(activity!!)
+            }
         }
 
         btnScanAnotherSim.setOnClickListener {

@@ -72,8 +72,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            //activity?.showFragment<WelcomeMenuFragment>()
-            activity?.showFragment<CreateAccountFragment>()
+            activity?.showFragment<WelcomeMenuFragment>()
         }
 
         //TODO remove following code when use knox

@@ -48,6 +48,7 @@
         android:id="@+id/edtEmail"
         style="@style/AccountEditText"
         android:layout_marginTop="@dimen/margin_5"
+        android:inputType="textEmailAddress"
         android:hint="email"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvEmailError" />
@@ -64,6 +65,7 @@
         android:id="@+id/edtConfirmEmail"
         style="@style/AccountEditText"
         android:layout_marginTop="@dimen/margin_5"
+        android:inputType="textEmailAddress"
         android:hint="confirm email"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvConfirmEmailError" />
@@ -80,6 +82,7 @@
         android:id="@+id/edtPassword"
         style="@style/AccountEditText"
         android:layout_marginTop="@dimen/margin_5"
+        android:inputType="textPassword"
         android:hint="password"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />
@@ -96,12 +99,13 @@
         android:id="@+id/edtConfirmPassword"
         style="@style/AccountEditText"
         android:layout_marginTop="@dimen/margin_5"
+        android:inputType="textPassword"
         android:hint="confirm password"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvConfirmPasswordError" />
 
     <Button
-        android:id="@+id/btnExitQuantity"
+        android:id="@+id/btnExitAccount"
         style="@style/Btn"
         android:text="@string/str_exit"
         android:layout_marginTop="50dp"
@@ -111,7 +115,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/btnProceedQuantity"
+        android:id="@+id/btnProceedToPayment"
         style="@style/Btn"
         android:layout_width="@dimen/btn_navigate_right_width"
         android:enabled="false"

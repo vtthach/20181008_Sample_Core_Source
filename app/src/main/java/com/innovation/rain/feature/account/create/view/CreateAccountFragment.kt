@@ -8,7 +8,12 @@ import android.widget.EditText
 import com.innovation.rain.feature.account.create.presenter.CreateAccountPresenter
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.R
+import com.innovation.rain.app.utils.NavigateUtil
+import com.innovation.rain.app.utils.showExitDialog
+import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import kotlinx.android.synthetic.main.fragment_create_account.*
+import kotlinx.android.synthetic.main.fragment_create_order.*
 import javax.inject.Inject
 
 
@@ -38,13 +43,30 @@ class CreateAccountFragment : BasePresenterInjectionFragment<CreateAccountPresen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewPresenter.setUserId()
+        //edtEmail.addTextChangedListener(passwordChangeListener)
+        enableButtonProceed(true)
 
-        edtEmail.addTextChangedListener(passwordChangeListener)
+        btnExitAccount.setOnClickListener {
+            fragmentManager?.showExitDialog {
+                NavigateUtil.logout(activity!!)
+            }
+        }
+
+        btnProceedToPayment.setOnClickListener {
+            viewPresenter.validateEmail(edtEmail.text.toString())
+            viewPresenter.validateConfirmEmail(edtEmail.text.toString(), edtConfirmEmail.text.toString())
+            viewPresenter.validateEmail(edtEmail.text.toString())
+            viewPresenter.validateEmail(edtEmail.text.toString())
+        }
 
     }
 
-    override fun setUserId(userId: String) {
+    override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
+        btnProceedToPayment.isEnabled = allowEnableProceedButton
+        btnProceedToPayment.isActivated = allowEnableProceedButton
+    }
+
+    override fun initUserId(userId: String) {
         edtUserId.text = Editable.Factory.getInstance().newEditable(userId)
     }
 
@@ -62,5 +84,9 @@ class CreateAccountFragment : BasePresenterInjectionFragment<CreateAccountPresen
 
     override fun showConfirmPasswordError(value: String) {
         tvConfirmPasswordError.text = getString(R.string.confirm_password_error)
+    }
+
+    override fun goToNextScreen() {
+        activity?.showFragment<RicaHomeFragment>()
     }
 }

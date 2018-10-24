@@ -21,6 +21,7 @@
 
     <!--dashboard-->
     <string name="str_proceed">proceed</string>
+    <string name="str_proceed_to_rica">proceed to RICA</string>
     <string name="str_rica">RICA</string>
     <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides</string>
     <string name="scan_below">scan below</string>
@@ -52,6 +53,21 @@
     <string name="exit_dialog_content">If you leave now you will have to start over again.</string>
     <string name="no_btn">No</string>
     <string name="yes_btn">Yes</string>
+
+    <!--Select Quantity-->
+    <string name="select_quantity_title">select quantity</string>
+    <string name="select_quantity_desc">R50 once off</string>
+    <string name="select_quantity_desc1">SIM + 10 data days</string>
+    <string name="select_quantity_desc2">R50 a gig</string>
+    <string name="pay_at_end">pay at the end of the month</string>
+    <string name="cart_summary">cart summary</string>
+    <string name="sub_total">sub total </string>
+    <string name="sub_total_item">(1 item)</string>
+    <string name="total">total</string>
+    <string name="country_prompt">Choose a country</string>
+    <string name="r50_a_gig">R50 a gig</string>
+    <string name="sim_10_data_days">SIM +10 data days</string>
+    <string name="r50_once_off">R50 once off</string>
 
     <!-- Create account -->
     <string name="create_account_title">create account</string>

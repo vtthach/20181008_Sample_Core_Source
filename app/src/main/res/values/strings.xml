@@ -45,12 +45,13 @@
     <string name="south_african_id_book">South African\nID Book</string>
     <string name="south_african_id_card">South African\nID Card</string>
     <string name="south_african_passport">South African\nPassport</string>
-    <string name="capture">Capture</string>
-    <string name="accept">Accept</string>
-    <string name="retake">Retake</string>
+    <string name="capture">capture</string>
+    <string name="accept">accept</string>
+    <string name="retake">retake</string>
     <string name="exit_dialog_title">Are you sure you want to leave?</string>
     <string name="exit_dialog_content">If you leave now you will have to start over again.</string>
     <string name="no_btn">No</string>
     <string name="yes_btn">Yes</string>
+    <string name="select_your_id_type">select your ID type</string>
 
 </resources>

@@ -7,6 +7,7 @@ import com.innovation.rain.R
 import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment
+import com.innovation.rain.feature.order.create.view.CreateOrderFragment
 import com.innovation.rain.feature.welcomemenu.presenter.WelcomeMenuPresenter
 import com.sf0404.common.container.activity.BackPressCallback
 import com.sf0404.common.container.activity.BaseActivity
@@ -43,6 +44,9 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
         super.onViewCreated(view, savedInstanceState)
         btnCollection.setOnClickListener {
             activity?.showFragment<ClientSignInFragment>()
+        }
+        btnShop.setOnClickListener {
+            activity?.showFragment<CreateOrderFragment>()
         }
     }
 }

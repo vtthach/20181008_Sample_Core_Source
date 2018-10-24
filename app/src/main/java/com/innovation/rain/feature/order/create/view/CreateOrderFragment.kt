@@ -27,8 +27,6 @@ class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewPresenter.initPrice()
-
         enableButtonProceed(true)
 
         btn_plus.setOnClickListener {

@@ -1,5 +1,6 @@
 package com.innovation.rain.feature.order.create.presenter
 
+import android.os.Bundle
 import com.innovation.rain.feature.order.create.view.CreateOrderView
 import com.sf0404.core.application.base.presenter.BasePresenterImpl
 import java.math.BigDecimal
@@ -17,6 +18,11 @@ constructor(view: CreateOrderView) : BasePresenterImpl<CreateOrderView>(view), C
     override fun initPrice() {
         view.updateValueItemPrice("R" + itemPrice)
         view.updateValueItemTotalPrice("R" + itemPrice)
+    }
+
+    override fun onViewCreated(savedInstanceState: Bundle?, arguments: Bundle?) {
+        super.onViewCreated(savedInstanceState, arguments)
+        initPrice()
     }
 
     override fun handleCalculateButton(number: Int, isPlus: Boolean) {

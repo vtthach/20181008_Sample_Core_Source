@@ -12,7 +12,8 @@
             android:layout_width="500dp"
             android:layout_height="500dp"
             android:layout_gravity="center"
-            app:sf_loading_circular_auto_start="true" />
+            app:sf_loading_circular_auto_start="true"
+            app:sf_loading_circular_sweep_color="@color/accent" />
 
         <TextView
             android:id="@+id/txtDispensing"
@@ -48,7 +49,7 @@
 
             <TextView
                 android:id="@+id/txtSuccessTitle"
-                style="@style/TextTitle"
+                style="@style/TextTitle.Bold"
                 android:layout_above="@+id/txtIccId"
                 android:layout_toRightOf="@+id/imgSuccess"
                 android:text="@string/sim_activation_success" />

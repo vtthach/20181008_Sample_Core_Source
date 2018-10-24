@@ -45,6 +45,9 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btnScanAnotherSim.isActivated = true
+        btnPrintSlip.isActivated = true
+
         btnExit.setOnClickListener {
             NavigateUtil.logout(this.activity!!)
         }

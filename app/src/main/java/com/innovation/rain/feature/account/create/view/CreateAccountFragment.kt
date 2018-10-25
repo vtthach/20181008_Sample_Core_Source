@@ -2,7 +2,6 @@ package  com.innovation.rain.feature.account.create.view
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.feature.account.create.presenter.CreateAccountPresenter
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment

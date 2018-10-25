@@ -1,13 +1,11 @@
 package com.innovation.rain.feature.account.create.presenter
 
 import android.os.Bundle
-import android.support.v4.content.res.TypedArrayUtils
-import com.innovation.rain.R
 import com.innovation.rain.feature.account.create.view.CreateAccountView
 import com.sf0404.core.application.base.presenter.BasePresenterImpl
 import kiosk.consumer.cbsa.passwordstrengthchecker.conditions.*
-
 import javax.inject.Inject
+import android.text.TextUtils
 
 
 class CreateAccountPresenterImpl @Inject
@@ -30,7 +28,6 @@ constructor(view: CreateAccountView) : BasePresenterImpl<CreateAccountView>(view
     val atLeast8CharsCondition = AtLeast8CharsCondition()
     val notCommonTextCondition = NotCommonTextCondition(arrayListOf("1111","2222","3333","4444","5555","6666","7777","8888","9999"))
     val oneSpecialCharsCondition = OneSpecialCharsCondition()
-
     val conditions = mutableListOf(
             oneLowercaseCondition,
             oneUppercaseCondition,
@@ -41,7 +38,7 @@ constructor(view: CreateAccountView) : BasePresenterImpl<CreateAccountView>(view
     )
 
     override fun validateEmail(value: String, errorMess: String) {
-        if(!isNotEmpty(value) || !value.contains("@")) {
+        if(!isValidEmail(value)){
             view.showEmailError(errorMess)
             isEmailError = true
         }else {
@@ -89,10 +86,6 @@ constructor(view: CreateAccountView) : BasePresenterImpl<CreateAccountView>(view
         view.initUserId(userId)
     }
 
-    private fun isNotEmpty(value: String) : Boolean{
-        return value.length > 0
-    }
-
     private fun isLength8Chars(value: String) : Boolean{
         return value.length >= 8
     }
@@ -106,5 +99,9 @@ constructor(view: CreateAccountView) : BasePresenterImpl<CreateAccountView>(view
             }
         }
         return numDigits > 0
+    }
+
+    private fun isValidEmail(target: CharSequence): Boolean {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
 }

@@ -3,8 +3,10 @@ package com.innovation.rain.app.dialog
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.app.utils.openApp
 import com.sf0404.common.dialog.fragment.BaseDialogFragment
 import kotlinx.android.synthetic.main.dialog_exit_confirm.*
+
 
 /**
  * Created by AnhVu on 22-Oct-2018.
@@ -24,6 +26,9 @@ class ExitDialogFragment : BaseDialogFragment() {
         }
 
         positiveBtn.setOnClickListener {
+            //start launcher
+            activity?.openApp(LAUNCHER_PACKAGE_NAME)
+
             if (positiveCallback != null) {
                 positiveCallback!!.invoke()
             } else {
@@ -32,5 +37,9 @@ class ExitDialogFragment : BaseDialogFragment() {
             }
         }
 
+    }
+
+    companion object {
+        const val LAUNCHER_PACKAGE_NAME = "consumer.cbsa.launcher"
     }
 }

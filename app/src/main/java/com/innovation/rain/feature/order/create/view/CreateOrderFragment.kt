@@ -5,6 +5,7 @@ import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
+import com.innovation.rain.feature.account.create.view.CreateAccountFragment
 import com.innovation.rain.feature.order.create.presenter.CreateOrderPresenter
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
@@ -41,7 +42,8 @@ class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>
         }
 
         btnProceedToRICA.setOnClickListener {
-            activity?.showFragment<RicaHomeFragment>()//todo
+            //activity?.showFragment<RicaHomeFragment>()//todo
+            activity?.showFragment<CreateAccountFragment>()//todo
         }
     }
 

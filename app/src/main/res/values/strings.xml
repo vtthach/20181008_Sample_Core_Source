@@ -23,7 +23,7 @@
     <string name="str_proceed">proceed</string>
     <string name="str_proceed_to_rica">proceed to RICA</string>
     <string name="str_rica">RICA</string>
-    <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides</string>
+    <string name="text_scan_id_home_desc">South African ID\'s only\n\nId book: bar code page only\nId Card: Scan both sides \nSouth African passport</string>
     <string name="scan_below">scan below</string>
     <string name="id_verified">ID verified</string>
     <string name="scan_id">Scan ID</string>
@@ -74,7 +74,7 @@
     <string name="sim_iccid">ICCID: </string>
     <string name="sim_no">SIM No: </string>
     <string name="sim_more_info">visit rain.co.za to manage your SIM via your rain dashboard</string>
-    <string name="str_scan_another_sim">scan another sim</string>
+    <string name="str_scan_next_sim">scan next SIM</string>
     <string name="str_print_slip">print slip</string>
     <string name="sim_dispensing_sim">dispensing SIM</string>
 

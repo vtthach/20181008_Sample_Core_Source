@@ -77,5 +77,7 @@
     <string name="str_scan_another_sim">scan another sim</string>
     <string name="str_print_slip">print slip</string>
     <string name="sim_dispensing_sim">dispensing SIM</string>
+    <string name="already_login">A session is currently in progress, please complete session or logout and try again.</string>
+    <string name="agent_not_found">You have entered an incorrect username or password</string>
 
 </resources>

@@ -11,4 +11,6 @@ interface AgentLoginView : BaseView {
     fun showAlreadyLoginError()
 
     fun showAgentNotFoundError()
+
+    fun showMaxAttemptsError()
 }

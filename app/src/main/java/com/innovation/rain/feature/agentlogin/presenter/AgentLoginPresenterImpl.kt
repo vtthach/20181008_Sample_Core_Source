@@ -42,6 +42,10 @@ constructor(view: AgentLoginView,
 
     override fun login() {
         addDisposable(useCase.setCallback(object : AgentLoginCallback(view) {
+            override fun onMaxAttemptsError(code: String) {
+                view.showMaxAttemptsError()
+            }
+
             override fun onAgentNotFound(code: String) {
                 view.showAgentNotFoundError()
             }

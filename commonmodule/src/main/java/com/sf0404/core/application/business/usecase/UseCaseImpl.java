@@ -64,7 +64,7 @@ public abstract class UseCaseImpl<T extends BaseUiModel, P extends BaseParam, E,
                 if (errorBody != null) {
                     ErrorModel errorModel = parseError(getStringFromResponseBody(errorBody));
                     if (errorModel != null) {
-                        exception.setCode(errorModel.code);
+                        exception.setCode(String.valueOf(errorModel.code));
                         exception.setMessage(errorModel.message);
                     }
                     exception.setHeaders(response.headers());

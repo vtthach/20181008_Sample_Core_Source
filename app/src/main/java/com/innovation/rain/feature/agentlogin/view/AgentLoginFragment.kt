@@ -21,9 +21,9 @@ import javax.inject.Inject
 class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>(), AgentLoginView {
 
     @Inject
-    lateinit var viewPresenter: AgentLoginPresenter
+    lateinit var mPresenter: AgentLoginPresenter
 
-    override fun getPresenter() = viewPresenter
+    override fun getPresenter() = mPresenter
 
     override fun enableButtonSignIn(allowEnableSignInButton: Boolean) {
         btnLogin.isEnabled = allowEnableSignInButton
@@ -44,9 +44,10 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
 
         override fun afterTextChanged(s: Editable) {
-            viewPresenter.onTextPasswordChanged(s.toString())
+            mPresenter.onTextPasswordChanged(s.toString())
         }
     }
+
     private val textUserIdChangeListener: TextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
 
@@ -57,7 +58,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
 
         override fun afterTextChanged(s: Editable) {
-            viewPresenter.onTextUserIdChanged(s.toString())
+            mPresenter.onTextUserIdChanged(s.toString())
         }
     }
 
@@ -71,7 +72,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            viewPresenter.login()
+            mPresenter.login()
         }
 
         //TODO remove following code when use knox
@@ -91,10 +92,14 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
     }
 
     override fun showAlreadyLoginError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        showToastError(getString(R.string.already_login))
     }
 
     override fun showAgentNotFoundError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        showToastError(getString(R.string.agent_not_found))
+    }
+
+    override fun showMaxAttemptsError() {
+        AgentLoginMaxAttemptsDialog().show(fragmentManager, "")
     }
 }

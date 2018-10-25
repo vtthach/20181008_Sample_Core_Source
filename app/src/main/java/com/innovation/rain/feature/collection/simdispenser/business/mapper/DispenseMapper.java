@@ -10,7 +10,7 @@ import com.sf0404.core.application.business.mapper.BaseMapper;
 public interface DispenseMapper extends BaseMapper<DispenseUiModel, DispenseParam, DispenseRequest, DispenseResponse> {
 
     @Override
-    DispenseUiModel getUiModelFromResponse(DispenseParam param, DispenseResponse DispenseResponse);
+    DispenseUiModel getUiModelFromResponse(DispenseResponse DispenseResponse);
 
     @Override
     DispenseRequest getRequestFromParam(DispenseParam param);

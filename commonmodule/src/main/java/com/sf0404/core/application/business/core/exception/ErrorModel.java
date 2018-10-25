@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class ErrorModel implements Serializable {
-    @SerializedName("ErrorCode")
-    public String code;
-    @SerializedName("ErrorMessage")
+    @SerializedName("errorCode")
+    public int code;
+    @SerializedName("errorMessage")
     public String message;
 }

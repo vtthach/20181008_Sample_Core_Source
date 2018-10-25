@@ -28,7 +28,7 @@ class ExitDialogFragment : BaseDialogFragment() {
                 positiveCallback!!.invoke()
             } else {
                 //finish current activity by default
-                activity!!.finish()
+                activity!!.finishAffinity()
             }
         }
 

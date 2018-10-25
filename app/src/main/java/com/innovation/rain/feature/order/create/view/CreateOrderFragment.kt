@@ -3,14 +3,13 @@ package  com.innovation.rain.feature.order.create.view
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.order.create.presenter.CreateOrderPresenter
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
-import javax.inject.Inject
-import kotlinx.android.synthetic.main.fragment_create_order.*
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
+import kotlinx.android.synthetic.main.fragment_create_order.*
+import javax.inject.Inject
 
 
 class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>(), CreateOrderView {
@@ -38,9 +37,7 @@ class CreateOrderFragment : BasePresenterInjectionFragment<CreateOrderPresenter>
         }
 
         btnExitOrder.setOnClickListener {
-            fragmentManager?.showExitDialog {
-                NavigateUtil.logout(activity!!)
-            }
+            fragmentManager?.showExitDialog()
         }
 
         btnProceedToRICA.setOnClickListener {

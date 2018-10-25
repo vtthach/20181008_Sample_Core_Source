@@ -87,7 +87,6 @@
             android:id="@+id/btnScanAnotherSim"
             style="@style/Btn"
             android:layout_width="@dimen/btn_navigate_right_width"
-            android:layout_marginRight="20dp"
             android:text="@string/str_dispense_next_sim"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

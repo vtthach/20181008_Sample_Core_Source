@@ -7,4 +7,8 @@ import javax.inject.Inject
 
 class RicaHomePresenterImpl @Inject
 constructor(view: RicaHomeView) : BasePresenterImpl<RicaHomeView>(view), RicaHomePresenter {
+
+    override fun dispensing() {
+        view.goToSimDispenserScreen()
+    }
 }

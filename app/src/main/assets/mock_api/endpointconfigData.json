@@ -9,6 +9,15 @@
           "dataField": "identityNumber"
         }
       ]
+    },
+    {
+      "name": "dispense",
+      "endpoint": "api/dispense",
+      "data": [
+        {
+          "dataField": "iccId"
+        }
+      ]
     }
   ]
 }

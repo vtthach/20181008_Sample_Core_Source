@@ -2,7 +2,6 @@ package  com.innovation.rain.feature.rica.agentverification.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.base.BaseRicaFragment

@@ -11,6 +11,7 @@ import com.innovation.rain.app.injection.module.feature.CollectionFeatureBuilder
 import com.innovation.rain.app.injection.module.feature.CommonFeatureBuilderModule;
 import com.innovation.rain.app.injection.module.feature.ShopFeatureBuilderModule;
 import com.innovation.rain.app.properties.BuildInProperties;
+import com.innovation.rain.feature.agentlogout.injection.AgentLogoutServiceBuilderModule;
 import com.sf0404.common.prefs.AppPreferences;
 import com.sf0404.common.properties.AppProperties;
 import com.sf0404.common.properties.ConstProperties;
@@ -28,6 +29,7 @@ import retrofit2.Retrofit;
                 AppCoreModule.class,
                 CommonFeatureBuilderModule.class,
                 CollectionFeatureBuilderModule.class,
+                AgentLogoutServiceBuilderModule.class,
                 ShopFeatureBuilderModule.class
         })
 public interface AppComponent {

@@ -100,6 +100,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
     }
 
     override fun showMaxAttemptsError() {
+        hideToast()
         AgentLoginMaxAttemptsDialog().show(fragmentManager, "")
     }
 }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
-import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.signin.view.SimDispenserFragment
@@ -55,9 +54,7 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnExit.setOnClickListener {
-            fragmentManager?.showExitDialog {
-                NavigateUtil.logout(activity!!)
-            }
+            fragmentManager?.showExitDialog()
         }
         btnProceed.setOnClickListener {
             // handle logic for current fragment

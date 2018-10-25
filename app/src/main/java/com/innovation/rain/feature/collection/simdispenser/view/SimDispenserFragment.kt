@@ -29,7 +29,7 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
     override fun showDispensingSuccess(simEntity: SimEntity) {
         (view as? ViewAnimator)?.displayedChild = 1
         txtIccId.text = getString(R.string.sim_iccid) + simEntity.iccid
-        txtSimNo.text = getString(R.string.sim_no) + simEntity.simNo
+        txtSimNo.text = getString(R.string.sim_iccid) + simEntity.simNo
     }
 
     override fun showDialogDispensingFail(apiCode: String) {
@@ -47,7 +47,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnScanAnotherSim.isActivated = true
-        btnPrintSlip.isActivated = true
 
         btnExit.setOnClickListener {
             fragmentManager?.showExitDialog {
@@ -57,11 +56,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
 
         btnScanAnotherSim.setOnClickListener {
             viewPresenter.scanAnotherSim()
-        }
-
-        btnPrintSlip.setOnClickListener {
-            showToastInfo("To be continue...")
-            viewPresenter.printSlip()
         }
 
         if (savedInstanceState == null) {

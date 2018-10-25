@@ -47,7 +47,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnScanAnotherSim.isActivated = true
-        //btnPrintSlip.isActivated = true
 
         btnExit.setOnClickListener {
             fragmentManager?.showExitDialog {
@@ -58,11 +57,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         btnScanAnotherSim.setOnClickListener {
             viewPresenter.scanAnotherSim()
         }
-
-        /*btnPrintSlip.setOnClickListener {
-            showToastInfo("To be continue...")
-            viewPresenter.printSlip()
-        }*/
 
         if (savedInstanceState == null) {
             viewPresenter.dispensing()

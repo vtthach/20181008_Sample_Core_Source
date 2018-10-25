@@ -29,7 +29,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
     override fun showDispensingSuccess(simEntity: SimEntity) {
         (view as? ViewAnimator)?.displayedChild = 1
         txtIccId.text = getString(R.string.sim_iccid) + simEntity.iccid
-        txtSimNo.text = getString(R.string.sim_iccid) + simEntity.simNo
     }
 
     override fun showDialogDispensingFail(apiCode: String) {

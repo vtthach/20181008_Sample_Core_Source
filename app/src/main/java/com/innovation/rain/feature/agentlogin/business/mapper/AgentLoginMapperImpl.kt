@@ -7,6 +7,7 @@ import com.innovation.rain.feature.agentlogin.business.model.AgentLoginUiModel
 import javax.inject.Inject
 
 class AgentLoginMapperImpl @Inject constructor() : AgentLoginMapper {
+
     override fun getUiModelFromResponse(r: AgentLoginResponse?): AgentLoginUiModel {
         return AgentLoginUiModel(r?.recordId ?: "", r?.success ?: false)
     }

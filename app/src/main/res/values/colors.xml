@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="card_grey">#e8e8e8</color>
-
+    <array name="color_strength">
+        <item>#ff001f</item>
+        <item>#ff5900</item>
+        <item>#9ba101</item>
+        <item>#05b110</item>
+    </array>
 </resources>

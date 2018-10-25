@@ -97,6 +97,7 @@ dependencies {
     // Common module
     implementation project(':commonmodule')
     implementation project(':retrofit_wrapper')
+    implementation project(':carddispenser')
 
     // Dagger 2
     implementation utilDependency.dagger
@@ -124,7 +125,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'support-v13'
     }
-
+    //
+    implementation(name: 'passwordstrengthchecker-v0.0.1', ext: 'aar')
     // Unit test
     testImplementation testDependency.junit
 }

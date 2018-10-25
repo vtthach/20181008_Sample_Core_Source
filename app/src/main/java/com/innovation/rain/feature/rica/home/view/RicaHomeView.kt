@@ -7,4 +7,6 @@ interface RicaHomeView : BaseView {
     fun enableButtonProceed(allowEnableProceedButton: Boolean)
 
     fun notifyRicaStateDone()
+
+    fun goToSimDispenserScreen()
 }

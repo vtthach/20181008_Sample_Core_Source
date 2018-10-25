@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.EditText
 import com.innovation.rain.feature.account.create.presenter.CreateAccountPresenter
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import com.innovation.rain.R
@@ -12,8 +11,8 @@ import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
+import kiosk.consumer.cbsa.passwordstrengthchecker.PasswordStrengthView
 import kotlinx.android.synthetic.main.fragment_create_account.*
-import kotlinx.android.synthetic.main.fragment_create_order.*
 import javax.inject.Inject
 
 
@@ -28,23 +27,14 @@ class CreateAccountFragment : BasePresenterInjectionFragment<CreateAccountPresen
         return R.layout.fragment_create_account
     }
 
-    private val passwordChangeListener: TextWatcher = object : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-        }
-
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-        }
-
-        override fun afterTextChanged(s: Editable) {
-            viewPresenter.validateEmail(s.toString())
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //edtEmail.addTextChangedListener(passwordChangeListener)
         enableButtonProceed(true)
+
+        vPasswordStrength.setListener(edtPassword) {
+
+        }
 
         btnExitAccount.setOnClickListener {
             fragmentManager?.showExitDialog {
@@ -53,12 +43,12 @@ class CreateAccountFragment : BasePresenterInjectionFragment<CreateAccountPresen
         }
 
         btnProceedToPayment.setOnClickListener {
-            viewPresenter.validateEmail(edtEmail.text.toString())
-            viewPresenter.validateConfirmEmail(edtEmail.text.toString(), edtConfirmEmail.text.toString())
-            viewPresenter.validateEmail(edtEmail.text.toString())
-            viewPresenter.validateEmail(edtEmail.text.toString())
+            viewPresenter.validateEmail(edtEmail.text.toString(), getString(R.string.email_error))
+            viewPresenter.validateConfirmEmail(edtEmail.text.toString(), edtConfirmEmail.text.toString(), getString(R.string.confirm_email_error))
+            viewPresenter.validatePassword(edtPassword.text.toString(), getString(R.string.password_error))
+            viewPresenter.validateConfirmPassword(edtPassword.text.toString(), edtConfirmPassword.text.toString(), getString(R.string.confirm_password_error))
+            viewPresenter.goToNextScreen()
         }
-
     }
 
     override fun enableButtonProceed(allowEnableProceedButton: Boolean) {
@@ -71,22 +61,26 @@ class CreateAccountFragment : BasePresenterInjectionFragment<CreateAccountPresen
     }
 
     override fun showEmailError(value: String) {
-        tvEmailError.text = getString(R.string.email_error)
+        tvEmailError.text = value
     }
 
     override fun showConfirmEmailError(value: String) {
-        tvConfirmEmailError.text = getString(R.string.confirm_email_error)
+        tvConfirmEmailError.text = value
     }
 
     override fun showPasswordError(value: String) {
-        tvPasswordError.text = getString(R.string.password_error)
+        tvPasswordError.text = value
     }
 
     override fun showConfirmPasswordError(value: String) {
-        tvConfirmPasswordError.text = getString(R.string.confirm_password_error)
+        tvConfirmPasswordError.text = value
     }
 
     override fun goToNextScreen() {
         activity?.showFragment<RicaHomeFragment>()
+    }
+
+    override fun applyConditions(conditions: List<PasswordStrengthView.Condition>) {
+        vPasswordStrength.conditions = conditions
     }
 }

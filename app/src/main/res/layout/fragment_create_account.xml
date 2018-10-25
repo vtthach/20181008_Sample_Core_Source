@@ -17,9 +17,9 @@
     <TextView
         android:id="@+id/createAccountTitle"
         style="@style/TextTitle"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="@dimen/margin_50"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="110dp"
         android:gravity="center"
         android:text="@string/create_account_title"
         android:textColor="@color/primary"
@@ -30,7 +30,7 @@
     <EditText
         android:id="@+id/edtUserId"
         style="@style/AccountEditText"
-        android:layout_marginTop="@dimen/margin_80"
+        android:layout_marginTop="@dimen/margin_30"
         android:focusable="false"
         android:enabled="false"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
@@ -39,7 +39,7 @@
     <TextView
         android:id="@+id/tvEmailError"
         style="@style/TextAccountError"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:layout_marginStart="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/edtUserId"/>
@@ -47,7 +47,7 @@
     <EditText
         android:id="@+id/edtEmail"
         style="@style/AccountEditText"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:inputType="textEmailAddress"
         android:hint="email"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
@@ -56,7 +56,7 @@
     <TextView
         android:id="@+id/tvConfirmEmailError"
         style="@style/TextAccountError"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:layout_marginStart="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail"/>
@@ -64,7 +64,7 @@
     <EditText
         android:id="@+id/edtConfirmEmail"
         style="@style/AccountEditText"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:inputType="textEmailAddress"
         android:hint="confirm email"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
@@ -73,7 +73,7 @@
     <TextView
         android:id="@+id/tvPasswordError"
         style="@style/TextAccountError"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:layout_marginStart="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirmEmail"/>
@@ -81,24 +81,36 @@
     <EditText
         android:id="@+id/edtPassword"
         style="@style/AccountEditText"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:inputType="textPassword"
         android:hint="password"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />
 
+    <kiosk.consumer.cbsa.passwordstrengthchecker.PasswordStrengthView
+        android:id="@+id/vPasswordStrength"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:layout_marginStart="20dp"
+        app:colors_strength="@array/color_strength"
+        app:items_number="@integer/password_strength_item_number"
+        app:texts_strength="@array/text_strength"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword"/>
+
     <TextView
         android:id="@+id/tvConfirmPasswordError"
         style="@style/TextAccountError"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:layout_marginStart="@dimen/margin_20"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword"/>
+        app:layout_constraintTop_toBottomOf="@+id/vPasswordStrength"/>
 
     <EditText
         android:id="@+id/edtConfirmPassword"
         style="@style/AccountEditText"
-        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_top_account_text"
         android:inputType="textPassword"
         android:hint="confirm password"
         app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"

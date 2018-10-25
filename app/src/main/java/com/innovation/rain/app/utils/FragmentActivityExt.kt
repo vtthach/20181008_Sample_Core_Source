@@ -1,5 +1,8 @@
 package com.innovation.rain.app.utils
 
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
@@ -33,5 +36,19 @@ fun FragmentManager.showExitDialog(func: (() -> Unit)? = null) {
     ExitDialogFragment().also {
         it.positiveCallback = func
         it.show(this, ExitDialogFragment::class.java.simpleName)
+    }
+}
+
+fun Activity.openApp(prefixName: String) {
+    packageManager?.let { packageManager ->
+        packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+                ?.filter { it.packageName.startsWith(prefixName) }
+                ?.sortedByDescending { it.packageName } //get the latest version
+                ?.get(0)
+                ?.apply {
+                    val intent = packageManager.getLaunchIntentForPackage(this.packageName)
+                    intent?.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
     }
 }

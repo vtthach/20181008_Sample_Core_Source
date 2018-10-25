@@ -2,13 +2,13 @@ package com.innovation.rain.feature.rica.scaniddoc.scan.common.base.view
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.feature.rica.home.view.RicaHomeFragment
 import com.innovation.rain.feature.rica.scaniddoc.scan.common.base.presenter.BaseScanIdDocPresenter
+import com.sf0404.common.utils.BitmapUtils
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.scan_id_fragment.*
 import java.io.File
@@ -49,8 +49,7 @@ open class BaseScanIdDocFragment<T : BaseScanIdDocPresenter> : BasePresenterInje
     override fun reviewImage(file: File) {
         activity?.runOnUiThread {
             showTextureView(false)
-            imagePreview.setImageURI(Uri.fromFile(file))
-            imagePreview.rotation = 180f
+            imagePreview.setImageBitmap(BitmapUtils.decodeSampledBitmapFromFile(file.absolutePath, imagePreview.width, imagePreview.height))
         }
     }
 

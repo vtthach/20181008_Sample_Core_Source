@@ -10,13 +10,14 @@ import com.innovation.rain.app.dialog.ExitDialogFragment
 import com.sf0404.common.container.activity.ContainerActivity
 import com.sf0404.common.container.mode.ToolbarMode
 
+inline fun <reified T : Fragment> FragmentActivity.showFragment(flag: Int = ContainerActivity.UNUSED_VALUE) {
+    showFragment(T::class.java, flag)
+}
 
-inline fun <reified T : Fragment> FragmentActivity.showFragment(flag: Int? = null) {
-    val intentBuilder = ContainerActivity.IntentBuilder(this)
-    flag?.let {
-        intentBuilder.setFlag(flag)
-    }
-    intentBuilder.setFragmentClass(T::class.java)
+fun FragmentActivity.showFragment(classname: Class<out Fragment>, flag: Int = ContainerActivity.UNUSED_VALUE) {
+    ContainerActivity.IntentBuilder(this)
+            .setFlag(flag)
+            .setFragmentClass(classname)
             .setActionMode(ToolbarMode.NONE)
             .start()
 }

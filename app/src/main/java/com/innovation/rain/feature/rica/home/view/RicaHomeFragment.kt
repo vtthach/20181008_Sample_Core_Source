@@ -1,12 +1,12 @@
 package com.innovation.rain.feature.rica.home.view
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.app.enums.RicaState
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.collection.signin.view.SimDispenserFragment
 import com.innovation.rain.feature.rica.agentverification.view.AgentVerificationFragment
 import com.innovation.rain.feature.rica.base.BaseRicaFragment
 import com.innovation.rain.feature.rica.home.presenter.RicaHomePresenter
@@ -42,13 +42,13 @@ class RicaHomeFragment : BasePresenterInjectionFragment<RicaHomePresenter>(), Ri
     override fun notifyRicaStateDone() {
         val index = getCurrentIndex()
         mFragments!![index].ricaState = RicaState.STATE_DONE
-        if (index < mFragments!!.size!! - 1) {
+        if (index < mFragments!!.size - 1) {
             mFragments!![index + 1].ricaState = RicaState.STATE_LOADED
         }
     }
 
-    override fun goToSimDispenserScreen() {
-        showFragment<SimDispenserFragment>()
+    override fun goToNextScreen(classname: Class<out Fragment>) {
+        activity?.showFragment(classname)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

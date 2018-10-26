@@ -129,6 +129,8 @@ dependencies {
     // Usb serial lib
     implementation(name: 'usbSerialLibs-release-20181026', ext: 'aar')
 
+    implementation(name: 'passwordstrengthchecker-v0.0.1', ext: 'aar')
+
     // Unit test
     testImplementation testDependency.junit
 }

@@ -33,8 +33,16 @@
     <dimen name="img_verify_width">70dp</dimen>
     <dimen name="img_verify_height">70dp</dimen>
     <dimen name="dialog_btn_gap">30dp</dimen>
-    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
     <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_top_account_text">2dp</dimen>
+
+    <dimen name="create_accoutn_edt_width">500dp</dimen>
+    <dimen name="create_accoutn_edt_height">50dp</dimen>
 
     <!-- Select quantity -->
     <dimen name="text_size_40">40sp</dimen>
@@ -51,5 +59,7 @@
     <dimen name="dispenser_icon_height">250dp</dimen>
     <dimen name="dispenser_icon_margin_right">20dp</dimen>
     <dimen name="dispenser_panel_height">240dp</dimen>
+
+    <integer name="password_strength_item_number">4</integer>
 
 </resources>

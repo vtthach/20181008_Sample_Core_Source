@@ -69,12 +69,26 @@
     <string name="r50_a_gig">R50 a gig</string>
     <string name="sim_10_data_days">SIM +10 data days</string>
     <string name="r50_once_off">R50 once off</string>
-
     <string name="sim_activation_success">SIM activation successful</string>
     <string name="sim_iccid">ICCID: </string>
     <string name="sim_more_info">visit rain.co.za to manage your SIM via your rain dashboard</string>
     <string name="str_dispense_next_sim">dispense next SIM</string>
     <string name="sim_dispensing_sim">dispensing SIM</string>
     <string name="sim_dispensing_error_title">We are currently unable to dispense any SIMs,\nplease try again later.</string>
+    <!-- Create account -->
+    <string name="create_account_title">create account</string>
+    <string name="email_error">please add a valid email</string>
+    <string name="confirm_email_error">email address does not match</string>
+    <string name="password_error">password must contain 8 characters or more with at least one number.</string>
+    <string name="confirm_password_error">password does not match</string>
+    <string-array name="text_strength">
+        <item>Weak</item>
+        <item>Relatively Weak</item>
+        <item>Medium</item>
+        <item>Strong</item>
+    </string-array>
+
+    <string name="already_login">A session is currently in progress, please complete session or logout and try again.</string>
+    <string name="agent_not_found">You have entered an incorrect username or password</string>
 
 </resources>

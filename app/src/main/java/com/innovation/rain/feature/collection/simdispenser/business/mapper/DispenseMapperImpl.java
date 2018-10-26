@@ -16,7 +16,7 @@ public class DispenseMapperImpl implements DispenseMapper {
     }
 
     @Override
-    public DispenseUiModel getUiModelFromResponse(DispenseParam param, DispenseResponse DispenseResponse) {
+    public DispenseUiModel getUiModelFromResponse(DispenseResponse DispenseResponse) {
         // TODO mapper implement here
         return new DispenseUiModel();
     }

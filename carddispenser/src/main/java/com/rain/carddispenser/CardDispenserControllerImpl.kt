@@ -17,7 +17,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
 
     private var timetamp: Long = 0 // in milliseconds
 
-    private val MAX_WAITING_TIME = 10 * 1000L // in milliseconds
+    private val MAX_WAITING_TIME = 100 * 1000L // in milliseconds
 
     private val WAITING_FOR_BARCODE_READ = 1 * 1000L // in milliseconds
 

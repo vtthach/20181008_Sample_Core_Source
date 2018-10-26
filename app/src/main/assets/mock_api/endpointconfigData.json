@@ -2,6 +2,11 @@
   "version": "1.0",
   "config": [
     {
+      "name": "login",
+      "endpoint": "api/profiles/agent/login",
+      "data": []
+    },
+    {
       "name": "clientlogin",
       "endpoint": "api/clientlogin",
       "data": [

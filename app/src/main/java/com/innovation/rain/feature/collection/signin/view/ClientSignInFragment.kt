@@ -1,14 +1,13 @@
 package com.innovation.rain.feature.collection.signin.view
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
-import com.innovation.rain.feature.collection.orders.view.OrderListFragment
 import com.innovation.rain.feature.collection.signin.business.model.ClientSignInUiModel
 import com.innovation.rain.feature.collection.signin.presenter.ClientSignInPresenter
 import com.innovation.rain.feature.collection.signin.view.exception.NoOrderFragment
@@ -36,8 +35,8 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         showToastError("Please enter your South African ID number")
     }
 
-    override fun goToCollectionOrder(info: ClientSignInUiModel?) {
-        activity?.showFragment<OrderListFragment>()
+    override fun goToNextScreen(classname: Class<out Fragment>, info: ClientSignInUiModel?) {
+        activity?.showFragment(classname)
     }
 
     override fun getLayoutId(): Int {
@@ -53,9 +52,7 @@ class ClientSignInFragment : BasePresenterInjectionFragment<ClientSignInPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnExit.setOnClickListener {
-            fragmentManager?.showExitDialog{
-                NavigateUtil.logout(this.activity!!)
-            }
+            fragmentManager?.showExitDialog()
         }
 
         edId.addTextChangedListener(textIdChangeListener)

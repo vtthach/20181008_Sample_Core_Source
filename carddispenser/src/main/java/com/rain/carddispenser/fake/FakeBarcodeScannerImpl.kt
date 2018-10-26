@@ -5,7 +5,9 @@ import io.reactivex.Observable
 
 class FakeBarcodeScannerImpl: BarcodeScanner {
 
-    override fun checkAvailable() = Observable.just(true)
+    override fun startGetBarcode(): Observable<String> {
+        return Observable.just("89000000000000001")
+    }
 
-    override fun getBarcodeValue(): Observable<String> = Observable.just("840001234")
+    override fun checkAvailable() = Observable.just(true)!!
 }

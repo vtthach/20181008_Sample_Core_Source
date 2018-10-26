@@ -4,6 +4,5 @@ import io.reactivex.Observable
 
 interface BarcodeScanner {
     fun checkAvailable(): Observable<Boolean>
-
-    fun getBarcodeValue(): Observable<String>
+    fun startGetBarcode(): Observable<String>
 }

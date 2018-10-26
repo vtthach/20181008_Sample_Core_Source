@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.innovation.rain.R
-import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.orders.model.OrderEntity
@@ -33,9 +32,7 @@ class OrderListFragment : BasePresenterInjectionFragment<OrderListPresenter>(), 
         super.onViewCreated(view, savedInstanceState)
         clientName.text = "Tyla's Order"
         btnExit.setOnClickListener {
-            fragmentManager?.showExitDialog {
-                NavigateUtil.logout(activity!!)
-            }
+            fragmentManager?.showExitDialog()
         }
 
         orderRv.adapter = orderListAdapter

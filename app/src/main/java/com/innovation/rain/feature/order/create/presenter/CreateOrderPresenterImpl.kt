@@ -15,7 +15,7 @@ constructor(view: CreateOrderView) : BasePresenterImpl<CreateOrderView>(view), C
     val itemPrice = "50.00"
     val numberOfDecimals = 2
 
-    override fun initPrice() {
+    private fun initPrice() {
         view.updateValueItemPrice("R" + itemPrice)
         view.updateValueItemTotalPrice("R" + itemPrice)
     }

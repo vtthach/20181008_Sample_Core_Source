@@ -1,5 +1,6 @@
 package com.innovation.rain.app.injection.module.feature;
 
+import com.innovation.rain.feature.account.create.injection.CreateAccountBuilderModule;
 import com.innovation.rain.feature.collection.orders.injection.OrderListBuilderModule;
 import com.innovation.rain.feature.collection.signin.injection.ClientSignInBuilderModule;
 import com.innovation.rain.feature.collection.simdispenser.injection.SimDispenserBuilderModule;
@@ -28,6 +29,7 @@ import dagger.Module;
         CreateOrderBuilderModule.class,
         ManualAddressBuilderModule.class,
         ScanPOABuilderModule.class,
+        CreateAccountBuilderModule.class,
         ProofOfAddressBuilderModule.class,
         SimDispenserBuilderModule.class
 })

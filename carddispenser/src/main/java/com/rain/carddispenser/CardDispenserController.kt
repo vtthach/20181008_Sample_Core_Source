@@ -8,4 +8,6 @@ interface CardDispenserController {
     fun dispensing(callback: DispenseCallback)
 
     fun destroy()
+    fun connect()
+    fun disconnect()
 }

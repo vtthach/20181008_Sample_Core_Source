@@ -9,10 +9,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.app.MyApplication
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.agentlogin.presenter.AgentLoginPresenter
-import com.innovation.rain.feature.welcomemenu.view.WelcomeMenuFragment
+import com.innovation.rain.feature.collection.orders.model.OrderEntity
+import com.innovation.rain.feature.collection.signin.view.SimDispenserFragment
 import com.sf0404.core.application.base.fragment.BasePresenterInjectionFragment
 import kotlinx.android.synthetic.main.agent_login_fragment.*
 import javax.inject.Inject
@@ -71,7 +73,19 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            activity?.showFragment<WelcomeMenuFragment>()
+//            activity?.showFragment<WelcomeMenuFragment>()
+            val orderList = listOf(OrderEntity("Sim 1", "No spend limit set as pay as you use "),
+                    OrderEntity("Sim 2", "No spend limit set as pay as you use "),
+//                OrderEntity("Sim 3", "No spend limit set as pay as you use "),
+//                OrderEntity("Sim 4", "No spend limit set as pay as you use "),
+//                OrderEntity("Sim 5", "No spend limit set as pay as you use "),
+//                OrderEntity("Sim 6", "No spend limit set as pay as you use "),
+//                OrderEntity("Sim 7", "No spend limit set as pay as you use "),
+//                OrderEntity("Sim 8", "No spend limit set as pay as you use "),
+                    OrderEntity("Sim 9", "No spend limit set as pay as you use ")
+            )
+            MyApplication.getAppComponent().appBus().orderList = orderList
+            showFragment<SimDispenserFragment>()
         }
 
         //TODO remove following code when use knox

@@ -5,6 +5,8 @@ enum class DispenserStatus(var id: String) {
     CARD_READY("SF000"),
     CARD_LOW("SF010"),
     CARD_DISPENSED("SF004"),
+    CARD_DISPENSING("SF800"),
+    CARD_RECALLING("SF400"),
     ACK_RESPONSE("06"),
     UNKNOWN("unknown");
 

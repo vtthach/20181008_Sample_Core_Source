@@ -10,10 +10,13 @@ import com.innovation.rain.app.injection.module.AppModule;
 import com.innovation.rain.app.injection.module.feature.CollectionFeatureBuilderModule;
 import com.innovation.rain.app.injection.module.feature.CommonFeatureBuilderModule;
 import com.innovation.rain.app.injection.module.feature.ShopFeatureBuilderModule;
+import com.innovation.rain.app.injection.module.model.AppBus;
 import com.innovation.rain.app.properties.BuildInProperties;
 import com.sf0404.common.prefs.AppPreferences;
 import com.sf0404.common.properties.AppProperties;
 import com.sf0404.common.properties.ConstProperties;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -47,4 +50,7 @@ public interface AppComponent {
     AppPreferences appPreference();
 
     void inject(MyApplication app);
+
+    @NotNull
+    AppBus appBus();
 }

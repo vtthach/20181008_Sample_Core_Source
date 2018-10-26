@@ -62,10 +62,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         btnScanAnotherSim.setOnClickListener {
             viewPresenter.scanAnotherSim()
         }
-
-        if (savedInstanceState == null) {
-            viewPresenter.dispensing()
-        }
     }
 
     override fun toggleProgress(isShow: Boolean) {

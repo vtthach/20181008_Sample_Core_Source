@@ -142,7 +142,7 @@ class BarcodeScannerImpl(private val cardDispenser: CardDispenser, private val a
     }
 
     override fun checkAvailable(): Observable<Boolean> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Observable.just(true)
     }
 
 }

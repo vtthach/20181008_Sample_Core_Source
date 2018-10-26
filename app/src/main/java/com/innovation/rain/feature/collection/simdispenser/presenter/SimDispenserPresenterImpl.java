@@ -1,5 +1,7 @@
 package com.innovation.rain.feature.collection.simdispenser.presenter;
 
+import android.os.Bundle;
+
 import com.innovation.rain.app.injection.module.model.AppBus;
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseParam;
 import com.innovation.rain.feature.collection.simdispenser.business.model.DispenseUiModel;
@@ -9,6 +11,7 @@ import com.innovation.rain.feature.collection.simdispenser.view.SimDispenserView
 import com.rain.carddispenser.CardDispenserController;
 import com.rain.carddispenser.DispenseCallback;
 import com.rain.carddispenser.model.SimEntity;
+import com.sf0404.common.rxjava.RxJavaHandler;
 import com.sf0404.core.application.base.presenter.BasePresenterImpl;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +20,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
+import timber.log.Timber;
 
 
 public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserView> implements SimDispenserPresenter {
@@ -29,11 +33,13 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
 
         @Override
         public void onDispenseSuccess(@NotNull SimEntity simEntity) {
+            Timber.i("vtt onDispenseSuccess call api");
             callDispenseApi(simEntity, true);
         }
 
         @Override
         public void onDispenseFail(@NotNull SimEntity simEntity) {
+            Timber.i("vtt onDispenseFail call api");
             callDispenseApi(simEntity, false);
         }
 
@@ -42,6 +48,22 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
             view.enableScanAnotherSim(false);
         }
     };
+
+    @Override
+    public void onViewCreated(Bundle savedInstanceState, Bundle arguments) {
+        super.onViewCreated(savedInstanceState, arguments);
+        dispenserController.connect();
+        if (savedInstanceState == null) {
+            view.showViewDispensing();
+            addDisposable(RxJavaHandler.runDelayMainThread(result -> dispensing(), 2000));
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        dispenserController.disconnect();
+    }
 
     @Inject
     public SimDispenserPresenterImpl(AppBus appBus, SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
@@ -64,7 +86,6 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
 
     @Override
     public void dispensing() {
-        view.showViewDispensing();
         dispenserController.dispensing(dispenseCallback);
     }
 

@@ -28,10 +28,19 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
         this.sims = sims
     }
 
+    override fun disconnect() {
+        cardDispenser.disconnect()
+    }
+
+    override fun connect() {
+        cardDispenser.connect()
+    }
+
     override fun dispensing(callback: DispenseCallback) {
         if (sims != null && sims!!.size > 0) {
             disposable = cardDispenser.checkAvailable()
                     .flatMap { isCardDispenserAvailable ->
+
                         if (isCardDispenserAvailable) {
                             barcodeScanner.checkAvailable()
                         } else {
@@ -43,9 +52,9 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                         } else {
                             throw BarcodeScannerNotAvailableException()
                         }
-                    }.delay(WAITING_FOR_BARCODE_READ, TimeUnit.MILLISECONDS)
-                    .flatMap { iccId ->
-                        Timber.i("vtt result IccId:  $iccId")
+                    }.flatMap { iccId ->
+                        Timber.i("vtt result IccId:  $iccId ${Thread.currentThread().name}")
+                        timetamp = System.currentTimeMillis()
                         if (iccId.isNotEmpty()) {
                             sims!![0].iccid = iccId
                             getCheckStatusObservable()
@@ -60,6 +69,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                         if (sims!!.size == 0)
                             callback.onNoSimInQueue()
                     }, {
+                        Timber.i(it, "SF Exception:  ${it.message}")
                         callback.onDispenseFail(sims!![0])
                         sims!!.removeAt(0)
                         if (sims!!.size == 0)
@@ -72,7 +82,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
         return cardDispenser.getDispenserStatus()
                 .flatMap { dispenserStatus ->
                     Timber.i("SF getCheckStatusObservable:  $dispenserStatus ${Thread.currentThread().name}")
-                    if (dispenserStatus == DispenserStatus.CARD_DISPENSED && (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME)) {
+                    if (isCardOut(dispenserStatus) && (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME)) {
                         throw DispenseStatusRetryException()
                     } else if (dispenserStatus == DispenserStatus.CARD_READY || dispenserStatus == DispenserStatus.TRAY_EMPTY || dispenserStatus == DispenserStatus.CARD_LOW) {
                         if (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME) {
@@ -90,6 +100,10 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                         } else Observable.error<Any>(throwable)
                     }
                 }
+    }
+
+    private fun isCardOut(dispenserStatus: DispenserStatus): Boolean {
+        return dispenserStatus == DispenserStatus.CARD_DISPENSED || dispenserStatus == DispenserStatus.CARD_DISPENSING
     }
 
     override fun destroy() {

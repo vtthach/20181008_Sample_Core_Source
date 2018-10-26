@@ -61,14 +61,14 @@ public class SimDispenserUseCaseModule {
 
     @PerView
     @Provides
-    public CardDispenser provideCardDispenser(Context context) {
-        return new CardDispenserImpl(context);
+    public BarcodeScanner provideBarcodeScanner(CardDispenser cardDispenser, Activity activity) {
+        return new BarcodeScannerImpl(cardDispenser, activity);
     }
 
     @PerView
     @Provides
-    public BarcodeScanner provideBarcodeScanner(CardDispenser cardDispenser, Activity activity) {
-        return new BarcodeScannerImpl(cardDispenser, activity);
+    public CardDispenser provideCardDispenser(Context context) {
+        return new CardDispenserImpl(context);
     }
 
     @PerView

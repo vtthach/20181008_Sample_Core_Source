@@ -25,32 +25,30 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
     override fun dispensing(callback: DispenseCallback) {
         if (sims != null && sims!!.size > 0) {
             disposable = cardDispenser.checkAvailable()
-                    .flatMap {
-                        if (it) {
+                    .flatMap { isCardDispenserAvailable ->
+                        if (isCardDispenserAvailable) {
                             barcodeScanner.checkAvailable()
                         } else {
                             throw CardDispenserNotAvailableException()
                         }
-                    }
-                    .flatMap {
-                        if (it) {
+                    }.flatMap { isBarcodeScannerAvailable ->
+                        if (isBarcodeScannerAvailable) {
                             cardDispenser.issueCard()
                         } else {
                             throw BarcodeScannerNotAvailableException()
                         }
-                    }.flatMap {
-                        if (it) {
+                    }.flatMap { isIssueCardSuccess ->
+                        if (isIssueCardSuccess) {
                             timetamp = System.currentTimeMillis()
-                            Observable.just(it)
+                            Observable.timer(2000, TimeUnit.MILLISECONDS)
                         } else {
                             throw IssueCardException()
                         }
-                    }
-                    .delay(2000, TimeUnit.MILLISECONDS)
-                    .flatMap { barcodeScanner.getBarcodeValue() }
-                    .flatMap {
-                        if (it != null && it.length > 0) {
-                            sims!![0].iccid = it
+                    }.flatMap {
+                        barcodeScanner.getBarcodeValue()
+                    }.flatMap { iccid ->
+                        if (iccid != null && iccid.length > 0) {
+                            sims!![0].iccid = iccid
                             getCheckStatusObservable()
                         } else {
                             throw BarcodeValueException()
@@ -71,29 +69,27 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
         }
     }
 
-
     private fun getCheckStatusObservable(): Observable<*> {
-        return cardDispenser.getDispenserStatus().flatMap { dispenserStatus ->
-            if (dispenserStatus === DispenserStatus.DISPENSED && System.currentTimeMillis() - timetamp < 100000) {
-                throw DispenseRetryException()
-            } else if (dispenserStatus === DispenserStatus.READY || dispenserStatus === DispenserStatus.TRAY_EMPTY || dispenserStatus === DispenserStatus.TRAY_LOW) {
-                if (System.currentTimeMillis() - timetamp < 100000) {
-                    Observable.just(dispenserStatus)
-                } else {
-                    throw Exception()
-                }
-            } else {
-                throw Exception()
-            }
-        }.retryWhen { throwableObservable ->
-            throwableObservable
-                    .flatMap { throwable ->
+        return cardDispenser.getDispenserStatus()
+                .flatMap { dispenserStatus ->
+                    if (dispenserStatus == DispenserStatus.DISPENSED && System.currentTimeMillis() - timetamp < 100000) {
+                        throw DispenseRetryException()
+                    } else if (dispenserStatus == DispenserStatus.READY || dispenserStatus == DispenserStatus.TRAY_EMPTY || dispenserStatus == DispenserStatus.TRAY_LOW) {
+                        if (System.currentTimeMillis() - timetamp < 100000) {
+                            Observable.just(dispenserStatus)
+                        } else {
+                            throw Exception()
+                        }
+                    } else {
+                        throw Exception()
+                    }
+                }.retryWhen { throwableObservable ->
+                    throwableObservable.flatMap { throwable ->
                         if (throwable is DispenseRetryException) {
-                            Observable.timer(250,
-                                    TimeUnit.MILLISECONDS)
+                            Observable.timer(250, TimeUnit.MILLISECONDS)
                         } else Observable.error<Any>(throwable)
                     }
-        }
+                }
     }
 
     override fun destroy() {

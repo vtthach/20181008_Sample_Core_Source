@@ -14,7 +14,11 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
 
     private var timetamp: Long = 0 // in milliseconds
 
-    private val MAX_WAITING_TIME = 100 * 1000 // in milliseconds
+    private val MAX_WAITING_TIME = 100 * 1000L // in milliseconds
+
+    private val WAITING_FOR_BARCODE_READ = 2 * 1000L // in milliseconds
+
+    private val CHECK_DISPENSER_STATUS_DURATION = 250L // in milliseconds
 
     private var sims: MutableList<SimEntity>? = null
 
@@ -40,7 +44,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                     }.flatMap { isIssueCardSuccess ->
                         if (isIssueCardSuccess) {
                             timetamp = System.currentTimeMillis()
-                            Observable.timer(2000, TimeUnit.MILLISECONDS)
+                            Observable.timer(WAITING_FOR_BARCODE_READ, TimeUnit.MILLISECONDS)
                         } else {
                             throw IssueCardException()
                         }
@@ -86,7 +90,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                 }.retryWhen { throwableObservable ->
                     throwableObservable.flatMap { throwable ->
                         if (throwable is DispenseStatusRetryException) {
-                            Observable.timer(250, TimeUnit.MILLISECONDS)
+                            Observable.timer(CHECK_DISPENSER_STATUS_DURATION, TimeUnit.MILLISECONDS)
                         } else Observable.error<Any>(throwable)
                     }
                 }

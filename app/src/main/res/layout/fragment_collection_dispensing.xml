@@ -10,13 +10,13 @@
 
         <com.sf0404.common.dialog.progresscircle.LoadingCircular
             android:id="@+id/progress"
-            android:layout_width="500dp"
-            android:layout_height="500dp"
+            android:layout_width="@dimen/dispenser_progress_width"
+            android:layout_height="@dimen/dispenser_progress_height"
             android:layout_gravity="center"
-            app:sf_loading_circular_track_color="@color/accent"
             app:sf_loading_circular_sweep_color="@color/primary_light"
-            app:sf_loading_circular_track_width="3"
-            app:sf_loading_circular_sweep_width="6"/>
+            app:sf_loading_circular_sweep_width="6"
+            app:sf_loading_circular_track_color="@color/accent"
+            app:sf_loading_circular_track_width="3" />
 
         <TextView
             android:id="@+id/txtDispensing"
@@ -35,7 +35,7 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="240dp"
+            android:layout_height="@dimen/dispenser_panel_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -45,9 +45,9 @@
 
             <ImageView
                 android:id="@+id/imgSuccess"
-                android:layout_width="270dp"
-                android:layout_height="250dp"
-                android:layout_marginRight="20dp"
+                android:layout_width="@dimen/dispenser_icon_width"
+                android:layout_height="@dimen/dispenser_icon_height"
+                android:layout_marginRight="@dimen/dispenser_icon_margin_right"
                 android:src="@drawable/icon_checked" />
 
             <TextView
@@ -61,10 +61,10 @@
                 android:id="@+id/txtIccId"
                 style="@style/TextTitle.ItemTitle"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginTop="@dimen/dispenser_iccid_margin_top"
+                android:layout_marginBottom="@dimen/dispenser_iccid_margin_bottom"
                 android:layout_toRightOf="@+id/imgSuccess"
-                android:paddingTop="10dp"
+                android:paddingTop="@dimen/dispenser_iccid_padding_top"
                 android:text="@string/sim_iccid" />
 
             <TextView

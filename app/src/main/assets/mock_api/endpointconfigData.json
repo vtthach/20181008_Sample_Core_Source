@@ -2,7 +2,7 @@
   "version": "1.0",
   "config": [
     {
-      "name": "agentlogin",
+      "name": "login",
       "endpoint": "api/profiles/agent/login",
       "data": []
     },

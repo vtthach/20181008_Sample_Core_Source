@@ -5,6 +5,7 @@ public class ApiConstants {
         public static final String CLIENT_LOGIN = "api/clientlogin";
         public static final String SIM_CARD_DISPENSE = "/api/Kiosks/simcard/dispense";
         public static final String AGENT_LOGIN = "api/profiles/agent/login";
+        public static final String AGENT_LOGOUT = "api/profiles/agent/logout";
     }
 
     public class ErrorCode {

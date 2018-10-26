@@ -1,12 +1,13 @@
 package com.innovation.rain.app.dialog
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.feature.agentlogout.AgentLogoutIntentService
 import com.innovation.rain.app.utils.openApp
 import com.sf0404.common.dialog.fragment.BaseDialogFragment
 import kotlinx.android.synthetic.main.dialog_exit_confirm.*
-
 
 /**
  * Created by AnhVu on 22-Oct-2018.
@@ -26,6 +27,8 @@ class ExitDialogFragment : BaseDialogFragment() {
         }
 
         positiveBtn.setOnClickListener {
+            context?.startService(Intent(activity, AgentLogoutIntentService::class.java))
+
             //start launcher
             activity?.openApp(LAUNCHER_PACKAGE_NAME)
 

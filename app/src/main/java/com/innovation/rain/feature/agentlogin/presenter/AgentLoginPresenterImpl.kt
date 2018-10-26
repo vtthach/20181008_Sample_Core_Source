@@ -1,5 +1,6 @@
 package com.innovation.rain.feature.agentlogin.presenter
 
+import com.innovation.rain.app.injection.module.model.AppBus
 import com.innovation.rain.feature.agentlogin.business.model.AgentLoginCallback
 import com.innovation.rain.feature.agentlogin.business.model.AgentLoginParam
 import com.innovation.rain.feature.agentlogin.business.model.AgentLoginUiModel
@@ -7,12 +8,14 @@ import com.innovation.rain.feature.agentlogin.business.usecase.AgentLoginUseCase
 import com.innovation.rain.feature.agentlogin.view.AgentLoginView
 import com.sf0404.common.utils.ValidationUtils
 import com.sf0404.core.application.base.presenter.BasePresenterImpl
+import timber.log.Timber
 import javax.inject.Inject
 
 
 class AgentLoginPresenterImpl @Inject
 constructor(view: AgentLoginView,
-            private val useCase: AgentLoginUseCase
+            private val useCase: AgentLoginUseCase,
+            private val appBus: AppBus
 ) : BasePresenterImpl<AgentLoginView>(view), AgentLoginPresenter {
 
     private var pw: String? = null
@@ -54,7 +57,9 @@ constructor(view: AgentLoginView,
                 view.showAlreadyLoginError()
             }
 
-            override fun onSuccess(info: AgentLoginUiModel?) {
+            override fun onSuccess(info: AgentLoginUiModel) {
+                Timber.i("sessionId: ${info.recordId}")
+                appBus.sessionId = info.recordId
                 view.gotoWelcomeMenuScreen()
             }
         }).execute(AgentLoginParam(userId, pw)))

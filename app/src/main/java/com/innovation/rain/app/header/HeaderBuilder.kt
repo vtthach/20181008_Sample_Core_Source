@@ -10,5 +10,7 @@ class HeaderBuilder {
 
     fun sessionId(sessionId: String) = apply { map[SESSION_ID] = sessionId }
 
+//    fun timestamp(timestamp: String) = apply { map[TIMESTAMP] = timestamp }
+
     fun build() = map
 }

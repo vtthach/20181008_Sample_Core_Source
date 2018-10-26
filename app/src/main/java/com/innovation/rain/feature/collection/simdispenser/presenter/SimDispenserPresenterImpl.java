@@ -43,21 +43,34 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
         }
     };
 
+    @Inject
+    public SimDispenserPresenterImpl(AppBus appBus, SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
+        super(view);
+        this.useCase = useCase;
+        this.dispenserController = dispenserController;
+        checkAndInitCardDispenser(appBus);
+    }
+
+    private void checkAndInitCardDispenser(AppBus appBus) {
+        if (appBus.getOrderList() != null && appBus.getOrderList().size() > 0) {
+            this.disposable = Observable.fromIterable(appBus.getOrderList())
+                    .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent(), ""))
+                    .toList()
+                    .subscribe(this.dispenserController::init);
+        } else {
+            view.showDialogDispensingFail("");
+        }
+    }
+
     @Override
     public void dispensing() {
         view.showViewDispensing();
         dispenserController.dispensing(dispenseCallback);
     }
 
-    @Inject
-    public SimDispenserPresenterImpl(AppBus appBus, SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
-        super(view);
-        this.useCase = useCase;
-        this.dispenserController = dispenserController;
-        this.disposable = Observable.fromIterable(appBus.getOrderList())
-                .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent(), ""))
-                .toList()
-                .subscribe(this.dispenserController::init);
+    @Override
+    public void scanAnotherSim() {
+        dispensing();
     }
 
     private void callDispenseApi(SimEntity simEntity, boolean isSuccess) {
@@ -77,11 +90,6 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
                 view.showDialogDispensingFail("");
             }
         }).execute(new DispenseParam()));
-    }
-
-    @Override
-    public void scanAnotherSim() {
-        dispensing();
     }
 
     @Override

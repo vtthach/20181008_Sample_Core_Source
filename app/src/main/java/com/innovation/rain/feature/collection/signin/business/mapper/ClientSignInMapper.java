@@ -9,7 +9,7 @@ import com.sf0404.core.application.business.mapper.BaseMapper;
 public interface ClientSignInMapper extends BaseMapper<ClientSignInUiModel, ClientSignInParam, ClientSignInRequest, ClientSignInResponse> {
 
     @Override
-    ClientSignInUiModel getUiModelFromResponse(ClientSignInParam param, ClientSignInResponse clientSignInResponse);
+    ClientSignInUiModel getUiModelFromResponse(ClientSignInResponse clientSignInResponse);
 
     @Override
     ClientSignInRequest getRequestFromParam(ClientSignInParam param);

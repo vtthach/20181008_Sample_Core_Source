@@ -21,9 +21,9 @@ import javax.inject.Inject
 class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>(), AgentLoginView {
 
     @Inject
-    lateinit var viewPresenter: AgentLoginPresenter
+    lateinit var mPresenter: AgentLoginPresenter
 
-    override fun getPresenter() = viewPresenter
+    override fun getPresenter() = mPresenter
 
     override fun enableButtonSignIn(allowEnableSignInButton: Boolean) {
         btnLogin.isEnabled = allowEnableSignInButton
@@ -44,9 +44,10 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
 
         override fun afterTextChanged(s: Editable) {
-            presenter.onTextPasswordChanged(s.toString())
+            mPresenter.onTextPasswordChanged(s.toString())
         }
     }
+
     private val textUserIdChangeListener: TextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
 
@@ -57,7 +58,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
         }
 
         override fun afterTextChanged(s: Editable) {
-            presenter.onTextUserIdChanged(s.toString())
+            mPresenter.onTextUserIdChanged(s.toString())
         }
     }
 
@@ -71,7 +72,7 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
             fragmentManager?.showExitDialog()
         }
         btnLogin.setOnClickListener {
-            activity?.showFragment<WelcomeMenuFragment>()
+            mPresenter.login()
         }
 
         //TODO remove following code when use knox
@@ -84,5 +85,22 @@ class AgentLoginFragment : BasePresenterInjectionFragment<AgentLoginPresenter>()
                             Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     MY_PERMISSIONS_REQUEST)
         }
+    }
+
+    override fun gotoWelcomeMenuScreen() {
+        activity?.showFragment<WelcomeMenuFragment>()
+    }
+
+    override fun showAlreadyLoginError() {
+        showToastError(getString(R.string.already_login))
+    }
+
+    override fun showAgentNotFoundError() {
+        showToastError(getString(R.string.agent_not_found))
+    }
+
+    override fun showMaxAttemptsError() {
+        hideToast()
+        AgentLoginMaxAttemptsDialog().show(fragmentManager, "")
     }
 }

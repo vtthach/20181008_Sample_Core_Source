@@ -87,5 +87,7 @@
         <item>Strong</item>
     </string-array>
 
+    <string name="already_login">A session is currently in progress, please complete session or logout and try again.</string>
+    <string name="agent_not_found">You have entered an incorrect username or password</string>
 
 </resources>

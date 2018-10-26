@@ -72,13 +72,13 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
     private fun getCheckStatusObservable(): Observable<*> {
         return cardDispenser.getDispenserStatus()
                 .flatMap { dispenserStatus ->
-                    if (dispenserStatus == DispenserStatus.DISPENSED && (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME)) {
+                    if (dispenserStatus == DispenserStatus.DISPENSED) {
                         throw DispenseStatusRetryException()
                     } else if (dispenserStatus == DispenserStatus.READY || dispenserStatus == DispenserStatus.TRAY_EMPTY || dispenserStatus == DispenserStatus.TRAY_LOW) {
                         if (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME) {
                             Observable.just(dispenserStatus)
                         } else {
-                            throw CardReCallException()
+                            throw CardAutoReCallException()
                         }
                     } else {
                         throw Exception()

@@ -6,4 +6,6 @@ interface CardDispenserController {
     fun init(sims: MutableList<SimEntity>)
 
     fun dispensing(callback: DispenseCallback)
+
+    fun destroy()
 }

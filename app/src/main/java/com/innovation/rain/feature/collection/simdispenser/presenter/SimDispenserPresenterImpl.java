@@ -25,56 +25,16 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
     private final CardDispenserController dispenserController;
     private Disposable disposable;
 
-    @Inject
-    public SimDispenserPresenterImpl(AppBus appBus, SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
-        super(view);
-        this.useCase = useCase;
-        this.dispenserController = dispenserController;
-        this.disposable = Observable.fromIterable(appBus.getOrderList())
-                .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent(), "0000000000", "0000000000"))
-                .toList()
-                .subscribe(this.dispenserController::init);
-    }
-
-    @Override
-    public void dispensing() {
-        view.showViewDispensing();
-        dispenserController.dispensing(dispenseCallback);
-    }
-
     private DispenseCallback dispenseCallback = new DispenseCallback() {
 
         @Override
         public void onDispenseSuccess(@NotNull SimEntity simEntity) {
-            addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
-                @Override
-                public void onSuccess(DispenseUiModel info) {
-                    view.showDispensingSuccess(simEntity);
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    super.onError(e);
-                    view.showDialogDispensingFail("");
-                }
-
-            }).execute(new DispenseParam()));
+            callDispenseApi(simEntity, true);
         }
 
         @Override
         public void onDispenseFail(@NotNull SimEntity simEntity) {
-            addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
-                @Override
-                public void onSuccess(DispenseUiModel info) {
-                    view.showDialogDispensingFail("");
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    super.onError(e);
-                    view.showDialogDispensingFail("");
-                }
-            }).execute(new DispenseParam()));
+            callDispenseApi(simEntity, false);
         }
 
         @Override
@@ -84,18 +44,50 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
     };
 
     @Override
+    public void dispensing() {
+        view.showViewDispensing();
+        dispenserController.dispensing(dispenseCallback);
+    }
+
+    @Inject
+    public SimDispenserPresenterImpl(AppBus appBus, SimDispenserView view, DispenseUseCase useCase, CardDispenserController dispenserController) {
+        super(view);
+        this.useCase = useCase;
+        this.dispenserController = dispenserController;
+        this.disposable = Observable.fromIterable(appBus.getOrderList())
+                .map(orderEntity -> new SimEntity(orderEntity.getTitle(), orderEntity.getContent(), ""))
+                .toList()
+                .subscribe(this.dispenserController::init);
+    }
+
+    private void callDispenseApi(SimEntity simEntity, boolean isSuccess) {
+        addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
+            @Override
+            public void onSuccess(DispenseUiModel info) {
+                if (isSuccess) {
+                    view.showDispensingSuccess(simEntity);
+                } else {
+                    view.showDialogDispensingFail("");
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                view.showDialogDispensingFail("");
+            }
+        }).execute(new DispenseParam()));
+    }
+
+    @Override
     public void scanAnotherSim() {
         dispensing();
     }
 
     @Override
-    public void printSlip() {
-        // todo
-    }
-
-    @Override
     public void onDestroy() {
         disposable.dispose();
+        dispenserController.destroy();
         super.onDestroy();
     }
 }

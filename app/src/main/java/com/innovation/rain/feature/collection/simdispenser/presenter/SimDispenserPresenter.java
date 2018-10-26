@@ -8,6 +8,4 @@ public interface SimDispenserPresenter extends BasePresenter {
     void dispensing();
 
     void scanAnotherSim();
-
-    void printSlip();
 }

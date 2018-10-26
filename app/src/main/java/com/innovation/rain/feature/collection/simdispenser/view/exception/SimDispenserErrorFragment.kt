@@ -6,7 +6,7 @@ import com.innovation.rain.R
 import com.innovation.rain.app.utils.NavigateUtil
 import com.sf0404.common.dialog.fragment.BaseDialogFragment
 import com.sf0404.common.fragment.util.BundleUtils
-import kotlinx.android.synthetic.main.collection_client_login_no_order_fragment.*
+import kotlinx.android.synthetic.main.dialog_sim_dispensing_error.*
 
 
 class SimDispenserErrorFragment : BaseDialogFragment() {
@@ -19,7 +19,7 @@ class SimDispenserErrorFragment : BaseDialogFragment() {
         }
     }
 
-    override fun getLayoutId() = R.layout.collection_client_login_no_order_fragment
+    override fun getLayoutId() = R.layout.dialog_sim_dispensing_error
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

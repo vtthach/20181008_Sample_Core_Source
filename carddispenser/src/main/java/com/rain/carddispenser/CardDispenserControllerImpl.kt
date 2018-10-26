@@ -3,10 +3,8 @@ package com.rain.carddispenser
 import com.rain.carddispenser.exception.*
 import com.rain.carddispenser.model.SimEntity
 import io.reactivex.Observable
-import io.reactivex.ObservableSource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
@@ -14,9 +12,11 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
 
     private var disposable: Disposable? = null
 
-    private var timetamp: Long = 0
+    private var timetamp: Long = 0 // in milliseconds
 
-    var sims: MutableList<SimEntity>? = null
+    private val MAX_WAITING_TIME = 100 * 1000 // in milliseconds
+
+    private var sims: MutableList<SimEntity>? = null
 
     override fun init(sims: MutableList<SimEntity>) {
         this.sims = sims
@@ -72,20 +72,20 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
     private fun getCheckStatusObservable(): Observable<*> {
         return cardDispenser.getDispenserStatus()
                 .flatMap { dispenserStatus ->
-                    if (dispenserStatus == DispenserStatus.DISPENSED && System.currentTimeMillis() - timetamp < 100000) {
-                        throw DispenseRetryException()
+                    if (dispenserStatus == DispenserStatus.DISPENSED && (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME)) {
+                        throw DispenseStatusRetryException()
                     } else if (dispenserStatus == DispenserStatus.READY || dispenserStatus == DispenserStatus.TRAY_EMPTY || dispenserStatus == DispenserStatus.TRAY_LOW) {
-                        if (System.currentTimeMillis() - timetamp < 100000) {
+                        if (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME) {
                             Observable.just(dispenserStatus)
                         } else {
-                            throw Exception()
+                            throw CardReCallException()
                         }
                     } else {
                         throw Exception()
                     }
                 }.retryWhen { throwableObservable ->
                     throwableObservable.flatMap { throwable ->
-                        if (throwable is DispenseRetryException) {
+                        if (throwable is DispenseStatusRetryException) {
                             Observable.timer(250, TimeUnit.MILLISECONDS)
                         } else Observable.error<Any>(throwable)
                     }

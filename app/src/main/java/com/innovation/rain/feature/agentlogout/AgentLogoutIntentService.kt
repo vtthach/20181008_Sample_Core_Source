@@ -11,7 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 import javax.inject.Inject
 
-class AgentLogoutIntentService : IntentService("AgentLogoutIntentService") {
+class AgentLogoutIntentService : IntentService(AgentLogoutIntentService::class.java.simpleName) {
 
     @Inject
     lateinit var repository: AgentLogoutRepository
@@ -42,7 +42,7 @@ class AgentLogoutIntentService : IntentService("AgentLogoutIntentService") {
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
-        Timber.i("AgentLogoutIntentService is destroyed")
+        Timber.i("${AgentLogoutIntentService::class.java.simpleName} is destroyed")
     }
 
     private fun AppBus.resetSessionId() {

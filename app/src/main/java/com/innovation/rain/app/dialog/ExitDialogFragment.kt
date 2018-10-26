@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
 import com.innovation.rain.feature.agentlogout.AgentLogoutIntentService
+import com.innovation.rain.app.utils.openApp
 import com.sf0404.common.dialog.fragment.BaseDialogFragment
 import kotlinx.android.synthetic.main.dialog_exit_confirm.*
 
@@ -28,13 +29,20 @@ class ExitDialogFragment : BaseDialogFragment() {
         positiveBtn.setOnClickListener {
             context?.startService(Intent(activity, AgentLogoutIntentService::class.java))
 
+            //start launcher
+            activity?.openApp(LAUNCHER_PACKAGE_NAME)
+
             if (positiveCallback != null) {
                 positiveCallback!!.invoke()
             } else {
                 //finish current activity by default
-                activity!!.finish()
+                activity!!.finishAffinity()
             }
         }
 
+    }
+
+    companion object {
+        const val LAUNCHER_PACKAGE_NAME = "consumer.cbsa.launcher"
     }
 }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ViewAnimator
 import com.innovation.rain.R
-import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showExitDialog
 import com.innovation.rain.feature.collection.signin.view.exception.SimDispenserErrorFragment
 import com.innovation.rain.feature.collection.simdispenser.presenter.SimDispenserPresenter
@@ -29,7 +28,6 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
     override fun showDispensingSuccess(simEntity: SimEntity) {
         (view as? ViewAnimator)?.displayedChild = 1
         txtIccId.text = getString(R.string.sim_iccid) + simEntity.iccid
-        txtSimNo.text = getString(R.string.sim_no) + simEntity.simNo
     }
 
     override fun showDialogDispensingFail(apiCode: String) {
@@ -47,21 +45,13 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
         super.onViewCreated(view, savedInstanceState)
 
         btnScanAnotherSim.isActivated = true
-        btnPrintSlip.isActivated = true
 
         btnExit.setOnClickListener {
-            fragmentManager?.showExitDialog {
-                NavigateUtil.goToWelcomeMenu(activity!!)
-            }
+            fragmentManager?.showExitDialog()
         }
 
         btnScanAnotherSim.setOnClickListener {
             viewPresenter.scanAnotherSim()
-        }
-
-        btnPrintSlip.setOnClickListener {
-            showToastInfo("To be continue...")
-            viewPresenter.printSlip()
         }
 
         if (savedInstanceState == null) {

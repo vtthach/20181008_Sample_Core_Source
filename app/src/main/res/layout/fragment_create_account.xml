@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/fragment_rica_padding"
+    tools:context=".StartActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="250dp" />
+
+    <TextView
+        android:id="@+id/createAccountTitle"
+        style="@style/TextTitle"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/margin_50"
+        android:layout_marginStart="110dp"
+        android:gravity="center"
+        android:text="@string/create_account_title"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/title_text_size_25"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtUserId"
+        style="@style/AccountEditText"
+        android:layout_marginTop="@dimen/margin_30"
+        android:focusable="false"
+        android:enabled="false"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/createAccountTitle" />
+
+    <TextView
+        android:id="@+id/tvEmailError"
+        style="@style/TextAccountError"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:layout_marginStart="@dimen/margin_20"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/edtUserId"/>
+
+    <EditText
+        android:id="@+id/edtEmail"
+        style="@style/AccountEditText"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:inputType="textEmailAddress"
+        android:hint="email"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailError" />
+
+    <TextView
+        android:id="@+id/tvConfirmEmailError"
+        style="@style/TextAccountError"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:layout_marginStart="@dimen/margin_20"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"/>
+
+    <EditText
+        android:id="@+id/edtConfirmEmail"
+        style="@style/AccountEditText"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:inputType="textEmailAddress"
+        android:hint="confirm email"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvConfirmEmailError" />
+
+    <TextView
+        android:id="@+id/tvPasswordError"
+        style="@style/TextAccountError"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:layout_marginStart="@dimen/margin_20"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/edtConfirmEmail"/>
+
+    <EditText
+        android:id="@+id/edtPassword"
+        style="@style/AccountEditText"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:inputType="textPassword"
+        android:hint="password"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />
+
+    <kiosk.consumer.cbsa.passwordstrengthchecker.PasswordStrengthView
+        android:id="@+id/vPasswordStrength"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:layout_marginStart="20dp"
+        app:colors_strength="@array/color_strength"
+        app:items_number="@integer/password_strength_item_number"
+        app:texts_strength="@array/text_strength"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword"/>
+
+    <TextView
+        android:id="@+id/tvConfirmPasswordError"
+        style="@style/TextAccountError"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:layout_marginStart="@dimen/margin_20"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/vPasswordStrength"/>
+
+    <EditText
+        android:id="@+id/edtConfirmPassword"
+        style="@style/AccountEditText"
+        android:layout_marginTop="@dimen/margin_top_account_text"
+        android:inputType="textPassword"
+        android:hint="confirm password"
+        app:layout_constraintLeft_toLeftOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvConfirmPasswordError" />
+
+    <Button
+        android:id="@+id/btnExitAccount"
+        style="@style/Btn"
+        android:text="@string/str_exit"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btnProceedToPayment"
+        style="@style/Btn"
+        android:layout_width="@dimen/btn_navigate_right_width"
+        android:enabled="false"
+        android:text="proceed to payment"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

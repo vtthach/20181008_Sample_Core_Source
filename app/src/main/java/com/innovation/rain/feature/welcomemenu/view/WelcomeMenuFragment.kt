@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.innovation.rain.R
+import com.innovation.rain.app.injection.module.model.AppBus
+import com.innovation.rain.app.injection.module.model.Flow
 import com.innovation.rain.app.utils.NavigateUtil
 import com.innovation.rain.app.utils.showFragment
 import com.innovation.rain.feature.collection.signin.view.ClientSignInFragment
@@ -20,6 +22,9 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
 
     @Inject
     lateinit var viewPresenter: WelcomeMenuPresenter
+
+    @Inject
+    lateinit var appBus: AppBus
 
     override fun getPresenter() = viewPresenter
 
@@ -43,9 +48,11 @@ class WelcomeMenuFragment : BasePresenterInjectionFragment<WelcomeMenuPresenter>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnCollection.setOnClickListener {
+            appBus.flow = Flow.COLLECT
             activity?.showFragment<ClientSignInFragment>()
         }
         btnShop.setOnClickListener {
+            appBus.flow = Flow.SHOP
             activity?.showFragment<CreateOrderFragment>()
         }
     }

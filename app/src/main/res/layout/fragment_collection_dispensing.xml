@@ -68,14 +68,6 @@
                 android:text="@string/sim_iccid" />
 
             <TextView
-                android:id="@+id/txtSimNo"
-                style="@style/TextTitle.ItemTitle"
-                android:layout_alignBaseline="@+id/txtIccId"
-                android:layout_marginLeft="50dp"
-                android:layout_toRightOf="@+id/txtIccId"
-                android:text="@string/sim_no" />
-
-            <TextView
                 android:id="@+id/txtMoreInfo"
                 style="@style/ItemContent"
                 android:layout_width="wrap_content"
@@ -95,16 +87,8 @@
             android:id="@+id/btnScanAnotherSim"
             style="@style/Btn"
             android:layout_width="@dimen/btn_navigate_right_width"
-            android:layout_marginRight="340dp"
-            android:text="@string/str_scan_another_sim"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <Button
-            android:id="@+id/btnPrintSlip"
-            style="@style/Btn"
-            android:layout_width="@dimen/btn_navigate_right_width"
-            android:text="@string/str_print_slip"
+            android:layout_marginRight="20dp"
+            android:text="@string/str_dispense_next_sim"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 

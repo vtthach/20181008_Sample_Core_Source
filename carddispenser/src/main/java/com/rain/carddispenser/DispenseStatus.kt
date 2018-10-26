@@ -7,6 +7,7 @@ enum class DispenserStatus(var id: String) {
     CARD_DISPENSED("SF004"),
     CARD_DISPENSING("SF800"),
     CARD_RECALLING("SF400"),
+    CARD_AFTER_OUT("SF001"), // Use get card sometimes return this code
     ACK_RESPONSE("06"),
     UNKNOWN("unknown");
 

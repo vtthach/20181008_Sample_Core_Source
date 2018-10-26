@@ -34,13 +34,13 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
         @Override
         public void onDispenseSuccess(@NotNull SimEntity simEntity) {
             Timber.i("vtt onDispenseSuccess call api");
-            callDispenseApi(simEntity, true);
+            callDispenseApi(simEntity, true, "");
         }
 
         @Override
-        public void onDispenseFail(@NotNull SimEntity simEntity) {
+        public void onDispenseFail(@NotNull SimEntity simEntity, String errorCode) {
             Timber.i("vtt onDispenseFail call api");
-            callDispenseApi(simEntity, false);
+            callDispenseApi(simEntity, false, errorCode);
         }
 
         @Override
@@ -55,7 +55,7 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
         dispenserController.connect();
         if (savedInstanceState == null) {
             view.showViewDispensing();
-            addDisposable(RxJavaHandler.runDelayMainThread(result -> dispensing(), 2000));
+            addDisposable(RxJavaHandler.runDelayMainThread(result -> dispensing(), 1000));
         }
     }
 
@@ -91,24 +91,25 @@ public class SimDispenserPresenterImpl extends BasePresenterImpl<SimDispenserVie
 
     @Override
     public void scanAnotherSim() {
+        view.showViewDispensing();
         dispensing();
     }
 
-    private void callDispenseApi(SimEntity simEntity, boolean isSuccess) {
+    private void callDispenseApi(SimEntity simEntity, boolean isSuccess, String errorCode) {
         addDisposable(useCase.setCallback(new SimDispenseCallback(view) {
             @Override
             public void onSuccess(DispenseUiModel info) {
                 if (isSuccess) {
                     view.showDispensingSuccess(simEntity);
                 } else {
-                    view.showDialogDispensingFail("");
+                    view.showDialogDispensingFail(errorCode);
                 }
             }
 
             @Override
             public void onError(Throwable e) {
                 super.onError(e);
-                view.showDialogDispensingFail("");
+                view.showDialogDispensingFail(errorCode);
             }
         }).execute(new DispenseParam()));
     }

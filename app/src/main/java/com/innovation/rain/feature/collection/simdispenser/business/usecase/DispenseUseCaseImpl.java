@@ -31,7 +31,14 @@ public class DispenseUseCaseImpl extends UseCaseImpl<DispenseUiModel, DispensePa
     }
 
     @Override
+    public void onSuccess(DispenseUiModel DispenseUiModel) {
+        super.onSuccess(DispenseUiModel);
+    }
+
+    @Override
     protected boolean handleBusiness(BusinessErrorException e) {
         return false;
     }
+
+
 }

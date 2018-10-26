@@ -6,6 +6,7 @@ import com.sf0404.usbserialmonitor.DispenserStatus
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
@@ -16,7 +17,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
 
     private var timetamp: Long = 0 // in milliseconds
 
-    private val MAX_WAITING_TIME = 100 * 1000L // in milliseconds
+    private val MAX_WAITING_TIME = 10 * 1000L // in milliseconds
 
     private val WAITING_FOR_BARCODE_READ = 1 * 1000L // in milliseconds
 
@@ -40,7 +41,6 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
         if (sims != null && sims!!.size > 0) {
             disposable = cardDispenser.checkAvailable()
                     .flatMap { isCardDispenserAvailable ->
-
                         if (isCardDispenserAvailable) {
                             barcodeScanner.checkAvailable()
                         } else {
@@ -59,9 +59,18 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                             sims!![0].iccid = iccId
                             getCheckStatusObservable()
                         } else {
+                            // TODO  BarcodeValueException  - Auto recall and issue new card if cannot read barcode
                             throw BarcodeValueException()
                         }
-                    }.observeOn(AndroidSchedulers.mainThread())
+                    }.onErrorResumeNext(Function { it ->
+                        if (it is CardDispenserTimeoutException) {
+                            Timber.i(it, "SF Exception1 :  ${it.message}")
+                            cardDispenser.recallCard().map { throw  CardDispenserException(CardDispenserErrorType.TIME_OUT, "Timeout -> Auto Recall") }
+                        } else {
+                            throw it
+                        }
+                    })
+                    .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe({
                         callback.onDispenseSuccess(sims!![0])
@@ -69,8 +78,8 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                         if (sims!!.size == 0)
                             callback.onNoSimInQueue()
                     }, {
-                        Timber.i(it, "SF Exception:  ${it.message}")
-                        callback.onDispenseFail(sims!![0])
+                        Timber.i(it, "SF Exception2 :  ${it.message}")
+                        callback.onDispenseFail(sims!![0], it.message)
                         sims!!.removeAt(0)
                         if (sims!!.size == 0)
                             callback.onNoSimInQueue()
@@ -82,8 +91,12 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
         return cardDispenser.getDispenserStatus()
                 .flatMap { dispenserStatus ->
                     Timber.i("SF getCheckStatusObservable:  $dispenserStatus ${Thread.currentThread().name}")
-                    if (isCardOut(dispenserStatus) && (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME)) {
-                        throw DispenseStatusRetryException()
+                    if (isCardOut(dispenserStatus)) {
+                        if (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME) {
+                            throw DispenseStatusRetryException()
+                        } else {
+                            throw CardDispenserTimeoutException()
+                        }
                     } else if (dispenserStatus == DispenserStatus.CARD_READY || dispenserStatus == DispenserStatus.TRAY_EMPTY || dispenserStatus == DispenserStatus.CARD_LOW) {
                         if (System.currentTimeMillis() - timetamp < MAX_WAITING_TIME) {
                             Observable.just(dispenserStatus)
@@ -91,7 +104,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
                             throw CardAutoReCallException()
                         }
                     } else {
-                        throw Exception()
+                        throw CardDispenserException(CardDispenserErrorType.UNKNOWN_ERROR, dispenserStatus.id)
                     }
                 }.retryWhen { throwableObservable ->
                     throwableObservable.flatMap { throwable ->
@@ -103,7 +116,7 @@ class CardDispenserControllerImpl(val cardDispenser: CardDispenser, val barcodeS
     }
 
     private fun isCardOut(dispenserStatus: DispenserStatus): Boolean {
-        return dispenserStatus == DispenserStatus.CARD_DISPENSED || dispenserStatus == DispenserStatus.CARD_DISPENSING
+        return dispenserStatus == DispenserStatus.CARD_DISPENSED || dispenserStatus == DispenserStatus.CARD_DISPENSING || dispenserStatus == DispenserStatus.CARD_AFTER_OUT
     }
 
     override fun destroy() {

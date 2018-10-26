@@ -5,7 +5,7 @@ import com.rain.carddispenser.model.SimEntity
 interface DispenseCallback {
     fun onDispenseSuccess(simEntity: SimEntity)
 
-    fun onDispenseFail(simEntity: SimEntity)
+    fun onDispenseFail(simEntity: SimEntity, errorCode: String?)
 
     fun onNoSimInQueue()
 }

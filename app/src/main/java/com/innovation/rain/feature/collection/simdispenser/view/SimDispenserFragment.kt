@@ -23,15 +23,21 @@ class SimDispenserFragment : BasePresenterInjectionFragment<SimDispenserPresente
     override fun getPresenter() = viewPresenter
 
     override fun showViewDispensing() {
+        progress.startAnim()
+        progress.visibility = View.VISIBLE
         (view as? ViewAnimator)?.displayedChild = 0
     }
 
     override fun showDispensingSuccess(simEntity: SimEntity) {
+        progress.stopAnim()
+        progress.visibility = View.INVISIBLE
         (view as? ViewAnimator)?.displayedChild = 1
         txtIccId.text = getString(R.string.sim_iccid) + simEntity.iccid
     }
 
     override fun showDialogDispensingFail(apiCode: String) {
+        progress.stopAnim()
+        progress.visibility = View.INVISIBLE
         SimDispenserErrorFragment.newInstance(apiCode).show(fragmentManager, SimDispenserErrorFragment::class.java.simpleName)
     }
 

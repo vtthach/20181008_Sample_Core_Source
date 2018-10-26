@@ -9,10 +9,10 @@
         android:layout_height="match_parent">
 
         <com.sf0404.common.dialog.progresscircle.LoadingCircular
+            android:id="@+id/progress"
             android:layout_width="500dp"
             android:layout_height="500dp"
             android:layout_gravity="center"
-            app:sf_loading_circular_auto_start="true"
             app:sf_loading_circular_track_color="@color/accent"
             app:sf_loading_circular_sweep_color="@color/primary_light"
             app:sf_loading_circular_track_width="3"

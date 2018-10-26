@@ -11,7 +11,7 @@ class FakeCardDispenserImpl : CardDispenser {
 
     override fun recallCard() = Observable.just(true)
 
-    override fun getDispenserStatus() = Observable.just(DispenserStatus.READY)
+    override fun getDispenserStatus() = Observable.just(DispenserStatus.TRAY_LOW)
 
     override fun resetDispenser() = Observable.just(true)
 
